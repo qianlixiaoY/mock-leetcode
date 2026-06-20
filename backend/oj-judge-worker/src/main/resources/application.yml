@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: oj-judge-worker
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: oj
+    password: oj123
+
+oj:
+  judge:
+    queue: judge.queue
+    exchange: judge.exchange
+    routing-key: judge.route
+    api-callback-url: http://localhost:8080/api/submissions/callback
+  docker:
+    java-image: oj-judge-java:latest
+    typescript-image: oj-judge-typescript:latest
+    enabled: true
+
+logging:
+  level:
+    com.mockleetcode: INFO

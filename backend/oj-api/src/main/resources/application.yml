@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: oj-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/mock_leetcode?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: oj
+    password: oj123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: oj
+    password: oj123
+
+oj:
+  judge:
+    queue: judge.queue
+    exchange: judge.exchange
+    routing-key: judge.route
+    worker-url: http://localhost:8081
+
+logging:
+  level:
+    com.mockleetcode: INFO

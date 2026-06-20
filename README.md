@@ -6,7 +6,7 @@
 
 1. **Monorepo 脚手架** — 前端 + Java 多模块后端 + Docker Compose
 2. **做题页 UI** — Splitpanes 分栏 + Monaco Editor，接近 LeetCode 布局
-3. **Judge Worker** — Docker 沙箱中编译运行 Java 代码并判题
+3. **Judge Worker** — Docker 沙箱中编译运行 Java / TypeScript 代码并判题
 
 ## 项目结构
 
@@ -19,7 +19,9 @@ mock-leetcode/
 │   └── oj-judge-worker/      # 判题 Worker (8081)
 └── deploy/
     ├── docker-compose.yml    # MySQL + Redis + RabbitMQ
-    └── judge-images/java/    # Java 判题镜像
+    └── judge-images/         # 判题镜像
+        ├── java/
+        └── typescript/
 ```
 
 ## 环境要求
@@ -40,10 +42,11 @@ docker compose up -d
 
 等待 MySQL 就绪（约 10–20 秒）。
 
-### 2. 构建 Java 判题镜像
+### 2. 构建判题镜像
 
 ```bash
 docker build -t oj-judge-java:latest deploy/judge-images/java
+docker build -t oj-judge-typescript:latest deploy/judge-images/typescript
 ```
 
 ### 3. 启动后端
@@ -82,12 +85,12 @@ npm run dev
 | 题目列表 / 题面 Markdown 渲染 | ✅ |
 | Monaco 代码编辑器 + 多语言模板 | ✅ |
 | 代码草稿自动保存 | ✅ |
-| Run（自定义输入运行） | ✅ Java |
-| Submit（隐藏用例异步判题） | ✅ Java |
+| Run（自定义输入运行） | ✅ Java、TypeScript |
+| Submit（隐藏用例异步判题） | ✅ Java、TypeScript |
 | 提交记录 | ✅ |
 | Docker 沙箱判题 | ✅ |
 
-> Demo 阶段 **Run / Submit 判题仅支持 Java**。其他语言可编辑代码，但提交会提示不支持。
+> Demo 阶段 **Run / Submit 判题支持 Java、TypeScript**。JavaScript / Python 可编辑代码，但提交会提示不支持。
 
 ## 判题流程
 
@@ -119,6 +122,20 @@ class Solution {
 
 点击 **运行** 测试样例，点击 **提交** 进行完整判题。
 
+**TypeScript 参考解：**
+
+```typescript
+function maxProfit(prices: number[]): number {
+    let profit = 0;
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] > prices[i - 1]) {
+            profit += prices[i] - prices[i - 1];
+        }
+    }
+    return profit;
+}
+```
+
 ## API 概览
 
 | 方法 | 路径 | 说明 |
@@ -133,7 +150,7 @@ class Solution {
 ## Windows 注意事项
 
 - 判题 Worker 通过 Docker 挂载临时目录，需确保 **Docker Desktop 已启动**。
-- 若 Docker 挂载路径报错，可在 `oj-judge-worker` 的 `application.yml` 中设置 `oj.docker.enabled: false`，将回退为本地 `javac/java` 执行（无沙箱隔离，仅调试用）。
+- 若 Docker 挂载路径报错，可在 `oj-judge-worker` 的 `application.yml` 中设置 `oj.docker.enabled: false`，将回退为本地执行（无沙箱隔离，仅调试用）。Java 需本机 `javac/java`，TypeScript 需本机 `node` + `ts-node`。
 
 ## 后续扩展
 

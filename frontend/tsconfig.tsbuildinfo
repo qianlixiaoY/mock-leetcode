@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/vite-env.d.ts","./src/api/index.ts","./src/router/index.ts","./src/stores/problem.ts","./src/types/index.ts","./src/app.vue","./src/components/codeeditor.vue","./src/components/markdownview.vue","./src/views/problemlist.vue","./src/views/problemsolve.vue"],"version":"5.9.3"}
