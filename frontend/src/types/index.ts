@@ -74,7 +74,7 @@ export const LANGUAGE_OPTIONS: { label: string; value: Language; monaco: string 
   { label: 'TypeScript', value: 'TYPESCRIPT', monaco: 'typescript' },
 ]
 
-export const JUDGE_SUPPORTED_LANGUAGES: Language[] = ['JAVA', 'TYPESCRIPT']
+export const JUDGE_SUPPORTED_LANGUAGES: Language[] = ['JAVA', 'JAVASCRIPT', 'TYPESCRIPT']
 
 export const STATUS_LABEL: Record<JudgeStatus, string> = {
   PENDING: '等待中',

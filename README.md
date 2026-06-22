@@ -6,7 +6,7 @@
 
 1. **Monorepo 脚手架** — 前端 + Java 多模块后端 + Docker Compose
 2. **做题页 UI** — Splitpanes 分栏 + Monaco Editor，接近 LeetCode 布局
-3. **Judge Worker** — Docker 沙箱中编译运行 Java / TypeScript 代码并判题
+3. **Judge Worker** — Docker 沙箱中编译运行 Java / JavaScript / TypeScript 代码并判题
 
 ## 项目结构
 
@@ -44,10 +44,14 @@ docker compose up -d
 
 ### 2. 构建判题镜像
 
+当镜像不存在时会立刻报错，而不是一直等到超时。
+
 ```bash
 docker build -t oj-judge-java:latest deploy/judge-images/java
 docker build -t oj-judge-typescript:latest deploy/judge-images/typescript
 ```
+
+> **JavaScript / TypeScript 判题共用 Node 镜像 `oj-judge-typescript`。** 可用 `docker images oj-judge-typescript` 确认是否已存在。
 
 ### 3. 启动后端
 
@@ -85,12 +89,12 @@ npm run dev
 | 题目列表 / 题面 Markdown 渲染 | ✅ |
 | Monaco 代码编辑器 + 多语言模板 | ✅ |
 | 代码草稿自动保存 | ✅ |
-| Run（自定义输入运行） | ✅ Java、TypeScript |
-| Submit（隐藏用例异步判题） | ✅ Java、TypeScript |
+| Run（自定义输入运行） | ✅ Java、JavaScript、TypeScript |
+| Submit（隐藏用例异步判题） | ✅ Java、JavaScript、TypeScript |
 | 提交记录 | ✅ |
 | Docker 沙箱判题 | ✅ |
 
-> Demo 阶段 **Run / Submit 判题支持 Java、TypeScript**。JavaScript / Python 可编辑代码，但提交会提示不支持。
+> Demo 阶段 **Run / Submit 判题支持 Java、JavaScript、TypeScript**。Python 可编辑代码，但提交会提示不支持。
 
 ## 判题流程
 
@@ -122,6 +126,20 @@ class Solution {
 
 点击 **运行** 测试样例，点击 **提交** 进行完整判题。
 
+**JavaScript 参考解：**
+
+```javascript
+var maxProfit = function(prices) {
+    let profit = 0;
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] > prices[i - 1]) {
+            profit += prices[i] - prices[i - 1];
+        }
+    }
+    return profit;
+};
+```
+
 **TypeScript 参考解：**
 
 ```typescript
@@ -150,11 +168,11 @@ function maxProfit(prices: number[]): number {
 ## Windows 注意事项
 
 - 判题 Worker 通过 Docker 挂载临时目录，需确保 **Docker Desktop 已启动**。
-- 若 Docker 挂载路径报错，可在 `oj-judge-worker` 的 `application.yml` 中设置 `oj.docker.enabled: false`，将回退为本地执行（无沙箱隔离，仅调试用）。Java 需本机 `javac/java`，TypeScript 需本机 `node` + `ts-node`。
+- 若 Docker 挂载路径报错，可在 `oj-judge-worker` 的 `application.yml` 中设置 `oj.docker.enabled: false`，将回退为本地执行（无沙箱隔离，仅调试用）。Java 需本机 `javac/java`；JavaScript / TypeScript 需本机 `node`（TypeScript 还需 `tsc`）。
 
 ## 后续扩展
 
-- [ ] 支持 Python / JavaScript 判题镜像
+- [ ] 支持 Python 判题镜像
 - [ ] WebSocket 替代轮询
 - [ ] 用户登录与 JWT
 - [ ] 管理员题目录入后台

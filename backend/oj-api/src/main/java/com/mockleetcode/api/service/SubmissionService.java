@@ -32,7 +32,8 @@ import java.util.Set;
 public class SubmissionService {
 
     private static final Long DEFAULT_USER_ID = 1L;
-    private static final Set<Language> SUPPORTED_LANGUAGES = EnumSet.of(Language.JAVA, Language.TYPESCRIPT);
+    private static final Set<Language> SUPPORTED_LANGUAGES =
+            EnumSet.of(Language.JAVA, Language.JAVASCRIPT, Language.TYPESCRIPT);
 
     private final SubmissionRepository submissionRepository;
     private final ProblemRepository problemRepository;
@@ -164,7 +165,7 @@ public class SubmissionService {
         if (!SUPPORTED_LANGUAGES.contains(language)) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST,
-                    "Run/Submit demo currently supports Java and TypeScript only");
+                    "Run/Submit demo currently supports Java, JavaScript and TypeScript only");
         }
     }
 

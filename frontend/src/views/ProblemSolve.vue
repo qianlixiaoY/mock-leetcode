@@ -81,7 +81,7 @@
               <div class="editor-toolbar">
                 <span>代码编辑器</span>
                 <span v-if="!JUDGE_SUPPORTED_LANGUAGES.includes(store.language)" class="warn">
-                  判题 Demo 当前支持 Java、TypeScript
+                  判题 Demo 当前支持 Java、JavaScript、TypeScript
                 </span>
               </div>
               <CodeEditor
