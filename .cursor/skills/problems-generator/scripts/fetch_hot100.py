@@ -118,16 +118,62 @@ def html_to_markdown(content: str) -> str:
     return text.strip()
 
 
+def clean_expected_output(value: str) -> str:
+    text = value.strip()
+    text = re.split(r'(?:\*\*)?解释[：:]', text, maxsplit=1)[0].strip()
+    text = re.split(r'(?:\*\*)?示例\s*\d+[：:]', text, maxsplit=1)[0].strip()
+    return text
+
+
 def parse_examples_from_html(content: str) -> list[dict[str, str]]:
     examples: list[dict[str, str]] = []
-    pattern = re.compile(
-        r"<strong>输入：</strong>(.*?)<strong>输出：</strong>(.*?)(?=<strong>|</p>|$)",
-        re.S,
-    )
-    for match in pattern.finditer(content or ""):
-        raw_input = html.unescape(re.sub(r"<[^>]+>", "", match.group(1))).strip()
-        raw_output = html.unescape(re.sub(r"<[^>]+>", "", match.group(2))).strip()
-        examples.append({"raw_input": raw_input, "expected_output": raw_output})
+    patterns = [
+        re.compile(
+            r"<strong>输入[：:]?\s*</strong>(.*?)<strong>输出[：:]?\s*</strong>(.*?)(?=</p>)",
+            re.S,
+        ),
+        re.compile(
+            r"<strong>输入[：:]?\s*</strong>(.*?)<strong>输出[：:]?\s*</strong>(.*?)(?=<strong>|</p>|$)",
+            re.S,
+        ),
+    ]
+    for pattern in patterns:
+        for match in pattern.finditer(content or ""):
+            raw_input = html.unescape(re.sub(r"<[^>]+>", "", match.group(1))).strip()
+            raw_output = clean_expected_output(
+            html.unescape(re.sub(r"<[^>]+>", "", match.group(2))).strip()
+        )
+            examples.append({"raw_input": raw_input, "expected_output": raw_output})
+        if examples:
+            break
+    return examples
+
+
+def parse_examples_from_markdown(content: str) -> list[dict[str, str]]:
+    examples: list[dict[str, str]] = []
+    patterns = [
+        re.compile(
+            r"\*\*输入[：:]?\*\*\s*(.*?)\s*\*\*输出[：:]?\s*\*\*\s*(.*?)(?=\*\*示例|\*\*解释|\*\*提示|\Z)",
+            re.S,
+        ),
+        re.compile(
+            r"\*\*输入[：:]?\*\*\s*(.*?)\s*\*\*输出[：:]?\*\*\s*(.*?)(?=\*\*示例|\*\*解释|\*\*提示|\Z)",
+            re.S,
+        ),
+        re.compile(
+            r"输入[：:]\s*(.*?)\s*输出[：:]\s*(.*?)(?=\*\*示例\s*\d|\*\*提示|\Z)",
+            re.S,
+        ),
+    ]
+    for pattern in patterns:
+        for match in pattern.finditer(content or ""):
+            raw_input = match.group(1).strip()
+            raw_output = clean_expected_output(
+            re.sub(r"\*\*.*", "", match.group(2), flags=re.S).strip()
+        )
+            examples.append({"raw_input": raw_input, "expected_output": raw_output})
+        if examples:
+            break
     return examples
 
 
@@ -160,6 +206,9 @@ def fetch_problem(slug: str) -> dict:
 
     json_cases = json.loads(data.get("jsonExampleTestcases") or "[]")
     html_examples = parse_examples_from_html(data.get("translatedContent") or "")
+    body_md = html_to_markdown(data.get("translatedContent") or "")
+    if not html_examples:
+        html_examples = parse_examples_from_markdown(body_md)
 
     sample_test_cases = []
     for i, example in enumerate(html_examples):
@@ -182,7 +231,6 @@ def fetch_problem(slug: str) -> dict:
     difficulty = DIFFICULTY_MAP.get(data.get("difficulty", ""), "MEDIUM")
     title = data.get("translatedTitle") or slug
     frontend_id = data.get("questionFrontendId") or "0"
-    body_md = html_to_markdown(data.get("translatedContent") or "")
 
     return {
         "id": int(frontend_id),

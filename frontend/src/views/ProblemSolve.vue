@@ -101,8 +101,8 @@
                         v-for="(sample, index) in store.problem?.sampleTestCases ?? []"
                         :key="sample.id"
                         size="small"
-                        :type="customInput === sample.input ? 'primary' : 'default'"
-                        @click="customInput = sample.input"
+                        :type="store.customInput === sample.input ? 'primary' : 'default'"
+                        @click="store.customInput = sample.input"
                       >
                         示例 {{ index + 1 }}
                       </el-button>
@@ -153,8 +153,12 @@ const monacoLanguage = computed(
   () => LANGUAGE_OPTIONS.find((item) => item.value === store.language)?.monaco ?? 'java',
 )
 
-onMounted(() => {
-  store.loadProblem(problemId.value)
+onMounted(async () => {
+  await store.loadProblem(problemId.value)
+})
+
+watch(() => store.problem?.sampleTestCases, (cases) => {
+  console.log('......store......', cases)
 })
 
 onBeforeUnmount(() => {

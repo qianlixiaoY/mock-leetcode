@@ -41,7 +41,11 @@ py -3 .cursor/skills/problems-generator/scripts/fetch_hot100.py --limit 3 --out 
 
 1. Run `scripts/fetch_hot100.py` (GraphQL, no login required for public Hot 100)
 2. Verify output JSON against [references/output-schema.md](references/output-schema.md)
-3. Optionally merge JSON into `backend/oj-api/src/main/resources/data.sql` following the existing seed in that file
+3. Merge JSON into SQL:
+
+```bash
+py -3 .cursor/skills/problems-generator/scripts/json_to_sql.py --input data/problems --data-sql backend/oj-api/src/main/resources/data.sql
+```
 
 ## Data sources
 

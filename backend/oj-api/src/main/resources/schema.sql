@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS test_case (
     expected_output TEXT NOT NULL,
     is_sample BOOLEAN NOT NULL DEFAULT FALSE,
     sort_order INT NOT NULL DEFAULT 0,
+    UNIQUE KEY uk_problem_sort_order (problem_id, sort_order),
     FOREIGN KEY (problem_id) REFERENCES problem(id)
 );
 
