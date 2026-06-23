@@ -1,0 +1,83 @@
+{
+  "id": 1,
+  "title": "两数之和",
+  "slug": "two-sum",
+  "difficulty": "EASY",
+  "description_md": "# 1. 两数之和\n\n给定一个整数数组 `nums` 和一个整数目标值 `target`，请你在该数组中找出 **和为目标值 **`target`  的那 **两个** 整数，并返回它们的数组下标。\n\n你可以假设每种输入只会对应一个答案，并且你不能使用两次相同的元素。\n\n你可以按任意顺序返回答案。\n\n \n\n**示例 1：**\n\n**输入：**nums = [2,7,11,15], target = 9\n**输出：**[0,1]\n**解释：**因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。\n\n**示例 2：**\n\n**输入：**nums = [3,2,4], target = 6\n**输出：**[1,2]\n\n**示例 3：**\n\n**输入：**nums = [3,3], target = 6\n**输出：**[0,1]\n\n \n\n**提示：**\n\n\t\n- `2 <= nums.length <= 104`\n\t\n- `-109 <= nums[i] <= 109`\n\t\n- `-109 <= target <= 109`\n\t\n- **只会存在一个有效答案**\n\n \n\n**进阶：**你可以想出一个时间复杂度小于 `O(n2)` 的算法吗？",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          2,
+          7,
+          11,
+          15
+        ],
+        "target": 9
+      },
+      "expected_output": [
+        0,
+        1
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          3,
+          2,
+          4
+        ],
+        "target": 6
+      },
+      "expected_output": [
+        1,
+        2
+      ]
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          3,
+          3
+        ],
+        "target": 6
+      },
+      "expected_output": [
+        0,
+        1
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def twoSum(self, nums, target):\n        \"\"\"\n        :type nums: List[int]\n        :type target: int\n        :rtype: List[int]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number[]}\n */\nvar twoSum = function(nums, target) {\n    \n};",
+    "TYPESCRIPT": "function twoSum(nums: number[], target: number): number[] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "twoSum",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      },
+      {
+        "name": "target",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "integer[]",
+      "size": 2
+    },
+    "manual": false
+  }
+}

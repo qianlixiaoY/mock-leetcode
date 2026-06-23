@@ -1,0 +1,53 @@
+{
+  "id": 22,
+  "title": "括号生成",
+  "slug": "generate-parentheses",
+  "difficulty": "MEDIUM",
+  "description_md": "# 22. 括号生成\n\n数字 `n` 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 **有效的 **括号组合。\n\n \n\n**示例 1：**\n\n**输入：**n = 3\n**输出：**[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]\n\n**示例 2：**\n\n**输入：**n = 1\n**输出：**[\"()\"]\n\n \n\n**提示：**\n\n\t\n- `1 <= n <= 8`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "n": 3
+      },
+      "expected_output": [
+        "((()))",
+        "(()())",
+        "(())()",
+        "()(())",
+        "()()()"
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "n": 1
+      },
+      "expected_output": [
+        "()"
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<String> generateParenthesis(int n) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def generateParenthesis(self, n):\n        \"\"\"\n        :type n: int\n        :rtype: List[str]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number} n\n * @return {string[]}\n */\nvar generateParenthesis = function(n) {\n    \n};",
+    "TYPESCRIPT": "function generateParenthesis(n: number): string[] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "generateParenthesis",
+    "params": [
+      {
+        "name": "n",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "list<string>"
+    }
+  }
+}

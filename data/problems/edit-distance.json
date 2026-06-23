@@ -1,0 +1,51 @@
+{
+  "id": 72,
+  "title": "编辑距离",
+  "slug": "edit-distance",
+  "difficulty": "MEDIUM",
+  "description_md": "# 72. 编辑距离\n\n给你两个单词 `word1` 和 `word2`， 请返回将 `word1` 转换成 `word2` 所使用的最少操作数  。\n\n你可以对一个单词进行如下三种操作：\n\n\t\n- 插入一个字符\n\t\n- 删除一个字符\n\t\n- 替换一个字符\n\n \n\n**示例 1：**\n\n**输入：**word1 = \"horse\", word2 = \"ros\"\n**输出：**3\n**解释：**\nhorse -> rorse (将 'h' 替换为 'r')\nrorse -> rose (删除 'r')\nrose -> ros (删除 'e')\n\n**示例 2：**\n\n**输入：**word1 = \"intention\", word2 = \"execution\"\n**输出：**5\n**解释：**\nintention -> inention (删除 't')\ninention -> enention (将 'i' 替换为 'e')\nenention -> exention (将 'n' 替换为 'x')\nexention -> exection (将 'n' 替换为 'c')\nexection -> execution (插入 'u')\n\n \n\n**提示：**\n\n\t\n- `0 <= word1.length, word2.length <= 500`\n\t\n- `word1` 和 `word2` 由小写英文字母组成",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "word1": "horse",
+        "word2": "ros"
+      },
+      "expected_output": 3
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "word1": "intention",
+        "word2": "execution"
+      },
+      "expected_output": 5
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int minDistance(String word1, String word2) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def minDistance(self, word1, word2):\n        \"\"\"\n        :type word1: str\n        :type word2: str\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {string} word1\n * @param {string} word2\n * @return {number}\n */\nvar minDistance = function(word1, word2) {\n    \n};",
+    "TYPESCRIPT": "function minDistance(word1: string, word2: string): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "minDistance",
+    "params": [
+      {
+        "name": "word1",
+        "type": "string"
+      },
+      {
+        "name": "word2",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

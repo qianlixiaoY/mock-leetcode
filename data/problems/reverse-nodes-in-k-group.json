@@ -1,0 +1,75 @@
+{
+  "id": 25,
+  "title": "K 个一组翻转链表",
+  "slug": "reverse-nodes-in-k-group",
+  "difficulty": "HARD",
+  "description_md": "# 25. K 个一组翻转链表\n\n给你链表的头节点 `head` ，每 `k` 个节点一组进行翻转，请你返回修改后的链表。\n\n`k` 是一个正整数，它的值小于或等于链表的长度。如果节点总数不是 `k` 的整数倍，那么请将最后剩余的节点保持原有顺序。\n\n你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。\n\n \n\n**示例 1：**\n\n**输入：**head = [1,2,3,4,5], k = 2\n**输出：**[2,1,4,3,5]\n\n**示例 2：**\n\n**输入：**head = [1,2,3,4,5], k = 3\n**输出：**[3,2,1,4,5]\n\n \n\n**提示：**\n\n\t\n- 链表中的节点数目为 `n`\n\t\n- `1 <= k <= n <= 5000`\n\t\n- `0 <= Node.val <= 1000`\n\n \n\n**进阶：**你可以设计一个只用 `O(1)` 额外内存空间的算法解决此问题吗？",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "k": 2
+      },
+      "expected_output": [
+        2,
+        1,
+        4,
+        3,
+        5
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "k": 3
+      },
+      "expected_output": [
+        3,
+        2,
+        1,
+        4,
+        5
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode reverseKGroup(ListNode head, int k) {\n        \n    }\n}",
+    "PYTHON": "# Definition for singly-linked list.\n# class ListNode(object):\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution(object):\n    def reverseKGroup(self, head, k):\n        \"\"\"\n        :type head: Optional[ListNode]\n        :type k: int\n        :rtype: Optional[ListNode]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * Definition for singly-linked list.\n * function ListNode(val, next) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.next = (next===undefined ? null : next)\n * }\n */\n/**\n * @param {ListNode} head\n * @param {number} k\n * @return {ListNode}\n */\nvar reverseKGroup = function(head, k) {\n    \n};",
+    "TYPESCRIPT": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *     val: number\n *     next: ListNode | null\n *     constructor(val?: number, next?: ListNode | null) {\n *         this.val = (val===undefined ? 0 : val)\n *         this.next = (next===undefined ? null : next)\n *     }\n * }\n */\n\nfunction reverseKGroup(head: ListNode | null, k: number): ListNode | null {\n    \n};"
+  },
+  "meta_data": {
+    "name": "reverseKGroup",
+    "params": [
+      {
+        "name": "head",
+        "type": "ListNode"
+      },
+      {
+        "name": "k",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "ListNode"
+    }
+  }
+}

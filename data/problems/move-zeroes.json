@@ -1,0 +1,64 @@
+{
+  "id": 283,
+  "title": "移动零",
+  "slug": "move-zeroes",
+  "difficulty": "EASY",
+  "description_md": "# 283. 移动零\n\n给定一个数组 `nums`，编写一个函数将所有 `0` 移动到数组的末尾，同时保持非零元素的相对顺序。\n\n**请注意** ，必须在不复制数组的情况下原地对数组进行操作。\n\n \n\n**示例 1:**\n\n**输入:** nums = `[0,1,0,3,12]`\n**输出:** `[1,3,12,0,0]`\n\n**示例 2:**\n\n**输入:** nums = `[0]`\n**输出:** `[0]`\n\n \n\n**提示**:\n\n\t\n- `1 <= nums.length <= 104`\n\t\n- `-231 <= nums[i] <= 231 - 1`\n\n \n\n进阶：你能尽量减少完成的操作次数吗？",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          0,
+          1,
+          0,
+          3,
+          12
+        ]
+      },
+      "expected_output": [
+        1,
+        3,
+        12,
+        0,
+        0
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          0
+        ]
+      },
+      "expected_output": [
+        0
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public void moveZeroes(int[] nums) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def moveZeroes(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: None Do not return anything, modify nums in-place instead.\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @return {void} Do not return anything, modify nums in-place instead.\n */\nvar moveZeroes = function(nums) {\n    \n};",
+    "TYPESCRIPT": "/**\n Do not return anything, modify nums in-place instead.\n */\nfunction moveZeroes(nums: number[]): void {\n    \n};"
+  },
+  "meta_data": {
+    "name": "moveZeroes",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "void"
+    },
+    "output": {
+      "paramindex": 0
+    }
+  }
+}

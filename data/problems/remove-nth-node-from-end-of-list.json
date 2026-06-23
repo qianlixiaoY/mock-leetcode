@@ -1,0 +1,80 @@
+{
+  "id": 19,
+  "title": "删除链表的倒数第 N 个结点",
+  "slug": "remove-nth-node-from-end-of-list",
+  "difficulty": "MEDIUM",
+  "description_md": "# 19. 删除链表的倒数第 N 个结点\n\n给你一个链表，删除链表的倒数第 `n` 个结点，并且返回链表的头结点。\n\n \n\n**示例 1：**\n\n**输入：**head = [1,2,3,4,5], n = 2\n**输出：**[1,2,3,5]\n\n**示例 2：**\n\n**输入：**head = [1], n = 1\n**输出：**[]\n\n**示例 3：**\n\n**输入：**head = [1,2], n = 1\n**输出：**[1]\n\n \n\n**提示：**\n\n\t\n- 链表中结点的数目为 `sz`\n\t\n- `1 <= sz <= 30`\n\t\n- `0 <= Node.val <= 100`\n\t\n- `1 <= n <= sz`\n\n \n\n**进阶：**你能尝试使用一趟扫描实现吗？",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "n": 2
+      },
+      "expected_output": [
+        1,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1
+        ],
+        "n": 1
+      },
+      "expected_output": []
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1,
+          2
+        ],
+        "n": 1
+      },
+      "expected_output": [
+        1
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode removeNthFromEnd(ListNode head, int n) {\n        \n    }\n}",
+    "PYTHON": "# Definition for singly-linked list.\n# class ListNode(object):\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution(object):\n    def removeNthFromEnd(self, head, n):\n        \"\"\"\n        :type head: Optional[ListNode]\n        :type n: int\n        :rtype: Optional[ListNode]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * Definition for singly-linked list.\n * function ListNode(val, next) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.next = (next===undefined ? null : next)\n * }\n */\n/**\n * @param {ListNode} head\n * @param {number} n\n * @return {ListNode}\n */\nvar removeNthFromEnd = function(head, n) {\n    \n};",
+    "TYPESCRIPT": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *     val: number\n *     next: ListNode | null\n *     constructor(val?: number, next?: ListNode | null) {\n *         this.val = (val===undefined ? 0 : val)\n *         this.next = (next===undefined ? null : next)\n *     }\n * }\n */\n\nfunction removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {\n    \n};"
+  },
+  "meta_data": {
+    "name": "removeNthFromEnd",
+    "params": [
+      {
+        "name": "head",
+        "type": "ListNode",
+        "dealloc": false
+      },
+      {
+        "name": "n",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "ListNode",
+      "dealloc": true
+    }
+  }
+}

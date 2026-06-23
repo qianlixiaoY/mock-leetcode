@@ -1,79 +1,5 @@
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
-    122,
-    '买卖股票的最佳时机 II',
-    'best-time-to-buy-and-sell-stock-ii',
-    'MEDIUM',
-    '# 122. 买卖股票的最佳时机 II
-
-给你一个整数数组 `prices` ，其中 `prices[i]` 表示某支股票第 `i` 天的价格。
-
-在每一天，你可以决定是否购买和/或出售股票。你在任何时候 **最多** 只能持有 **一股** 股票。你也可以先购买，然后在 **同一天** 出售。
-
-返回你能获得的 **最大** 利润。
-
-## 示例 1
-
-**输入：** prices = [7,1,5,3,6,4]
-
-**输出：** 7
-
-**解释：** 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4。随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3。总利润为 4 + 3 = 7。
-
-## 示例 2
-
-**输入：** prices = [1,2,3,4,5]
-
-**输出：** 4
-
-**解释：** 在第 1 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4。总利润为 4。
-
-## 示例 3
-
-**输入：** prices = [7,6,4,3,1]
-
-**输出：** 0
-
-**解释：** 在这种情况下, 交易无法完成, 因为没有利润可赚。
-
-## 提示
-
-- `1 <= prices.length <= 3 * 10^4`
-- `0 <= prices[i] <= 10^4`
-',
-    2000,
-    256
-);
-
-INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
-(122, 'JAVA', 'class Solution {
-    public int maxProfit(int[] prices) {
-        
-    }
-}'),
-(122, 'JAVASCRIPT', '/**
- * @param {number[]} prices
- * @return {number}
- */
-var maxProfit = function(prices) {
-    
-};'),
-(122, 'PYTHON', 'class Solution:
-    def maxProfit(self, prices: list[int]) -> int:
-        pass'),
-(122, 'TYPESCRIPT', 'function maxProfit(prices: number[]): number {
-    
-}');
-
-INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(122, '[7,1,5,3,6,4]', '7', TRUE, 1),
-(122, '[1,2,3,4,5]', '4', TRUE, 2),
-(122, '[7,6,4,3,1]', '0', TRUE, 3),
-(122, '[2,4,1]', '2', FALSE, 4),
-(122, '[3,2,6,5,0,3]', '7', FALSE, 5);
-
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
-VALUES (
     15,
     '三数之和',
     '3sum',
@@ -148,9 +74,9 @@ var threeSum = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(15, '[-1,0,1,2,-1,-4]', '[[-1,-1,2],[-1,0,1]]', TRUE, 1),
-(15, '[0,1,1]', '[]', TRUE, 2),
-(15, '[0,0,0]', '[[0,0,0]]', TRUE, 3);
+(15, '{"nums": [-1, 0, 1, 2, -1, -4]}', '[[-1, -1, 2], [-1, 0, 1]]', TRUE, 1),
+(15, '{"nums": [0, 1, 1]}', '[]', TRUE, 2),
+(15, '{"nums": [0, 0, 0]}', '[[0, 0, 0]]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -259,12 +185,87 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(2, '[2,4,3]
-[5,6,4]', '[7,0,8]', TRUE, 1),
-(2, '[0]
-[0]', '[0]', TRUE, 2),
-(2, '[9,9,9,9,9,9,9]
-[9,9,9,9]', '[8,9,9,9,0,0,0,1]', TRUE, 3);
+(2, '{"l1": [2, 4, 3], "l2": [5, 6, 4]}', '[7, 0, 8]', TRUE, 1),
+(2, '{"l1": [0], "l2": [0]}', '[0]', TRUE, 2),
+(2, '{"l1": [9, 9, 9, 9, 9, 9, 9], "l2": [9, 9, 9, 9]}', '[8, 9, 9, 9, 0, 0, 0, 1]', TRUE, 3);
+
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+VALUES (
+    122,
+    '买卖股票的最佳时机 II',
+    'best-time-to-buy-and-sell-stock-ii',
+    'MEDIUM',
+    '# 122. 买卖股票的最佳时机 II
+
+给你一个整数数组 `prices` ，其中 `prices[i]` 表示某支股票第 `i` 天的价格。
+
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 **最多** 只能持有 **一股** 股票。然而，你可以在 **同一天** 多次买卖该股票，但要确保你持有的股票不超过一股。
+
+返回 你能获得的 **最大** 利润 。
+
+ 
+
+**示例 1：**
+
+**输入：**prices = [7,1,5,3,6,4]
+**输出：**7
+**解释：**在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4。
+随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3。
+最大总利润为 4 + 3 = 7 。
+
+**示例 2：**
+
+**输入：**prices = [1,2,3,4,5]
+**输出：**4
+**解释：**在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4。
+最大总利润为 4 。
+
+**示例 3：**
+
+**输入：**prices = [7,6,4,3,1]
+**输出：**0
+**解释：**在这种情况下, 交易无法获得正利润，所以不参与交易可以获得最大利润，最大利润为 0。
+
+ 
+
+**提示：**
+
+	
+- `1 <= prices.length <= 3 * 104`
+	
+- `0 <= prices[i] <= 104`',
+    2000,
+    256
+);
+
+INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
+(122, 'JAVA', 'class Solution {
+    public int maxProfit(int[] prices) {
+        
+    }
+}'),
+(122, 'JAVASCRIPT', '/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    
+};'),
+(122, 'PYTHON', 'class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        '),
+(122, 'TYPESCRIPT', 'function maxProfit(prices: number[]): number {
+    
+};');
+
+INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
+(122, '{"prices": [7, 1, 5, 3, 6, 4]}', '7', TRUE, 1),
+(122, '{"prices": [1, 2, 3, 4, 5]}', '4', TRUE, 2),
+(122, '{"prices": [7, 6, 4, 3, 1]}', '0', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -332,8 +333,8 @@ var maxProfit = function(prices) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(121, '[7,1,5,3,6,4]', '5', TRUE, 1),
-(121, '[7,6,4,3,1]', '0', TRUE, 2);
+(121, '{"input": [7, 1, 5, 3, 6, 4]}', '5', TRUE, 1),
+(121, '{"prices": [7, 6, 4, 3, 1]}', '0', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -446,15 +447,9 @@ function inorderTraversal(root: TreeNode | null): number[] {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(94, '[1,null,2,3]', '[1,3,2]
-
-
-示例 2：', TRUE, 1),
-(94, '[1,2,3,4,5,null,8,null,null,6,7,9]', '[]
-
-
-示例 3：', TRUE, 2),
-(94, '[]', '[1]', TRUE, 3);
+(94, '{"root": [1, null, 2, 3]}', '[1, 3, 2]', TRUE, 1),
+(94, '{"root": [1, 2, 3, 4, 5, null, 8, null, null, 6, 7, 9]}', '[]', TRUE, 2),
+(94, '{"root": []}', '[1]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -563,15 +558,9 @@ function levelOrder(root: TreeNode | null): number[][] {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(102, '[3,9,20,null,null,15,7]', '[[3],[9,20],[15,7]]
-
-
-示例 2：', TRUE, 1),
-(102, '[1]', '[[1]]
-
-
-示例 3：', TRUE, 2),
-(102, '[]', '[]', TRUE, 3);
+(102, '{"root": [3, 9, 20, null, null, 15, 7]}', '[[3], [9, 20], [15, 7]]', TRUE, 1),
+(102, '{"root": [1]}', '[[1]]', TRUE, 2),
+(102, '{"root": []}', '[]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -681,8 +670,8 @@ function maxPathSum(root: TreeNode | null): number {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(124, '[1,2,3]', '6', TRUE, 1),
-(124, '[-10,9,20,null,null,15,7]', '42', TRUE, 2);
+(124, '{"root": [1, 2, 3]}', '6', TRUE, 1),
+(124, '{"root": [-10, 9, 20, null, null, 15, 7]}', '42', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -804,7 +793,7 @@ function rightSideView(root: TreeNode | null): number[] {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(199, '[1,2,3,null,5,null,4]', '[1,3]', TRUE, 1);
+(199, '{"root": [1, 2, 3, null, 5, null, 4]}', '[1, 3]', TRUE, 1);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -872,8 +861,8 @@ var climbStairs = function(n) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(70, '2', '2', TRUE, 1),
-(70, '3', '3', TRUE, 2);
+(70, '{"n": 2}', '2', TRUE, 1),
+(70, '{"n": 3}', '3', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -948,14 +937,9 @@ var coinChange = function(coins, amount) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(322, '[1,2,5]
-11', '3', TRUE, 1),
-(322, '[2]
-3', '-1
-
-示例 3：', TRUE, 2),
-(322, '[1]
-0', '0', TRUE, 3);
+(322, '{"coins": [1, 2, 5], "amount": 11}', '3', TRUE, 1),
+(322, '{"coins": [2], "amount": 3}', '-1', TRUE, 2),
+(322, '{"coins": [1], "amount": 0}', '0', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1035,14 +1019,9 @@ var combinationSum = function(candidates, target) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(39, '[2,3,6,7]
-7', '[[2,2,3],[7]]', TRUE, 1),
-(39, '[2,3,5]
-8', '[[2,2,2,2],[2,3,3],[3,5]]
-
-示例 3：', TRUE, 2),
-(39, '[2]
-1', '[]', TRUE, 3);
+(39, '{"candidates": [2, 3, 6, 7], "target": 7}', '[[2, 2, 3], [7]]', TRUE, 1),
+(39, '{"candidates": [2, 3, 5], "target": 8}', '[[2, 2, 2, 2], [2, 3, 3], [3, 5]]', TRUE, 2),
+(39, '{"candidates": [2], "target": 1}', '[]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1158,13 +1137,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(105, '[3,9,20,15,7]
-[9,3,15,20,7]', '[3,9,20,null,null,15,7]
-
-
-示例 2:', TRUE, 1),
-(105, '[-1]
-[-1]', '[-1]', TRUE, 2);
+(105, '{"preorder": [3, 9, 20, 15, 7], "inorder": [9, 3, 15, 20, 7]}', '[3, 9, 20, null, null, 15, 7]', TRUE, 1),
+(105, '{"preorder": [-1], "inorder": [-1]}', '[-1]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1234,8 +1208,8 @@ var maxArea = function(height) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(11, '[1,8,6,2,5,4,8,3,7]', '49', TRUE, 1),
-(11, '[1,1]', '1', TRUE, 2);
+(11, '{"input": [1, 8, 6, 2, 5, 4, 8, 3, 7]}', '49', TRUE, 1),
+(11, '{"height": [1, 1]}', '1', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1343,8 +1317,8 @@ function sortedArrayToBST(nums: number[]): TreeNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(108, '[-10,-3,0,5,9]', '[0,-3,9,-10,null,5]', TRUE, 1),
-(108, '[1,3]', '[3,1]', TRUE, 2);
+(108, '{"nums": [-10, -3, 0, 5, 9]}', '[0, -3, 9, -10, null, 5]', TRUE, 1),
+(108, '{"nums": [1, 3]}', '[3, 1]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1478,15 +1452,9 @@ function copyRandomList(head: _Node | null): _Node | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(138, '[[7,null],[13,0],[11,4],[10,2],[1,0]]', '[[7,null],[13,0],[11,4],[10,2],[1,0]]
-
-
-示例 2：', TRUE, 1),
-(138, '[[1,1],[2,1]]', '[[1,1],[2,1]]
-
-
-示例 3：', TRUE, 2),
-(138, '[[3,null],[3,0],[3,null]]', '[[3,null],[3,0],[3,null]]', TRUE, 3);
+(138, '{"head": [[7, null], [13, 0], [11, 4], [10, 2], [1, 0]]}', '[[7, null], [13, 0], [11, 4], [10, 2], [1, 0]]', TRUE, 1),
+(138, '{"head": [[1, 1], [2, 1]]}', '[[1, 1], [2, 1]]', TRUE, 2),
+(138, '{"head": [[3, null], [3, 0], [3, null]]}', '[[3, null], [3, 0], [3, null]]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1564,10 +1532,8 @@ var canFinish = function(numCourses, prerequisites) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(207, '2
-[[1,0]]', 'true', TRUE, 1),
-(207, '2
-[[1,0],[0,1]]', 'false', TRUE, 2);
+(207, '{"numCourses": 2, "prerequisites": [[1, 0]]}', 'true', TRUE, 1),
+(207, '{"numCourses": 2, "prerequisites": [[1, 0], [0, 1]]}', 'false', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1633,15 +1599,9 @@ var dailyTemperatures = function(temperatures) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(739, '[73,74,75,71,69,72,76,73]', '[1,1,4,2,1,1,0,0]
-
-
-示例 2:', TRUE, 1),
-(739, '[30,40,50,60]', '[1,1,1,0]
-
-
-示例 3:', TRUE, 2),
-(739, '[30,60,90]', '[1,1,0]', TRUE, 3);
+(739, '{"temperatures": [73, 74, 75, 71, 69, 72, 76, 73]}', '[1, 1, 4, 2, 1, 1, 0, 0]', TRUE, 1),
+(739, '{"temperatures": [30, 40, 50, 60]}', '[1, 1, 1, 0]', TRUE, 2),
+(739, '{"input": [30, 60, 90]}', '[1, 1, 0]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1724,19 +1684,10 @@ var decodeString = function(s) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(394, '"3[a]2[bc]"', '"aaabcbc"
-
-
-示例 2：', TRUE, 1),
-(394, '"3[a2[c]]"', '"accaccacc"
-
-
-示例 3：', TRUE, 2),
-(394, '"2[abc]3[cd]ef"', '"abcabccdcdcdef"
-
-
-示例 4：', TRUE, 3),
-(394, '"abc3[cd]xyz"', '"abccdcdcdxyz"', TRUE, 4);
+(394, '{"s": "3[a]2[bc]"}', 'aaabcbc', TRUE, 1),
+(394, '{"s": "3[a2[c]]"}', 'accaccacc', TRUE, 2),
+(394, '{"s": "2[abc]3[cd]ef"}', 'abcabccdcdcdef', TRUE, 3),
+(394, '{"s": "abc3[cd]xyz"}', 'abccdcdcdxyz', TRUE, 4);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1845,8 +1796,8 @@ function diameterOfBinaryTree(root: TreeNode | null): number {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(543, '[1,2,3,4,5]', '3', TRUE, 1),
-(543, '[1,2]', '1', TRUE, 2);
+(543, '{"root": [1, 2, 3, 4, 5]}', '3', TRUE, 1),
+(543, '{"root": [1, 2]}', '1', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -1928,10 +1879,8 @@ var minDistance = function(word1, word2) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(72, '"horse"
-"ros"', '3', TRUE, 1),
-(72, '"intention"
-"execution"', '5', TRUE, 2);
+(72, '{"word1": "horse", "word2": "ros"}', '3', TRUE, 1),
+(72, '{"word1": "intention", "word2": "execution"}', '5', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -2001,10 +1950,8 @@ var findAnagrams = function(s, p) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(438, '"cbaebabacd"
-"abc"', '[0,6]', TRUE, 1),
-(438, '"abab"
-"ab"', '[0,1,2]', TRUE, 2);
+(438, '{"s": "cbaebabacd", "p": "abc"}', '[0, 6]', TRUE, 1),
+(438, '{"s": "abab", "p": "ab"}', '[0, 1, 2]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -2080,16 +2027,9 @@ var searchRange = function(nums, target) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(34, '[5,7,7,8,8,10]
-8', '[3,4]
-
-示例 2：', TRUE, 1),
-(34, '[5,7,7,8,8,10]
-6', '[-1,-1]
-
-示例 3：', TRUE, 2),
-(34, '[]
-0', '[-1,-1]', TRUE, 3);
+(34, '{"nums": [5, 7, 7, 8, 8, 10], "target": 8}', '[3, 4]', TRUE, 1),
+(34, '{"nums": [5, 7, 7, 8, 8, 10], "target": 6}', '[-1, -1]', TRUE, 2),
+(34, '{"nums": [], "target": 0}', '[-1, -1]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -2248,8 +2188,7 @@ MedianFinder.prototype.findMedian = function() {
  */');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(295, '["MedianFinder","addNum","addNum","findMedian","addNum","findMedian"]
-[[],[1],[2],[],[3],[]]', '[null, null, null, 1.5, null, 2.0]
+(295, '{"operations": ["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"], "arguments": [[], [1], [2], [], [3], []]}', '[null, null, null, 1.5, null, 2.0]
 
 解释
 MedianFinder medianFinder = new MedianFinder();
@@ -2345,9 +2284,9 @@ var findMin = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(153, '[3,4,5,1,2]', '1', TRUE, 1),
-(153, '[4,5,6,7,0,1,2]', '0', TRUE, 2),
-(153, '[11,13,15,17]', '11', TRUE, 3);
+(153, '{"nums": [3, 4, 5, 1, 2]}', '1', TRUE, 1),
+(153, '{"nums": [4, 5, 6, 7, 0, 1, 2]}', '0', TRUE, 2),
+(153, '{"nums": [11, 13, 15, 17]}', '11', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -2432,15 +2371,12 @@ var findDuplicate = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(287, '[1,3,4,2,2]', '2
-
-
-示例 2：', TRUE, 1),
-(287, '[3,1,3,4,2]', '3
+(287, '{"nums": [1, 3, 4, 2, 2]}', '2', TRUE, 1),
+(287, '{"nums": [3, 1, 3, 4, 2]}', '3
 
 
 示例 3 :', TRUE, 2),
-(287, '[3,3,3,3,3]', '3', TRUE, 3);
+(287, '{"nums": [3, 3, 3, 3, 3]}', '3', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -2511,9 +2447,9 @@ var firstMissingPositive = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(41, '[1,2,0]', '3', TRUE, 1),
-(41, '[3,4,-1,1]', '2', TRUE, 2),
-(41, '[7,8,9,11,12]', '1', TRUE, 3);
+(41, '{"nums": [1, 2, 0]}', '3', TRUE, 1),
+(41, '{"nums": [3, 4, -1, 1]}', '2', TRUE, 2),
+(41, '{"nums": [7, 8, 9, 11, 12]}', '1', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -2634,15 +2570,9 @@ function flatten(root: TreeNode | null): void {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(114, '[1,2,5,3,4,null,6]', '[1,null,2,null,3,null,4,null,5,null,6]
-
-
-示例 2：', TRUE, 1),
-(114, '[]', '[]
-
-
-示例 3：', TRUE, 2),
-(114, '[0]', '[0]', TRUE, 3);
+(114, '{"root": [1, 2, 5, 3, 4, null, 6]}', '[1, null, 2, null, 3, null, 4, null, 5, null, 6]', TRUE, 1),
+(114, '{"root": []}', '[]', TRUE, 2),
+(114, '{"root": [0]}', '[0]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -2701,11 +2631,8 @@ var generateParenthesis = function(n) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(22, '3', '["((()))","(()())","(())()","()(())","()()()"]
-
-
-示例 2：', TRUE, 1),
-(22, '1', '["()"]', TRUE, 2);
+(22, '{"n": 3}', '["((()))", "(()())", "(())()", "()(())", "()()()"]', TRUE, 1),
+(22, '{"n": 1}', '["()"]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -2785,9 +2712,9 @@ var groupAnagrams = function(strs) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(49, '["eat","tea","tan","ate","nat","bat"]', '[["bat"],["nat","tan"],["ate","eat","tea"]]', TRUE, 1),
-(49, '[""]', '[[""]]', TRUE, 2),
-(49, '["a"]', '[["a"]]', TRUE, 3);
+(49, '{"strs": ["eat", "tea", "tan", "ate", "nat", "bat"]}', '[["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]', TRUE, 1),
+(49, '{"strs": [""]}', '[[""]]', TRUE, 2),
+(49, '{"strs": ["a"]}', '[["a"]]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -2852,8 +2779,8 @@ var rob = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(198, '[1,2,3,1]', '4', TRUE, 1),
-(198, '[2,7,9,3,1]', '12', TRUE, 2);
+(198, '{"input": [1, 2, 3, 1]}', '4', TRUE, 1),
+(198, '{"input": [2, 7, 9, 3, 1]}', '12', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -3031,8 +2958,7 @@ Trie.prototype.startsWith = function(prefix) {
  */');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(208, '["Trie","insert","search","search","startsWith","insert","search"]
-[[],["apple"],["apple"],["app"],["app"],["app"],["app"]]', '[null, null, true, false, true, null, true]
+(208, '{"operations": ["Trie", "insert", "search", "search", "startsWith", "insert", "search"], "arguments": [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]}', '[null, null, true, false, true, null, true]
 
 解释
 Trie trie = new Trie();
@@ -3196,21 +3122,9 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(160, '8
-[4,1,8,4,5]
-[5,6,1,8,4,5]
-2
-3', 'Intersected at ''8''', TRUE, 1),
-(160, '2
-[1,9,1,2,4]
-[3,2,4]
-3
-1', 'Intersected at ''2''', TRUE, 2),
-(160, '0
-[2,6,4]
-[1,5]
-3
-2', 'No intersection', TRUE, 3);
+(160, '{"intersectVal": 8, "listA": [4, 1, 8, 4, 5], "listB": [5, 6, 1, 8, 4, 5], "skipA": 2, "skipB": 3}', 'Intersected at ''8''', TRUE, 1),
+(160, '{"intersectVal": 2, "listA": [1, 9, 1, 2, 4], "listB": [3, 2, 4], "skipA": 3, "skipB": 1}', 'Intersected at ''2''', TRUE, 2),
+(160, '{"intersectVal": 0, "listA": [2, 6, 4], "listB": [1, 5], "skipA": 3, "skipB": 2}', 'No intersection', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -3319,15 +3233,9 @@ function invertTree(root: TreeNode | null): TreeNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(226, '[4,2,7,1,3,6,9]', '[4,7,2,9,6,3,1]
-
-
-示例 2：', TRUE, 1),
-(226, '[2,1,3]', '[2,3,1]
-
-
-示例 3：', TRUE, 2),
-(226, '[]', '[]', TRUE, 3);
+(226, '{"root": [4, 2, 7, 1, 3, 6, 9]}', '[4, 7, 2, 9, 6, 3, 1]', TRUE, 1),
+(226, '{"root": [2, 1, 3]}', '[2, 3, 1]', TRUE, 2),
+(226, '{"root": []}', '[]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -3401,8 +3309,8 @@ var jump = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(45, '[2,3,1,1,4]', '2', TRUE, 1),
-(45, '[2,3,0,1,4]', '2', TRUE, 2);
+(45, '{"nums": [2, 3, 1, 1, 4]}', '2', TRUE, 1),
+(45, '{"nums": [2, 3, 0, 1, 4]}', '2', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -3467,8 +3375,8 @@ var canJump = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(55, '[2,3,1,1,4]', 'true', TRUE, 1),
-(55, '[3,2,1,0,4]', 'false', TRUE, 2);
+(55, '{"nums": [2, 3, 1, 1, 4]}', 'true', TRUE, 1),
+(55, '{"nums": [3, 2, 1, 0, 4]}', 'false', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -3535,13 +3443,8 @@ var findKthLargest = function(nums, k) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(215, '[3,2,1,5,6,4]
-2', '5
-
-
-示例 2:', TRUE, 1),
-(215, '[3,2,3,1,2,4,5,5,6]
-4', '4', TRUE, 2);
+(215, '{"nums": [3, 2, 1, 5, 6, 4], "k": 2}', '5', TRUE, 1),
+(215, '{"nums": [3, 2, 3, 1, 2, 4, 5, 5, 6], "k": 4}', '4', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -3655,13 +3558,8 @@ function kthSmallest(root: TreeNode | null, k: number): number {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(230, '[3,1,4,null,2]
-1', '1
-
-
-示例 2：', TRUE, 1),
-(230, '[5,3,6,2,4,null,null,1]
-3', '3', TRUE, 2);
+(230, '{"root": [3, 1, 4, null, 2], "k": 1}', '1', TRUE, 1),
+(230, '{"root": [5, 3, 6, 2, 4, null, null, 1], "k": 3}', '3', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -3725,7 +3623,7 @@ var largestRectangleArea = function(heights) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(84, '[2,1,5,6,2,3]', '10', TRUE, 1);
+(84, '{"heights": [2, 1, 5, 6, 2, 3]}', '10', TRUE, 1);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -3788,11 +3686,8 @@ var letterCombinations = function(digits) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(17, '"23"', '["ad","ae","af","bd","be","bf","cd","ce","cf"]
-
-
-示例 2：', TRUE, 1),
-(17, '"2"', '["a","b","c"]', TRUE, 2);
+(17, '{"digits": "23"}', '["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]', TRUE, 1),
+(17, '{"digits": "2"}', '["a", "b", "c"]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -3908,12 +3803,9 @@ function detectCycle(head: ListNode | null): ListNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(142, '[3,2,0,-4]
-1', '返回索引为 1 的链表节点', TRUE, 1),
-(142, '[1,2]
-0', '返回索引为 0 的链表节点', TRUE, 2),
-(142, '[1]
--1', '返回 null', TRUE, 3);
+(142, '{"head": [3, 2, 0, -4], "pos": 1}', '返回索引为 1 的链表节点', TRUE, 1),
+(142, '{"head": [1, 2], "pos": 0}', '返回索引为 0 的链表节点', TRUE, 2),
+(142, '{"head": [1], "pos": -1}', '返回 null', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4029,12 +3921,9 @@ function hasCycle(head: ListNode | null): boolean {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(141, '[3,2,0,-4]
-1', 'true', TRUE, 1),
-(141, '[1,2]
-0', 'true', TRUE, 2),
-(141, '[1]
--1', 'false', TRUE, 3);
+(141, '{"head": [3, 2, 0, -4], "pos": 1}', 'true', TRUE, 1),
+(141, '{"head": [1, 2], "pos": 0}', 'true', TRUE, 2),
+(141, '{"head": [1], "pos": -1}', 'false', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4110,12 +3999,9 @@ var longestCommonSubsequence = function(text1, text2) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(1143, '"abcde"
-"ace"', '3', TRUE, 1),
-(1143, '"abc"
-"abc"', '3', TRUE, 2),
-(1143, '"abc"
-"def"', '0', TRUE, 3);
+(1143, '{"text1": "abcde", "text2": "ace"}', '3', TRUE, 1),
+(1143, '{"text1": "abc", "text2": "abc"}', '3', TRUE, 2),
+(1143, '{"text1": "abc", "text2": "def"}', '0', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4184,11 +4070,8 @@ var longestConsecutive = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(128, '[100,4,200,1,3,2]', '4', TRUE, 1),
-(128, '[0,3,7,2,5,8,4,6,0,1]', '9
-
-
-示例 3：', TRUE, 2);
+(128, '{"nums": [100, 4, 200, 1, 3, 2]}', '4', TRUE, 1),
+(128, '{"nums": [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]}', '9', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4264,12 +4147,9 @@ var lengthOfLIS = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(300, '[10,9,2,5,3,7,101,18]', '4', TRUE, 1),
-(300, '[0,1,0,3,2,3]', '4
-
-
-示例 3：', TRUE, 2),
-(300, '[7,7,7,7,7,7,7]', '1', TRUE, 3);
+(300, '{"nums": [10, 9, 2, 5, 3, 7, 101, 18]}', '4', TRUE, 1),
+(300, '{"nums": [0, 1, 0, 3, 2, 3]}', '4', TRUE, 2),
+(300, '{"nums": [7, 7, 7, 7, 7, 7, 7]}', '1', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4331,8 +4211,8 @@ var longestPalindrome = function(s) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(5, '"babad"', '"bab"', TRUE, 1),
-(5, '"cbbd"', '"bb"', TRUE, 2);
+(5, '{"s": "babad"}', 'bab', TRUE, 1),
+(5, '{"s": "cbbd"}', 'bb', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4402,9 +4282,9 @@ var lengthOfLongestSubstring = function(s) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(3, '"abcabcbb"', '3', TRUE, 1),
-(3, '"bbbbb"', '1', TRUE, 2),
-(3, '"pwwkew"', '3', TRUE, 3);
+(3, '{"input": "abcabcbb"}', '3', TRUE, 1),
+(3, '{"input": "bbbbb"}', '1', TRUE, 2),
+(3, '{"input": "pwwkew"}', '3', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4474,9 +4354,9 @@ var longestValidParentheses = function(s) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(32, '"(()"', '2', TRUE, 1),
-(32, '")()())"', '4', TRUE, 2),
-(32, '""', '0', TRUE, 3);
+(32, '{"s": "(()"}', '2', TRUE, 1),
+(32, '{"s": ")()())"}', '4', TRUE, 2),
+(32, '{"s": ""}', '0', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4593,15 +4473,9 @@ function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: Tree
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(236, '[3,5,1,6,2,0,8,null,null,7,4]
-5
-1', '3', TRUE, 1),
-(236, '[3,5,1,6,2,0,8,null,null,7,4]
-5
-4', '5', TRUE, 2),
-(236, '[1,2]
-1
-2', '1', TRUE, 3);
+(236, '{"root": [3, 5, 1, 6, 2, 0, 8, null, null, 7, 4], "p": 5, "q": 1}', '3', TRUE, 1),
+(236, '{"root": [3, 5, 1, 6, 2, 0, 8, null, null, 7, 4], "p": 5, "q": 4}', '5', TRUE, 2),
+(236, '{"root": [1, 2], "p": 1, "q": 2}', '1', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4764,8 +4638,7 @@ LRUCache.prototype.put = function(key, value) {
  */');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(146, '["LRUCache","put","put","get","put","get","put","get","get","get"]
-[[2],[1,1],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]]', '[null, null, null, 1, null, -1, null, -1, 3, 4]
+(146, '{"operations": ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"], "arguments": [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]}', '[null, null, null, 1, null, -1, null, -1, 3, 4]
 
 解释
 LRUCache lRUCache = new LRUCache(2);
@@ -4848,10 +4721,8 @@ var majorityElement = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(169, '[3,2,3]', '3
-
-示例 2：', TRUE, 1),
-(169, '[2,2,1,1,1,2,2]', '2', TRUE, 2);
+(169, '{"nums": [3, 2, 3]}', '3', TRUE, 1),
+(169, '{"nums": [2, 2, 1, 1, 1, 2, 2]}', '2', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -4959,8 +4830,8 @@ function maxDepth(root: TreeNode | null): number {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(104, '[3,9,20,null,null,15,7]', '3', TRUE, 1),
-(104, '[1,null,2]', '2', TRUE, 2);
+(104, '{"root": [3, 9, 20, null, null, 15, 7]}', '3', TRUE, 1),
+(104, '{"root": [1, null, 2]}', '2', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5029,8 +4900,8 @@ var maxProduct = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(152, '[2,3,-2,4]', '6', TRUE, 1),
-(152, '[-2,0,-1]', '0', TRUE, 2);
+(152, '{"nums": [2, 3, -2, 4]}', '6', TRUE, 1),
+(152, '{"nums": [-2, 0, -1]}', '0', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5103,12 +4974,9 @@ var maxSubArray = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(53, '[-2,1,-3,4,-1,2,1,-5,4]', '6', TRUE, 1),
-(53, '[1]', '1
-
-
-示例 3：', TRUE, 2),
-(53, '[5,4,-1,7,8]', '23', TRUE, 3);
+(53, '{"nums": [-2, 1, -3, 4, -1, 2, 1, -5, 4]}', '6', TRUE, 1),
+(53, '{"nums": [1]}', '1', TRUE, 2),
+(53, '{"nums": [5, 4, -1, 7, 8]}', '23', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5185,10 +5053,8 @@ var findMedianSortedArrays = function(nums1, nums2) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(4, '[1,3]
-[2]', '2.00000', TRUE, 1),
-(4, '[1,2]
-[3,4]', '2.50000', TRUE, 2);
+(4, '{"nums1": [1, 3], "nums2": [2]}', '2.0', TRUE, 1),
+(4, '{"nums1": [1, 2], "nums2": [3, 4]}', '2.5', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5259,8 +5125,8 @@ var merge = function(intervals) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(56, '[[1,3],[2,6],[8,10],[15,18]]', '[[1,6],[8,10],[15,18]]', TRUE, 1),
-(56, '[[1,4],[4,5]]', '[[1,5]]', TRUE, 2);
+(56, '{"intervals": [[1, 3], [2, 6], [8, 10], [15, 18]]}', '[[1, 6], [8, 10], [15, 18]]', TRUE, 1),
+(56, '{"intervals": [[1, 4], [4, 5]]}', '[[1, 5]]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5378,12 +5244,9 @@ function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(23, '[[1,4,5],[1,3,4],[2,6]]', '[1,1,2,3,4,4,5,6]', TRUE, 1),
-(23, '[]', '[]
-
-
-示例 3：', TRUE, 2),
-(23, '[[]]', '[]', TRUE, 3);
+(23, '{"lists": [[1, 4, 5], [1, 3, 4], [2, 6]]}', '[1, 1, 2, 3, 4, 4, 5, 6]', TRUE, 1),
+(23, '{"lists": []}', '[]', TRUE, 2),
+(23, '{"lists": [[]]}', '[]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5485,18 +5348,9 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(21, '[1,2,4]
-[1,3,4]', '[1,1,2,3,4,4]
-
-
-示例 2：', TRUE, 1),
-(21, '[]
-[]', '[]
-
-
-示例 3：', TRUE, 2),
-(21, '[]
-[0]', '[0]', TRUE, 3);
+(21, '{"list1": [1, 2, 4], "list2": [1, 3, 4]}', '[1, 1, 2, 3, 4, 4]', TRUE, 1),
+(21, '{"list1": [], "list2": []}', '[]', TRUE, 2),
+(21, '{"list1": [], "list2": [0]}', '[0]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5699,8 +5553,7 @@ MinStack.prototype.getMin = function() {
  */');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(155, '["MinStack","push","push","push","getMin","pop","top","getMin"]
-[[],[-2],[0],[-3],[],[],[],[]]', '[null,null,null,null,-3,null,0,-2]', TRUE, 1);
+(155, '{"operations": ["MinStack", "push", "push", "push", "getMin", "pop", "top", "getMin"], "arguments": [[], [-2], [0], [-3], [], [], [], []]}', '[null, null, null, null, -3, null, 0, -2]', TRUE, 1);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5768,8 +5621,8 @@ var minPathSum = function(grid) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(64, '[[1,3,1],[1,5,1],[4,2,1]]', '7', TRUE, 1),
-(64, '[[1,2,3],[4,5,6]]', '12', TRUE, 2);
+(64, '{"grid": [[1, 3, 1], [1, 5, 1], [4, 2, 1]]}', '7', TRUE, 1),
+(64, '{"grid": [[1, 2, 3], [4, 5, 6]]}', '12', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5851,12 +5704,9 @@ var minWindow = function(s, t) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(76, '"ADOBECODEBANC"
-"ABC"', '"BANC"', TRUE, 1),
-(76, '"a"
-"a"', '"a"', TRUE, 2),
-(76, '"a"
-"aa"', '""', TRUE, 3);
+(76, '{"s": "ADOBECODEBANC", "t": "ABC"}', 'BANC', TRUE, 1),
+(76, '{"s": "a", "t": "a"}', 'a', TRUE, 2),
+(76, '{"s": "a", "t": "aa"}', '', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5926,11 +5776,8 @@ function moveZeroes(nums: number[]): void {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(283, '[0,1,0,3,12]', '[1,3,12,0,0]
-
-
-示例 2:', TRUE, 1),
-(283, '[0]', '[0]', TRUE, 2);
+(283, '{"nums": [0, 1, 0, 3, 12]}', '[1, 3, 12, 0, 0]', TRUE, 1),
+(283, '{"nums": [0]}', '[0]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -5996,8 +5843,8 @@ var solveNQueens = function(n) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(51, '4', '[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]', TRUE, 1),
-(51, '1', '[["Q"]]', TRUE, 2);
+(51, '{"n": 4}', '[[".Q..", "...Q", "Q...", "..Q."], ["..Q.", "Q...", "...Q", ".Q.."]]', TRUE, 1),
+(51, '{"n": 1}', '[["Q"]]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6082,15 +5929,9 @@ function nextPermutation(nums: number[]): void {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(31, '[1,2,3]', '[1,3,2]
-
-
-示例 2：', TRUE, 1),
-(31, '[3,2,1]', '[1,2,3]
-
-
-示例 3：', TRUE, 2),
-(31, '[1,1,5]', '[1,5,1]', TRUE, 3);
+(31, '{"nums": [1, 2, 3]}', '[1, 3, 2]', TRUE, 1),
+(31, '{"nums": [3, 2, 1]}', '[1, 2, 3]', TRUE, 2),
+(31, '{"nums": [1, 1, 5]}', '[1, 5, 1]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6169,11 +6010,8 @@ var numIslands = function(grid) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(200, '[["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]', '1
-
-
-示例 2：', TRUE, 1),
-(200, '[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]', '3', TRUE, 2);
+(200, '{"grid": [["1", "1", "1", "1", "0"], ["1", "1", "0", "1", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "0", "0", "0"]]}', '1', TRUE, 1),
+(200, '{"grid": [["1", "1", "0", "0", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "1", "0", "0"], ["0", "0", "0", "1", "1"]]}', '3', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6272,11 +6110,8 @@ function isPalindrome(head: ListNode | null): boolean {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(234, '[1,2,2,1]', 'true
-
-
-示例 2：', TRUE, 1),
-(234, '[1,2]', 'false', TRUE, 2);
+(234, '{"head": [1, 2, 2, 1]}', 'true', TRUE, 1),
+(234, '{"head": [1, 2]}', 'false', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6337,11 +6172,8 @@ var partition = function(s) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(131, '"aab"', '[["a","a","b"],["aa","b"]]
-
-
-示例 2：', TRUE, 1),
-(131, '"a"', '[["a"]]', TRUE, 2);
+(131, '{"s": "aab"}', '[["a", "a", "b"], ["aa", "b"]]', TRUE, 1),
+(131, '{"s": "a"}', '[["a"]]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6402,8 +6234,8 @@ var canPartition = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(416, '[1,5,11,5]', 'true', TRUE, 1),
-(416, '[1,2,3,5]', 'false', TRUE, 2);
+(416, '{"nums": [1, 5, 11, 5]}', 'true', TRUE, 1),
+(416, '{"nums": [1, 2, 3, 5]}', 'false', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6472,8 +6304,8 @@ var partitionLabels = function(s) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(763, '"ababcbacadefegdehijhklij"', '[9,7,8]', TRUE, 1),
-(763, '"eccbbbbdec"', '[10]', TRUE, 2);
+(763, '{"s": "ababcbacadefegdehijhklij"}', '[9, 7, 8]', TRUE, 1),
+(763, '{"s": "eccbbbbdec"}', '[10]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6534,11 +6366,8 @@ var generate = function(numRows) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(118, '5', '[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
-
-
-示例 2:', TRUE, 1),
-(118, '1', '[[1]]', TRUE, 2);
+(118, '{"numRows": 5}', '[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]', TRUE, 1),
+(118, '{"numRows": 1}', '[[1]]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6649,10 +6478,8 @@ function pathSum(root: TreeNode | null, targetSum: number): number {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(437, '[10,5,-3,3,2,null,11,3,-2,null,1]
-8', '3', TRUE, 1),
-(437, '[5,4,8,11,null,13,4,7,2,null,null,5,1]
-22', '3', TRUE, 2);
+(437, '{"root": [10, 5, -3, 3, 2, null, 11, 3, -2, null, 1], "targetSum": 8}', '3', TRUE, 1),
+(437, '{"root": [5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1], "targetSum": 22}', '3', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6714,8 +6541,8 @@ var numSquares = function(n) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(279, '12', '3', TRUE, 1),
-(279, '13', '2', TRUE, 2);
+(279, '{"n": 12}', '3', TRUE, 1),
+(279, '{"n": 13}', '2', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6783,15 +6610,9 @@ var permute = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(46, '[1,2,3]', '[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-
-
-示例 2：', TRUE, 1),
-(46, '[0,1]', '[[0,1],[1,0]]
-
-
-示例 3：', TRUE, 2),
-(46, '[1]', '[[1]]', TRUE, 3);
+(46, '{"nums": [1, 2, 3]}', '[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]', TRUE, 1),
+(46, '{"nums": [0, 1]}', '[[0, 1], [1, 0]]', TRUE, 2),
+(46, '{"nums": [1]}', '[[1]]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6862,11 +6683,8 @@ var productExceptSelf = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(238, '[1,2,3,4]', '[24,12,8,6]
-
-
-示例 2:', TRUE, 1),
-(238, '[-1,1,0,-3,3]', '[0,0,9,0,0]', TRUE, 2);
+(238, '{"nums": [1, 2, 3, 4]}', '[24, 12, 8, 6]', TRUE, 1),
+(238, '{"nums": [-1, 1, 0, -3, 3]}', '[0, 0, 9, 0, 0]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -6976,18 +6794,9 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(19, '[1,2,3,4,5]
-2', '[1,2,3,5]
-
-
-示例 2：', TRUE, 1),
-(19, '[1]
-1', '[]
-
-
-示例 3：', TRUE, 2),
-(19, '[1,2]
-1', '[1]', TRUE, 3);
+(19, '{"head": [1, 2, 3, 4, 5], "n": 2}', '[1, 2, 3, 5]', TRUE, 1),
+(19, '{"head": [1], "n": 1}', '[]', TRUE, 2),
+(19, '{"head": [1, 2], "n": 1}', '[1]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7091,15 +6900,9 @@ function reverseList(head: ListNode | null): ListNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(206, '[1,2,3,4,5]', '[5,4,3,2,1]
-
-
-示例 2：', TRUE, 1),
-(206, '[1,2]', '[2,1]
-
-
-示例 3：', TRUE, 2),
-(206, '[]', '[]', TRUE, 3);
+(206, '{"head": [1, 2, 3, 4, 5]}', '[5, 4, 3, 2, 1]', TRUE, 1),
+(206, '{"head": [1, 2]}', '[2, 1]', TRUE, 2),
+(206, '{"head": []}', '[]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7206,13 +7009,8 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(25, '[1,2,3,4,5]
-2', '[2,1,4,3,5]
-
-
-示例 2：', TRUE, 1),
-(25, '[1,2,3,4,5]
-3', '[3,2,1,4,5]', TRUE, 2);
+(25, '{"head": [1, 2, 3, 4, 5], "k": 2}', '[2, 1, 4, 3, 5]', TRUE, 1),
+(25, '{"head": [1, 2, 3, 4, 5], "k": 3}', '[3, 2, 1, 4, 5]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7296,10 +7094,8 @@ function rotate(nums: number[], k: number): void {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(189, '[1,2,3,4,5,6,7]
-3', '[5,6,7,1,2,3,4]', TRUE, 1),
-(189, '[-1,-100,3,99]
-2', '[3,99,-1,-100]', TRUE, 2);
+(189, '{"nums": [1, 2, 3, 4, 5, 6, 7], "k": 3}', '[5, 6, 7, 1, 2, 3, 4]', TRUE, 1),
+(189, '{"nums": [-1, -100, 3, 99], "k": 2}', '[3, 99, -1, -100]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7367,11 +7163,8 @@ function rotate(matrix: number[][]): void {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(48, '[[1,2,3],[4,5,6],[7,8,9]]', '[[7,4,1],[8,5,2],[9,6,3]]
-
-
-示例 2：', TRUE, 1),
-(48, '[[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]', '[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]', TRUE, 2);
+(48, '{"matrix": [[1, 2, 3], [4, 5, 6], [7, 8, 9]]}', '[[7, 4, 1], [8, 5, 2], [9, 6, 3]]', TRUE, 1),
+(48, '{"matrix": [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]}', '[[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7456,12 +7249,9 @@ var orangesRotting = function(grid) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(994, '[[2,1,1],[1,1,0],[0,1,1]]', '4
-
-
-示例 2：', TRUE, 1),
-(994, '[[2,1,1],[0,1,1],[1,0,1]]', '-1', TRUE, 2),
-(994, '[[0,2]]', '0', TRUE, 3);
+(994, '{"grid": [[2, 1, 1], [1, 1, 0], [0, 1, 1]]}', '4', TRUE, 1),
+(994, '{"grid": [[2, 1, 1], [0, 1, 1], [1, 0, 1]]}', '-1', TRUE, 2),
+(994, '{"grid": [[0, 2]]}', '0', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7539,13 +7329,7 @@ var searchMatrix = function(matrix, target) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(240, '[[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]]
-5', 'true
-
-示例 2：
-
-输入：matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20
-输出：false', TRUE, 1);
+(240, '{"matrix": [[1, 4, 7, 11, 15], [2, 5, 8, 12, 19], [3, 6, 9, 16, 22], [10, 13, 14, 17, 24], [18, 21, 23, 26, 30]], "target": 5}', 'true', TRUE, 1);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7619,13 +7403,8 @@ var searchMatrix = function(matrix, target) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(74, '[[1,3,5,7],[10,11,16,20],[23,30,34,60]]
-3', 'true
-
-
-示例 2：', TRUE, 1),
-(74, '[[1,3,5,7],[10,11,16,20],[23,30,34,60]]
-13', 'false', TRUE, 2);
+(74, '{"matrix": [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], "target": 3}', 'true', TRUE, 1),
+(74, '{"matrix": [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], "target": 13}', 'false', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7705,17 +7484,9 @@ var search = function(nums, target) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(33, '[4,5,6,7,0,1,2]
-0', '4
-
-
-示例 2：', TRUE, 1),
-(33, '[4,5,6,7,0,1,2]
-3', '-1
-
-示例 3：', TRUE, 2),
-(33, '[1]
-0', '-1', TRUE, 3);
+(33, '{"nums": [4, 5, 6, 7, 0, 1, 2], "target": 0}', '4', TRUE, 1),
+(33, '{"nums": [4, 5, 6, 7, 0, 1, 2], "target": 3}', '-1', TRUE, 2),
+(33, '{"nums": [1], "target": 0}', '-1', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7789,18 +7560,9 @@ var searchInsert = function(nums, target) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(35, '[1,3,5,6]
-5', '2
-
-
-示例 2:', TRUE, 1),
-(35, '[1,3,5,6]
-2', '1
-
-
-示例 3:', TRUE, 2),
-(35, '[1,3,5,6]
-7', '4', TRUE, 3);
+(35, '{"nums": [1, 3, 5, 6], "target": 5}', '2', TRUE, 1),
+(35, '{"nums": [1, 3, 5, 6], "target": 2}', '1', TRUE, 2),
+(35, '{"nums": [1, 3, 5, 6], "target": 7}', '4', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7879,11 +7641,8 @@ function setZeroes(matrix: number[][]): void {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(73, '[[1,1,1],[1,0,1],[1,1,1]]', '[[1,0,1],[0,0,0],[1,0,1]]
-
-
-示例 2：', TRUE, 1),
-(73, '[[0,1,2,0],[3,4,5,2],[1,3,1,5]]', '[[0,0,0,0],[0,4,5,0],[0,3,1,0]]', TRUE, 2);
+(73, '{"matrix": [[1, 1, 1], [1, 0, 1], [1, 1, 1]]}', '[[1, 0, 1], [0, 0, 0], [1, 0, 1]]', TRUE, 1),
+(73, '{"matrix": [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]]}', '[[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -7956,9 +7715,9 @@ var singleNumber = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(136, '[2,2,1]', '1', TRUE, 1),
-(136, '[4,1,2,1,2]', '4', TRUE, 2),
-(136, '[1]', '1', TRUE, 3);
+(136, '{"nums": [2, 2, 1]}', '1', TRUE, 1),
+(136, '{"nums": [4, 1, 2, 1, 2]}', '4', TRUE, 2),
+(136, '{"nums": [1]}', '1', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8034,10 +7793,8 @@ var maxSlidingWindow = function(nums, k) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(239, '[1,3,-1,-3,5,3,6,7]
-3', '[3,3,5,5,6,7]', TRUE, 1),
-(239, '[1]
-1', '[1]
+(239, '{"nums": [1, 3, -1, -3, 5, 3, 6, 7], "k": 3}', '[3, 3, 5, 5, 6, 7]', TRUE, 1),
+(239, '{"nums": [1], "k": 1}', '[1]
 
  
 
@@ -8125,11 +7882,8 @@ function sortColors(nums: number[]): void {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(75, '[2,0,2,1,1,0]', '[0,0,1,1,2,2]
-
-
-示例 2：', TRUE, 1),
-(75, '[2,0,1]', '[0,1,2]', TRUE, 2);
+(75, '{"nums": [2, 0, 2, 1, 1, 0]}', '[0, 0, 1, 1, 2, 2]', TRUE, 1),
+(75, '{"nums": [2, 0, 1]}', '[0, 1, 2]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8233,9 +7987,9 @@ function sortList(head: ListNode | null): ListNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(148, '[4,2,1,3]', '[1,2,3,4]', TRUE, 1),
-(148, '[-1,5,3,4,0]', '[-1,0,3,4,5]', TRUE, 2),
-(148, '[]', '[]
+(148, '{"head": [4, 2, 1, 3]}', '[1, 2, 3, 4]', TRUE, 1),
+(148, '{"head": [-1, 5, 3, 4, 0]}', '[-1, 0, 3, 4, 5]', TRUE, 2),
+(148, '{"head": []}', '[]
 
  
 
@@ -8311,11 +8065,8 @@ var spiralOrder = function(matrix) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(54, '[[1,2,3],[4,5,6],[7,8,9]]', '[1,2,3,6,9,8,7,4,5]
-
-
-示例 2：', TRUE, 1),
-(54, '[[1,2,3,4],[5,6,7,8],[9,10,11,12]]', '[1,2,3,4,8,12,11,10,9,5,6,7]', TRUE, 2);
+(54, '{"matrix": [[1, 2, 3], [4, 5, 6], [7, 8, 9]]}', '[1, 2, 3, 6, 9, 8, 7, 4, 5]', TRUE, 1),
+(54, '{"matrix": [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]}', '[1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8382,13 +8133,8 @@ var subarraySum = function(nums, k) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(560, '[1,1,1]
-2', '2
-
-
-示例 2：', TRUE, 1),
-(560, '[1,2,3]
-3', '2', TRUE, 2);
+(560, '{"nums": [1, 1, 1], "k": 2}', '2', TRUE, 1),
+(560, '{"nums": [1, 2, 3], "k": 3}', '2', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8453,11 +8199,8 @@ var subsets = function(nums) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(78, '[1,2,3]', '[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
-
-
-示例 2：', TRUE, 1),
-(78, '[0]', '[[],[0]]', TRUE, 2);
+(78, '{"nums": [1, 2, 3]}', '[[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]', TRUE, 1),
+(78, '{"nums": [0]}', '[[], [0]]', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8557,15 +8300,9 @@ function swapPairs(head: ListNode | null): ListNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(24, '[1,2,3,4]', '[2,1,4,3]
-
-
-示例 2：', TRUE, 1),
-(24, '[]', '[]
-
-
-示例 3：', TRUE, 2),
-(24, '[1]', '[1]', TRUE, 3);
+(24, '{"head": [1, 2, 3, 4]}', '[2, 1, 4, 3]', TRUE, 1),
+(24, '{"head": []}', '[]', TRUE, 2),
+(24, '{"head": [1]}', '[1]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8673,11 +8410,8 @@ function isSymmetric(root: TreeNode | null): boolean {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(101, '[1,2,2,3,4,4,3]', 'true
-
-
-示例 2：', TRUE, 1),
-(101, '[1,2,2,null,3,null,3]', 'false', TRUE, 2);
+(101, '{"root": [1, 2, 2, 3, 4, 4, 3]}', 'true', TRUE, 1),
+(101, '{"root": [1, 2, 2, null, 3, null, 3]}', 'false', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8756,12 +8490,9 @@ var topKFrequent = function(nums, k) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(347, '[1,1,1,2,2,3]
-2', '', TRUE, 1),
-(347, '[1]
-1', '[1]', TRUE, 2),
-(347, '[1,2,1,2,1,2,3,1,3,2]
-2', '', TRUE, 3);
+(347, '{"nums": [1, 1, 1, 2, 2, 3], "k": 2}', '', TRUE, 1),
+(347, '{"nums": [1], "k": 1}', '[1]', TRUE, 2),
+(347, '{"nums": [1, 2, 1, 2, 1, 2, 3, 1, 3, 2], "k": 2}', '', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8825,8 +8556,8 @@ var trap = function(height) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(42, '[0,1,0,2,1,0,1,3,2,1,2,1]', '6', TRUE, 1),
-(42, '[4,2,0,3,2,5]', '9', TRUE, 2);
+(42, '{"height": [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]}', '6', TRUE, 1),
+(42, '{"height": [4, 2, 0, 3, 2, 5]}', '9', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8907,15 +8638,9 @@ var twoSum = function(nums, target) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(1, '[2,7,11,15]
-9', '[0,1]', TRUE, 1),
-(1, '[3,2,4]
-6', '[1,2]
-
-
-示例 3：', TRUE, 2),
-(1, '[3,3]
-6', '[0,1]', TRUE, 3);
+(1, '{"nums": [2, 7, 11, 15], "target": 9}', '[0, 1]', TRUE, 1),
+(1, '{"nums": [3, 2, 4], "target": 6}', '[1, 2]', TRUE, 2),
+(1, '{"nums": [3, 3], "target": 6}', '[0, 1]', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -8997,17 +8722,10 @@ var uniquePaths = function(m, n) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(62, '3
-7', '28
-
-示例 2：', TRUE, 1),
-(62, '3
-2', '3', TRUE, 2),
-(62, '7, n = 3', '28
-
-
-示例 4：', TRUE, 3),
-(62, '3, n = 3', '6', TRUE, 4);
+(62, '{"m": 3, "n": 7}', '28', TRUE, 1),
+(62, '{"m": 3, "n": 2}', '3', TRUE, 2),
+(62, '{"m": 7, "n": 3}', '28', TRUE, 3),
+(62, '{"m": 3, "n": 3}', '6', TRUE, 4);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -9097,11 +8815,11 @@ var isValid = function(s) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(20, '"()"', 'true', TRUE, 1),
-(20, '"()[]{}"', 'true', TRUE, 2),
-(20, '"(]"', 'false', TRUE, 3),
-(20, '"([])"', 'true', TRUE, 4),
-(20, '"([)]"', 'false', TRUE, 5);
+(20, '{"s": "()"}', 'true', TRUE, 1),
+(20, '{"s": "()[]{}"}', 'true', TRUE, 2),
+(20, '{"s": "(]"}', 'false', TRUE, 3),
+(20, '{"s": "([])"}', 'true', TRUE, 4),
+(20, '{"s": "([)]"}', 'false', TRUE, 5);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -9215,11 +8933,8 @@ function isValidBST(root: TreeNode | null): boolean {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(98, '[2,1,3]', 'true
-
-
-示例 2：', TRUE, 1),
-(98, '[5,1,4,null,null,3,6]', 'false', TRUE, 2);
+(98, '{"root": [2, 1, 3]}', 'true', TRUE, 1),
+(98, '{"root": [5, 1, 4, null, null, 3, 6]}', 'false', TRUE, 2);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -9298,12 +9013,9 @@ var wordBreak = function(s, wordDict) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(139, '"leetcode"
-["leet","code"]', 'true', TRUE, 1),
-(139, '"applepenapple"
-["apple","pen"]', 'true', TRUE, 2),
-(139, '"catsandog"
-["cats","dog","sand","and","cat"]', 'false', TRUE, 3);
+(139, '{"s": "leetcode", "wordDict": ["leet", "code"]}', 'true', TRUE, 1),
+(139, '{"s": "applepenapple", "wordDict": ["apple", "pen"]}', 'true', TRUE, 2),
+(139, '{"s": "catsandog", "wordDict": ["cats", "dog", "sand", "and", "cat"]}', 'false', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
 VALUES (
@@ -9383,16 +9095,7 @@ var exist = function(board, word) {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(79, '[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
-"ABCCED"', 'true
-
-
-示例 2：', TRUE, 1),
-(79, '[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
-"SEE"', 'true
-
-
-示例 3：', TRUE, 2),
-(79, '[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
-"ABCB"', 'false', TRUE, 3);
+(79, '{"board": [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "word": "ABCCED"}', 'true', TRUE, 1),
+(79, '{"board": [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "word": "SEE"}', 'true', TRUE, 2),
+(79, '{"board": [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "word": "ABCB"}', 'false', TRUE, 3);
 

@@ -1,0 +1,77 @@
+{
+  "id": 118,
+  "title": "杨辉三角",
+  "slug": "pascals-triangle",
+  "difficulty": "EASY",
+  "description_md": "# 118. 杨辉三角\n\n给定一个非负整数 `numRows`，生成「杨辉三角」的前 `numRows` 行。\n\n在**「杨辉三角」**中，每个数是它左上方和右上方的数的和。\n\n \n\n**示例 1:**\n\n**输入:** numRows = 5\n**输出:** [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]\n\n**示例 2:**\n\n**输入:** numRows = 1\n**输出:** [[1]]\n\n \n\n**提示:**\n\n\t\n- `1 <= numRows <= 30`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "numRows": 5
+      },
+      "expected_output": [
+        [
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          3,
+          1
+        ],
+        [
+          1,
+          4,
+          6,
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "numRows": 1
+      },
+      "expected_output": [
+        [
+          1
+        ]
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<List<Integer>> generate(int numRows) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def generate(self, numRows):\n        \"\"\"\n        :type numRows: int\n        :rtype: List[List[int]]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number} numRows\n * @return {number[][]}\n */\nvar generate = function(numRows) {\n    \n};",
+    "TYPESCRIPT": "function generate(numRows: number): number[][] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "generate",
+    "params": [
+      {
+        "name": "numRows",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "list<list<integer>>",
+      "dealloc": true,
+      "rowsize": "param_1"
+    }
+  }
+}

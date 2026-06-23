@@ -1,0 +1,71 @@
+{
+  "id": 75,
+  "title": "颜色分类",
+  "slug": "sort-colors",
+  "difficulty": "MEDIUM",
+  "description_md": "# 75. 颜色分类\n\n给定一个包含红色、白色和蓝色、共 `n` 个元素的数组 `nums` ，**原地 **对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。\n\n我们使用整数 `0`、 `1` 和 `2` 分别表示红色、白色和蓝色。\n\n必须在不使用库内置的 sort 函数的情况下解决这个问题。\n\n \n\n**示例 1：**\n\n**输入：**nums = [2,0,2,1,1,0]\n**输出：**[0,0,1,1,2,2]\n\n**示例 2：**\n\n**输入：**nums = [2,0,1]\n**输出：**[0,1,2]\n\n \n\n**提示：**\n\n\t\n- `n == nums.length`\n\t\n- `1 <= n <= 300`\n\t\n- `nums[i]` 为 `0`、`1` 或 `2`\n\n \n\n**进阶：**\n\n\t\n- 你能想出一个仅使用常数空间的一趟扫描算法吗？",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          2,
+          0,
+          2,
+          1,
+          1,
+          0
+        ]
+      },
+      "expected_output": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          2,
+          0,
+          1
+        ]
+      },
+      "expected_output": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public void sortColors(int[] nums) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def sortColors(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: None Do not return anything, modify nums in-place instead.\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @return {void} Do not return anything, modify nums in-place instead.\n */\nvar sortColors = function(nums) {\n    \n};",
+    "TYPESCRIPT": "/**\n Do not return anything, modify nums in-place instead.\n */\nfunction sortColors(nums: number[]): void {\n    \n};"
+  },
+  "meta_data": {
+    "name": "sortColors",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "void"
+    },
+    "output": {
+      "paramindex": 0
+    },
+    "manual": false
+  }
+}

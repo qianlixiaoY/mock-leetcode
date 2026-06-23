@@ -1,0 +1,67 @@
+{
+  "id": 24,
+  "title": "两两交换链表中的节点",
+  "slug": "swap-nodes-in-pairs",
+  "difficulty": "MEDIUM",
+  "description_md": "# 24. 两两交换链表中的节点\n\n给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。\n\n \n\n**示例 1：**\n\n**输入：**head = [1,2,3,4]\n**输出：**[2,1,4,3]\n\n**示例 2：**\n\n**输入：**head = []\n**输出：**[]\n\n**示例 3：**\n\n**输入：**head = [1]\n**输出：**[1]\n\n \n\n**提示：**\n\n\t\n- 链表中节点的数目在范围 `[0, 100]` 内\n\t\n- `0 <= Node.val <= 100`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "expected_output": [
+        2,
+        1,
+        4,
+        3
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "head": []
+      },
+      "expected_output": []
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1
+        ]
+      },
+      "expected_output": [
+        1
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode swapPairs(ListNode head) {\n        \n    }\n}",
+    "PYTHON": "# Definition for singly-linked list.\n# class ListNode(object):\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution(object):\n    def swapPairs(self, head):\n        \"\"\"\n        :type head: Optional[ListNode]\n        :rtype: Optional[ListNode]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * Definition for singly-linked list.\n * function ListNode(val, next) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.next = (next===undefined ? null : next)\n * }\n */\n/**\n * @param {ListNode} head\n * @return {ListNode}\n */\nvar swapPairs = function(head) {\n    \n};",
+    "TYPESCRIPT": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *     val: number\n *     next: ListNode | null\n *     constructor(val?: number, next?: ListNode | null) {\n *         this.val = (val===undefined ? 0 : val)\n *         this.next = (next===undefined ? null : next)\n *     }\n * }\n */\n\nfunction swapPairs(head: ListNode | null): ListNode | null {\n    \n};"
+  },
+  "meta_data": {
+    "name": "swapPairs",
+    "params": [
+      {
+        "name": "head",
+        "type": "ListNode"
+      }
+    ],
+    "return": {
+      "type": "ListNode"
+    }
+  }
+}

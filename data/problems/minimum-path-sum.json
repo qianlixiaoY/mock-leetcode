@@ -1,0 +1,72 @@
+{
+  "id": 64,
+  "title": "最小路径和",
+  "slug": "minimum-path-sum",
+  "difficulty": "MEDIUM",
+  "description_md": "# 64. 最小路径和\n\n给定一个包含非负整数的 `m x n` 网格 `grid` ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。\n\n**说明：**每次只能向下或者向右移动一步。\n\n \n\n**示例 1：**\n\n**输入：**grid = [[1,3,1],[1,5,1],[4,2,1]]\n**输出：**7\n**解释：**因为路径 1→3→1→1→1 的总和最小。\n\n**示例 2：**\n\n**输入：**grid = [[1,2,3],[4,5,6]]\n**输出：**12\n\n \n\n**提示：**\n\n\t\n- `m == grid.length`\n\t\n- `n == grid[i].length`\n\t\n- `1 <= m, n <= 200`\n\t\n- `0 <= grid[i][j] <= 200`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "grid": [
+          [
+            1,
+            3,
+            1
+          ],
+          [
+            1,
+            5,
+            1
+          ],
+          [
+            4,
+            2,
+            1
+          ]
+        ]
+      },
+      "expected_output": 7
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "grid": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ]
+        ]
+      },
+      "expected_output": 12
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int minPathSum(int[][] grid) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def minPathSum(self, grid):\n        \"\"\"\n        :type grid: List[List[int]]\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[][]} grid\n * @return {number}\n */\nvar minPathSum = function(grid) {\n    \n};",
+    "TYPESCRIPT": "function minPathSum(grid: number[][]): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "minPathSum",
+    "params": [
+      {
+        "name": "grid",
+        "type": "integer[][]"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

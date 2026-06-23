@@ -1,0 +1,102 @@
+{
+  "id": 208,
+  "title": "实现 Trie (前缀树)",
+  "slug": "implement-trie-prefix-tree",
+  "difficulty": "MEDIUM",
+  "description_md": "# 208. 实现 Trie (前缀树)\n\n**Trie**（发音类似 \"try\"）或者说 **前缀树** 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补全和拼写检查。\n\n请你实现 Trie 类：\n\n\t\n- `Trie()` 初始化前缀树对象。\n\t\n- `void insert(String word)` 向前缀树中插入字符串 `word` 。\n\t\n- `boolean search(String word)` 如果字符串 `word` 在前缀树中，返回 `true`（即，在检索之前已经插入）；否则，返回 `false` 。\n\t\n- `boolean startsWith(String prefix)` 如果之前已经插入的字符串 `word` 的前缀之一为 `prefix` ，返回 `true` ；否则，返回 `false` 。\n\n \n\n**示例：**\n\n**输入**\n[\"Trie\", \"insert\", \"search\", \"search\", \"startsWith\", \"insert\", \"search\"]\n[[], [\"apple\"], [\"apple\"], [\"app\"], [\"app\"], [\"app\"], [\"app\"]]\n**输出**\n[null, null, true, false, true, null, true]\n\n**解释**\nTrie trie = new Trie();\ntrie.insert(\"apple\");\ntrie.search(\"apple\");   // 返回 True\ntrie.search(\"app\");     // 返回 False\ntrie.startsWith(\"app\"); // 返回 True\ntrie.insert(\"app\");\ntrie.search(\"app\");     // 返回 True\n\n \n\n**提示：**\n\n\t\n- `1 <= word.length, prefix.length <= 2000`\n\t\n- `word` 和 `prefix` 仅由小写英文字母组成\n\t\n- `insert`、`search` 和 `startsWith` 调用次数 **总计** 不超过 `3 * 104` 次",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "operations": [
+          "Trie",
+          "insert",
+          "search",
+          "search",
+          "startsWith",
+          "insert",
+          "search"
+        ],
+        "arguments": [
+          [],
+          [
+            "apple"
+          ],
+          [
+            "apple"
+          ],
+          [
+            "app"
+          ],
+          [
+            "app"
+          ],
+          [
+            "app"
+          ],
+          [
+            "app"
+          ]
+        ]
+      },
+      "expected_output": "[null, null, true, false, true, null, true]\n\n解释\nTrie trie = new Trie();\ntrie.insert(\"apple\");\ntrie.search(\"apple\");   // 返回 True\ntrie.search(\"app\");     // 返回 False\ntrie.startsWith(\"app\"); // 返回 True\ntrie.insert(\"app\");\ntrie.search(\"app\");     // 返回 True"
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Trie {\n\n    public Trie() {\n        \n    }\n    \n    public void insert(String word) {\n        \n    }\n    \n    public boolean search(String word) {\n        \n    }\n    \n    public boolean startsWith(String prefix) {\n        \n    }\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * Trie obj = new Trie();\n * obj.insert(word);\n * boolean param_2 = obj.search(word);\n * boolean param_3 = obj.startsWith(prefix);\n */",
+    "PYTHON": "class Trie(object):\n\n    def __init__(self):\n        \n\n    def insert(self, word):\n        \"\"\"\n        :type word: str\n        :rtype: None\n        \"\"\"\n        \n\n    def search(self, word):\n        \"\"\"\n        :type word: str\n        :rtype: bool\n        \"\"\"\n        \n\n    def startsWith(self, prefix):\n        \"\"\"\n        :type prefix: str\n        :rtype: bool\n        \"\"\"\n        \n\n\n# Your Trie object will be instantiated and called as such:\n# obj = Trie()\n# obj.insert(word)\n# param_2 = obj.search(word)\n# param_3 = obj.startsWith(prefix)",
+    "JAVASCRIPT": "\nvar Trie = function() {\n    \n};\n\n/** \n * @param {string} word\n * @return {void}\n */\nTrie.prototype.insert = function(word) {\n    \n};\n\n/** \n * @param {string} word\n * @return {boolean}\n */\nTrie.prototype.search = function(word) {\n    \n};\n\n/** \n * @param {string} prefix\n * @return {boolean}\n */\nTrie.prototype.startsWith = function(prefix) {\n    \n};\n\n/** \n * Your Trie object will be instantiated and called as such:\n * var obj = new Trie()\n * obj.insert(word)\n * var param_2 = obj.search(word)\n * var param_3 = obj.startsWith(prefix)\n */",
+    "TYPESCRIPT": "class Trie {\n    constructor() {\n        \n    }\n\n    insert(word: string): void {\n        \n    }\n\n    search(word: string): boolean {\n        \n    }\n\n    startsWith(prefix: string): boolean {\n        \n    }\n}\n\n/**\n * Your Trie object will be instantiated and called as such:\n * var obj = new Trie()\n * obj.insert(word)\n * var param_2 = obj.search(word)\n * var param_3 = obj.startsWith(prefix)\n */"
+  },
+  "meta_data": {
+    "classname": "Trie",
+    "constructor": {
+      "params": []
+    },
+    "methods": [
+      {
+        "params": [
+          {
+            "type": "string",
+            "name": "word"
+          }
+        ],
+        "name": "insert",
+        "return": {
+          "type": "void"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "string",
+            "name": "word"
+          }
+        ],
+        "name": "search",
+        "return": {
+          "type": "boolean"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "string",
+            "name": "prefix"
+          }
+        ],
+        "name": "startsWith",
+        "return": {
+          "type": "boolean"
+        }
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    },
+    "systemdesign": true
+  }
+}

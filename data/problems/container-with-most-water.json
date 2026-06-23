@@ -1,0 +1,58 @@
+{
+  "id": 11,
+  "title": "盛最多水的容器",
+  "slug": "container-with-most-water",
+  "difficulty": "MEDIUM",
+  "description_md": "# 11. 盛最多水的容器\n\n给定一个长度为 `n` 的整数数组 `height` 。有 `n` 条垂线，第 `i` 条线的两个端点是 `(i, 0)` 和 `(i, height[i])` 。\n\n找出其中的两条线，使得它们与 `x` 轴共同构成的容器可以容纳最多的水。\n\n返回容器可以储存的最大水量。\n\n**说明：**你不能倾斜容器。\n\n \n\n**示例 1：**\n\n**输入：**[1,8,6,2,5,4,8,3,7]\n**输出：**49 \n**解释：**图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。\n\n**示例 2：**\n\n**输入：**height = [1,1]\n**输出：**1\n\n \n\n**提示：**\n\n\t\n- `n == height.length`\n\t\n- `2 <= n <= 105`\n\t\n- `0 <= height[i] <= 104`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "input": [
+          1,
+          8,
+          6,
+          2,
+          5,
+          4,
+          8,
+          3,
+          7
+        ]
+      },
+      "expected_output": 49
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "height": [
+          1,
+          1
+        ]
+      },
+      "expected_output": 1
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int maxArea(int[] height) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def maxArea(self, height):\n        \"\"\"\n        :type height: List[int]\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} height\n * @return {number}\n */\nvar maxArea = function(height) {\n    \n};",
+    "TYPESCRIPT": "function maxArea(height: number[]): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "maxArea",
+    "params": [
+      {
+        "name": "height",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

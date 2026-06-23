@@ -1,0 +1,55 @@
+{
+  "id": 416,
+  "title": "分割等和子集",
+  "slug": "partition-equal-subset-sum",
+  "difficulty": "MEDIUM",
+  "description_md": "# 416. 分割等和子集\n\n给你一个 **只包含正整数 **的 **非空 **数组 `nums` 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。\n\n \n\n**示例 1：**\n\n**输入：**nums = [1,5,11,5]\n**输出：**true\n**解释：**数组可以分割成 [1, 5, 5] 和 [11] 。\n\n**示例 2：**\n\n**输入：**nums = [1,2,3,5]\n**输出：**false\n**解释：**数组不能分割成两个元素和相等的子集。\n\n \n\n**提示：**\n\n\t\n- `1",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          1,
+          5,
+          11,
+          5
+        ]
+      },
+      "expected_output": true
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      "expected_output": false
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public boolean canPartition(int[] nums) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def canPartition(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: bool\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @return {boolean}\n */\nvar canPartition = function(nums) {\n    \n};",
+    "TYPESCRIPT": "function canPartition(nums: number[]): boolean {\n    \n};"
+  },
+  "meta_data": {
+    "name": "canPartition",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "id": 15,
+  "title": "三数之和",
+  "slug": "3sum",
+  "difficulty": "MEDIUM",
+  "description_md": "# 15. 三数之和\n\n给你一个整数数组 `nums` ，判断是否存在三元组 `[nums[i], nums[j], nums[k]]` 满足 `i != j`、`i != k` 且 `j != k` ，同时还满足 `nums[i] + nums[j] + nums[k] == 0` 。请你返回所有和为 `0` 且不重复的三元组。\n\n**注意：**答案中不可以包含重复的三元组。\n\n \n\n \n\n**示例 1：**\n\n**输入：**nums = [-1,0,1,2,-1,-4]\n**输出：**[[-1,-1,2],[-1,0,1]]\n**解释：**\nnums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。\nnums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。\nnums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。\n不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。\n注意，输出的顺序和三元组的顺序并不重要。\n\n**示例 2：**\n\n**输入：**nums = [0,1,1]\n**输出：**[]\n**解释：**唯一可能的三元组和不为 0 。\n\n**示例 3：**\n\n**输入：**nums = [0,0,0]\n**输出：**[[0,0,0]]\n**解释：**唯一可能的三元组和为 0 。\n\n \n\n**提示：**\n\n\t\n- `3 <= nums.length <= 3000`\n\t\n- `-105 <= nums[i] <= 105`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          -1,
+          0,
+          1,
+          2,
+          -1,
+          -4
+        ]
+      },
+      "expected_output": [
+        [
+          -1,
+          -1,
+          2
+        ],
+        [
+          -1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          0,
+          1,
+          1
+        ]
+      },
+      "expected_output": []
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          0,
+          0,
+          0
+        ]
+      },
+      "expected_output": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<List<Integer>> threeSum(int[] nums) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def threeSum(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: List[List[int]]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @return {number[][]}\n */\nvar threeSum = function(nums) {\n    \n};",
+    "TYPESCRIPT": "function threeSum(nums: number[]): number[][] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "threeSum",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "list<list<integer>>",
+      "colsize": 3,
+      "dealloc": true
+    }
+  }
+}

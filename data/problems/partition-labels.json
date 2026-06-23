@@ -1,0 +1,51 @@
+{
+  "id": 763,
+  "title": "划分字母区间",
+  "slug": "partition-labels",
+  "difficulty": "MEDIUM",
+  "description_md": "# 763. 划分字母区间\n\n给你一个字符串 `s` 。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。例如，字符串 `\"ababcc\"` 能够被分为 `[\"abab\", \"cc\"]`，但类似 `[\"aba\", \"bcc\"]` 或 `[\"ab\", \"ab\", \"cc\"]` 的划分是非法的。\n\n注意，划分结果需要满足：将所有划分结果按顺序连接，得到的字符串仍然是 `s` 。\n\n返回一个表示每个字符串片段的长度的列表。\n\n \n\n**示例 1：**\n\n**输入：**s = \"ababcbacadefegdehijhklij\"\n**输出：**[9,7,8]\n**解释：**\n划分结果为 \"ababcbaca\"、\"defegde\"、\"hijhklij\" 。\n每个字母最多出现在一个片段中。\n像 \"ababcbacadefegde\", \"hijhklij\" 这样的划分是错误的，因为划分的片段数较少。 \n\n**示例 2：**\n\n**输入：**s = \"eccbbbbdec\"\n**输出：**[10]\n\n \n\n**提示：**\n\n\t\n- `1 <= s.length <= 500`\n\t\n- `s` 仅由小写英文字母组成",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "s": "ababcbacadefegdehijhklij"
+      },
+      "expected_output": [
+        9,
+        7,
+        8
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "s": "eccbbbbdec"
+      },
+      "expected_output": [
+        10
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<Integer> partitionLabels(String s) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def partitionLabels(self, s):\n        \"\"\"\n        :type s: str\n        :rtype: List[int]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {string} s\n * @return {number[]}\n */\nvar partitionLabels = function(s) {\n    \n};",
+    "TYPESCRIPT": "function partitionLabels(s: string): number[] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "partitionLabels",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "list<integer>"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": 394,
+  "title": "字符串解码",
+  "slug": "decode-string",
+  "difficulty": "MEDIUM",
+  "description_md": "# 394. 字符串解码\n\n给定一个经过编码的字符串，返回它解码后的字符串。\n\n编码规则为: `k[encoded_string]`，表示其中方括号内部的 `encoded_string` 正好重复 `k` 次。注意 `k` 保证为正整数。\n\n你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。\n\n此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 `k` ，例如不会出现像 `3a` 或 `2[4]` 的输入。\n\n测试用例保证输出的长度不会超过 `105`。\n\n \n\n**示例 1：**\n\n**输入：**s = \"3[a]2[bc]\"\n**输出：**\"aaabcbc\"\n\n**示例 2：**\n\n**输入：**s = \"3[a2[c]]\"\n**输出：**\"accaccacc\"\n\n**示例 3：**\n\n**输入：**s = \"2[abc]3[cd]ef\"\n**输出：**\"abcabccdcdcdef\"\n\n**示例 4：**\n\n**输入：**s = \"abc3[cd]xyz\"\n**输出：**\"abccdcdcdxyz\"\n\n \n\n**提示：**\n\n\t\n- `1 <= s.length <= 30`\n\t\n- `s` 由小写英文字母、数字和方括号 `'[]'` 组成\n\t\n- `s` 保证是一个 **有效** 的输入。\n\t\n- `s` 中所有整数的取值范围为 `[1, 300]`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "s": "3[a]2[bc]"
+      },
+      "expected_output": "aaabcbc"
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "s": "3[a2[c]]"
+      },
+      "expected_output": "accaccacc"
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "s": "2[abc]3[cd]ef"
+      },
+      "expected_output": "abcabccdcdcdef"
+    },
+    {
+      "sort_order": 4,
+      "is_sample": true,
+      "input": {
+        "s": "abc3[cd]xyz"
+      },
+      "expected_output": "abccdcdcdxyz"
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public String decodeString(String s) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def decodeString(self, s):\n        \"\"\"\n        :type s: str\n        :rtype: str\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {string} s\n * @return {string}\n */\nvar decodeString = function(s) {\n    \n};",
+    "TYPESCRIPT": "function decodeString(s: string): string {\n    \n};"
+  },
+  "meta_data": {
+    "name": "decodeString",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "string"
+    }
+  }
+}

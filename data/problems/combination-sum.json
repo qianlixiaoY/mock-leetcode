@@ -1,0 +1,97 @@
+{
+  "id": 39,
+  "title": "组合总和",
+  "slug": "combination-sum",
+  "difficulty": "MEDIUM",
+  "description_md": "# 39. 组合总和\n\n给你一个 **无重复元素** 的整数数组 `candidates` 和一个目标整数 `target` ，找出 `candidates` 中可以使数字和为目标数 `target` 的 所有 **不同组合** ，并以列表形式返回。你可以按 **任意顺序** 返回这些组合。\n\n`candidates` 中的 **同一个** 数字可以 **无限制重复被选取** 。如果至少一个数字的被选数量不同，则两种组合是不同的。 \n\n对于给定的输入，保证和为 `target` 的不同组合数少于 `150` 个。\n\n \n\n**示例 1：**\n\n**输入：**candidates = [2,3,6,7], target = 7\n**输出：**[[2,2,3],[7]]\n**解释：**\n2 和 3 可以形成一组候选，2 + 2 + 3 = 7 。注意 2 可以使用多次。\n7 也是一个候选， 7 = 7 。\n仅有这两种组合。\n\n**示例 2：**\n\n**输入: **candidates = [2,3,5], target = 8\n**输出: **[[2,2,2,2],[2,3,3],[3,5]]\n\n**示例 3：**\n\n**输入: **candidates = [2], target = 1\n**输出: **[]\n\n \n\n**提示：**\n\n\t\n- `1 <= candidates.length <= 30`\n\t\n- `2 <= candidates[i] <= 40`\n\t\n- `candidates` 的所有元素 **互不相同**\n\t\n- `1 <= target <= 40`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "candidates": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "target": 7
+      },
+      "expected_output": [
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "candidates": [
+          2,
+          3,
+          5
+        ],
+        "target": 8
+      },
+      "expected_output": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "candidates": [
+          2
+        ],
+        "target": 1
+      },
+      "expected_output": []
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<List<Integer>> combinationSum(int[] candidates, int target) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def combinationSum(self, candidates, target):\n        \"\"\"\n        :type candidates: List[int]\n        :type target: int\n        :rtype: List[List[int]]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} candidates\n * @param {number} target\n * @return {number[][]}\n */\nvar combinationSum = function(candidates, target) {\n    \n};",
+    "TYPESCRIPT": "function combinationSum(candidates: number[], target: number): number[][] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "combinationSum",
+    "params": [
+      {
+        "name": "candidates",
+        "type": "integer[]"
+      },
+      {
+        "name": "target",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "list<list<integer>>",
+      "dealloc": true
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "id": 131,
+  "title": "分割回文串",
+  "slug": "palindrome-partitioning",
+  "difficulty": "MEDIUM",
+  "description_md": "# 131. 分割回文串\n\n给你一个字符串 `s`，请你将 `s` 分割成一些 子串，使每个子串都是 **回文串** 。返回 `s` 所有可能的分割方案。\n\n \n\n**示例 1：**\n\n**输入：**s = \"aab\"\n**输出：**[[\"a\",\"a\",\"b\"],[\"aa\",\"b\"]]\n\n**示例 2：**\n\n**输入：**s = \"a\"\n**输出：**[[\"a\"]]\n\n \n\n**提示：**\n\n\t\n- `1 <= s.length <= 16`\n\t\n- `s` 仅由小写英文字母组成",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "s": "aab"
+      },
+      "expected_output": [
+        [
+          "a",
+          "a",
+          "b"
+        ],
+        [
+          "aa",
+          "b"
+        ]
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "s": "a"
+      },
+      "expected_output": [
+        [
+          "a"
+        ]
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<List<String>> partition(String s) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def partition(self, s):\n        \"\"\"\n        :type s: str\n        :rtype: List[List[str]]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {string} s\n * @return {string[][]}\n */\nvar partition = function(s) {\n    \n};",
+    "TYPESCRIPT": "function partition(s: string): string[][] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "partition",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "list<list<string>>",
+      "dealloc": true
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": 105,
+  "title": "从前序与中序遍历序列构造二叉树",
+  "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+  "difficulty": "MEDIUM",
+  "description_md": "# 105. 从前序与中序遍历序列构造二叉树\n\n给定两个整数数组 `preorder` 和 `inorder` ，其中 `preorder` 是二叉树的**先序遍历**， `inorder` 是同一棵树的**中序遍历**，请构造二叉树并返回其根节点。\n\n \n\n**示例 1:**\n\n**输入****:** preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]\n**输出:** [3,9,20,null,null,15,7]\n\n**示例 2:**\n\n**输入:** preorder = [-1], inorder = [-1]\n**输出:** [-1]\n\n \n\n**提示:**\n\n\t\n- `1 <= preorder.length <= 3000`\n\t\n- `inorder.length == preorder.length`\n\t\n- `-3000 <= preorder[i], inorder[i] <= 3000`\n\t\n- `preorder` 和 `inorder` 均 **无重复** 元素\n\t\n- `inorder` 均出现在 `preorder`\n\t\n- `preorder` **保证** 为二叉树的前序遍历序列\n\t\n- `inorder` **保证** 为二叉树的中序遍历序列",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "preorder": [
+          3,
+          9,
+          20,
+          15,
+          7
+        ],
+        "inorder": [
+          9,
+          3,
+          15,
+          20,
+          7
+        ]
+      },
+      "expected_output": [
+        3,
+        9,
+        20,
+        null,
+        null,
+        15,
+        7
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "preorder": [
+          -1
+        ],
+        "inorder": [
+          -1
+        ]
+      },
+      "expected_output": [
+        -1
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    public TreeNode buildTree(int[] preorder, int[] inorder) {\n        \n    }\n}",
+    "PYTHON": "# Definition for a binary tree node.\n# class TreeNode(object):\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution(object):\n    def buildTree(self, preorder, inorder):\n        \"\"\"\n        :type preorder: List[int]\n        :type inorder: List[int]\n        :rtype: Optional[TreeNode]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * Definition for a binary tree node.\n * function TreeNode(val, left, right) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.left = (left===undefined ? null : left)\n *     this.right = (right===undefined ? null : right)\n * }\n */\n/**\n * @param {number[]} preorder\n * @param {number[]} inorder\n * @return {TreeNode}\n */\nvar buildTree = function(preorder, inorder) {\n    \n};",
+    "TYPESCRIPT": "/**\n * Definition for a binary tree node.\n * class TreeNode {\n *     val: number\n *     left: TreeNode | null\n *     right: TreeNode | null\n *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {\n *         this.val = (val===undefined ? 0 : val)\n *         this.left = (left===undefined ? null : left)\n *         this.right = (right===undefined ? null : right)\n *     }\n * }\n */\n\nfunction buildTree(preorder: number[], inorder: number[]): TreeNode | null {\n    \n};"
+  },
+  "meta_data": {
+    "name": "buildTree",
+    "params": [
+      {
+        "name": "preorder",
+        "type": "integer[]"
+      },
+      {
+        "name": "inorder",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "TreeNode",
+      "dealloc": true
+    }
+  }
+}

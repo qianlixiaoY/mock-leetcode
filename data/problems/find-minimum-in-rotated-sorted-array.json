@@ -1,0 +1,72 @@
+{
+  "id": 153,
+  "title": "寻找旋转排序数组中的最小值",
+  "slug": "find-minimum-in-rotated-sorted-array",
+  "difficulty": "MEDIUM",
+  "description_md": "# 153. 寻找旋转排序数组中的最小值\n\n已知一个长度为 `n` 的数组，预先按照升序排列，经由 `1` 到 `n` 次 **旋转** 后，得到输入数组。例如，原数组 `nums = [0,1,2,4,5,6,7]` 在变化后可能得到：\n\n\t\n- 若旋转 `4` 次，则可以得到 `[4,5,6,7,0,1,2]`\n\t\n- 若旋转 `7` 次，则可以得到 `[0,1,2,4,5,6,7]`\n\n注意，数组 `[a[0], a[1], a[2], ..., a[n-1]]` **旋转一次** 的结果为数组 `[a[n-1], a[0], a[1], a[2], ..., a[n-2]]` 。\n\n给你一个元素值 **互不相同** 的数组 `nums` ，它原来是一个升序排列的数组，并按上述情形进行了多次旋转。请你找出并返回数组中的 **最小元素** 。\n\n你必须设计一个时间复杂度为 `O(log n)` 的算法解决此问题。\n\n \n\n**示例 1：**\n\n**输入：**nums = [3,4,5,1,2]\n**输出：**1\n**解释：**原数组为 [1,2,3,4,5] ，旋转 3 次得到输入数组。\n\n**示例 2：**\n\n**输入：**nums = [4,5,6,7,0,1,2]\n**输出：**0\n**解释：**原数组为 [0,1,2,4,5,6,7] ，旋转 4 次得到输入数组。\n\n**示例 3：**\n\n**输入：**nums = [11,13,15,17]\n**输出：**11\n**解释：**原数组为 [11,13,15,17] ，旋转 4 次得到输入数组。\n\n \n\n**提示：**\n\n\t\n- `n == nums.length`\n\t\n- `1 <= n <= 5000`\n\t\n- `-5000 <= nums[i] <= 5000`\n\t\n- `nums` 中的所有整数 **互不相同**\n\t\n- `nums` 原来是一个升序排序的数组，并进行了 `1` 至 `n` 次旋转",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          3,
+          4,
+          5,
+          1,
+          2
+        ]
+      },
+      "expected_output": 1
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2
+        ]
+      },
+      "expected_output": 0
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          11,
+          13,
+          15,
+          17
+        ]
+      },
+      "expected_output": 11
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int findMin(int[] nums) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def findMin(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar findMin = function(nums) {\n    \n};",
+    "TYPESCRIPT": "function findMin(nums: number[]): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "findMin",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

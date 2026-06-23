@@ -13,6 +13,8 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+from test_case_format import normalize_problem_test_cases
+
 GRAPHQL_URL = "https://leetcode.cn/graphql/"
 STUDY_PLAN_SLUG = "top-100-liked"
 
@@ -180,11 +182,7 @@ def parse_examples_from_markdown(content: str) -> list[dict[str, str]]:
 def normalize_input(raw_input: str, json_input: str | None) -> str:
     if json_input:
         return json_input
-    raw = raw_input.strip()
-    if "=" in raw:
-        _, value = raw.split("=", 1)
-        return value.strip()
-    return raw
+    return raw_input.strip()
 
 
 def build_description_md(
@@ -232,18 +230,20 @@ def fetch_problem(slug: str) -> dict:
     title = data.get("translatedTitle") or slug
     frontend_id = data.get("questionFrontendId") or "0"
 
-    return {
-        "id": int(frontend_id),
-        "title": title,
-        "slug": data.get("titleSlug") or slug,
-        "difficulty": difficulty,
-        "description_md": build_description_md(frontend_id, title, body_md),
-        "time_limit_ms": 2000,
-        "memory_limit_mb": 256,
-        "sample_test_cases": sample_test_cases,
-        "code_snippets": snippets,
-        "meta_data": json.loads(data.get("metaData") or "{}"),
-    }
+    return normalize_problem_test_cases(
+        {
+            "id": int(frontend_id),
+            "title": title,
+            "slug": data.get("titleSlug") or slug,
+            "difficulty": difficulty,
+            "description_md": build_description_md(frontend_id, title, body_md),
+            "time_limit_ms": 2000,
+            "memory_limit_mb": 256,
+            "sample_test_cases": sample_test_cases,
+            "code_snippets": snippets,
+            "meta_data": json.loads(data.get("metaData") or "{}"),
+        }
+    )
 
 
 def write_problem(out_dir: Path, problem: dict) -> Path:

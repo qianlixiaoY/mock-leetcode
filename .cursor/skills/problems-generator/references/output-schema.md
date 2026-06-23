@@ -13,10 +13,12 @@ Each fetched problem is written to `data/problems/{slug}.json`:
   "memory_limit_mb": 256,
   "sample_test_cases": [
     {
-      "input": "[7,1,5,3,6,4]",
-      "expected_output": "7",
+      "sort_order": 1,
       "is_sample": true,
-      "sort_order": 1
+      "input": {
+        "prices": [7, 1, 5, 3, 6, 4]
+      },
+      "expected_output": 7
     }
   ],
   "code_snippets": {
@@ -33,6 +35,53 @@ Each fetched problem is written to `data/problems/{slug}.json`:
 }
 ```
 
+## Test case `input` rules
+
+- `input` is always a JSON **object** whose keys are parameter names.
+- Multi-parameter problems use keys from `meta_data.params[].name`:
+
+```json
+{
+  "input": {
+    "l1": [2, 4, 3],
+    "l2": [5, 6, 4]
+  },
+  "expected_output": [7, 0, 8]
+}
+```
+
+- Single-parameter problems choose the key **per sample case** from the matching
+  `description_md` example (by example order):
+  - Example shows a named input like `prices = [...]` → use that param name.
+  - Example shows only a bare value like `[7,1,5,3,6,4]` → use default key **`input`**.
+
+```json
+[
+  {
+    "input": { "input": [7, 1, 5, 3, 6, 4] },
+    "expected_output": 5
+  },
+  {
+    "input": { "prices": [7, 6, 4, 3, 1] },
+    "expected_output": 0
+  }
+]
+```
+
+- System-design problems (`meta_data.systemdesign = true`) use:
+
+```json
+{
+  "input": {
+    "operations": ["LRUCache", "put", "get"],
+    "arguments": [[2], [1, 1], [1]]
+  },
+  "expected_output": [null, null, 1]
+}
+```
+
+- `expected_output` uses native JSON types (`number`, `boolean`, `string`, `array`, `null`), not stringified JSON.
+
 ## Mapping to `data.sql`
 
 | JSON field | SQL table.column |
@@ -46,5 +95,7 @@ Each fetched problem is written to `data/problems/{slug}.json`:
 | `memory_limit_mb` | `problem.memory_limit_mb` |
 | `sample_test_cases[]` | `test_case` rows with `is_sample = TRUE` |
 | `code_snippets` | `problem_template.template_code` |
+
+`test_case.input` and `test_case.expected_output` are stored as JSON text.
 
 Reference seed format: `backend/oj-api/src/main/resources/data.sql`.

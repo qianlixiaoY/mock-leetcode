@@ -1,0 +1,59 @@
+{
+  "id": 560,
+  "title": "和为 K 的子数组",
+  "slug": "subarray-sum-equals-k",
+  "difficulty": "MEDIUM",
+  "description_md": "# 560. 和为 K 的子数组\n\n给你一个整数数组 `nums` 和一个整数 `k` ，请你统计并返回 该数组中和为 `k`** **的子数组的个数 。\n\n子数组是数组中元素的连续非空序列。\n\n \n\n**示例 1：**\n\n**输入：**nums = [1,1,1], k = 2\n**输出：**2\n\n**示例 2：**\n\n**输入：**nums = [1,2,3], k = 3\n**输出：**2\n\n \n\n**提示：**\n\n\t\n- `1 <= nums.length <= 2 * 104`\n\t\n- `-1000 <= nums[i] <= 1000`\n\t\n- `-107 <= k <= 107`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          1,
+          1,
+          1
+        ],
+        "k": 2
+      },
+      "expected_output": 2
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          1,
+          2,
+          3
+        ],
+        "k": 3
+      },
+      "expected_output": 2
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int subarraySum(int[] nums, int k) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def subarraySum(self, nums, k):\n        \"\"\"\n        :type nums: List[int]\n        :type k: int\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number}\n */\nvar subarraySum = function(nums, k) {\n    \n};",
+    "TYPESCRIPT": "function subarraySum(nums: number[], k: number): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "subarraySum",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      },
+      {
+        "name": "k",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

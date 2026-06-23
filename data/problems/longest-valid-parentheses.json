@@ -1,0 +1,53 @@
+{
+  "id": 32,
+  "title": "最长有效括号",
+  "slug": "longest-valid-parentheses",
+  "difficulty": "HARD",
+  "description_md": "# 32. 最长有效括号\n\n给你一个只包含 `'('` 和 `')'` 的字符串，找出最长有效（格式正确且连续）括号 子串 的长度。\n\n左右括号匹配，即每个左括号都有对应的右括号将其闭合的字符串是格式正确的，比如 `\"(()())\"`。\n\n \n\n**示例 1：**\n\n**输入：**s = \"(()\"\n**输出：**2\n**解释：**最长有效括号子串是 \"()\"\n\n**示例 2：**\n\n**输入：**s = \")()())\"\n**输出：**4\n**解释：**最长有效括号子串是 \"()()\"\n\n**示例 3：**\n\n**输入：**s = \"\"\n**输出：**0\n\n \n\n**提示：**\n\n\t\n- `0 <= s.length <= 3 * 104`\n\t\n- `s[i]` 为 `'('` 或 `')'`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "s": "(()"
+      },
+      "expected_output": 2
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "s": ")()())"
+      },
+      "expected_output": 4
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "s": ""
+      },
+      "expected_output": 0
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int longestValidParentheses(String s) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def longestValidParentheses(self, s):\n        \"\"\"\n        :type s: str\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {string} s\n * @return {number}\n */\nvar longestValidParentheses = function(s) {\n    \n};",
+    "TYPESCRIPT": "function longestValidParentheses(s: string): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "longestValidParentheses",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

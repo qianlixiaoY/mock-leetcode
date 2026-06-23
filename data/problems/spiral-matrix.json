@@ -1,0 +1,105 @@
+{
+  "id": 54,
+  "title": "螺旋矩阵",
+  "slug": "spiral-matrix",
+  "difficulty": "MEDIUM",
+  "description_md": "# 54. 螺旋矩阵\n\n给你一个 `m` 行 `n` 列的矩阵 `matrix` ，请按照 **顺时针螺旋顺序** ，返回矩阵中的所有元素。\n\n \n\n**示例 1：**\n\n**输入：**matrix = [[1,2,3],[4,5,6],[7,8,9]]\n**输出：**[1,2,3,6,9,8,7,4,5]\n\n**示例 2：**\n\n**输入：**matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]\n**输出：**[1,2,3,4,8,12,11,10,9,5,6,7]\n\n \n\n**提示：**\n\n\t\n- `m == matrix.length`\n\t\n- `n == matrix[i].length`\n\t\n- `1",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "matrix": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      },
+      "expected_output": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        8,
+        7,
+        4,
+        5
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "matrix": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8
+          ],
+          [
+            9,
+            10,
+            11,
+            12
+          ]
+        ]
+      },
+      "expected_output": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        12,
+        11,
+        10,
+        9,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<Integer> spiralOrder(int[][] matrix) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def spiralOrder(self, matrix):\n        \"\"\"\n        :type matrix: List[List[int]]\n        :rtype: List[int]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[][]} matrix\n * @return {number[]}\n */\nvar spiralOrder = function(matrix) {\n    \n};",
+    "TYPESCRIPT": "function spiralOrder(matrix: number[][]): number[] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "spiralOrder",
+    "params": [
+      {
+        "name": "matrix",
+        "type": "integer[][]"
+      }
+    ],
+    "return": {
+      "type": "list<integer>",
+      "size": "size_1 * col_size_1",
+      "dealloc": true
+    }
+  }
+}

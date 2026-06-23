@@ -1,0 +1,57 @@
+{
+  "id": 124,
+  "title": "二叉树中的最大路径和",
+  "slug": "binary-tree-maximum-path-sum",
+  "difficulty": "HARD",
+  "description_md": "# 124. 二叉树中的最大路径和\n\n二叉树中的** 路径** 被定义为一条节点序列，序列中每对相邻节点之间都存在一条边。同一个节点在一条路径序列中 **至多出现一次** 。该路径** 至少包含一个 **节点，且不一定经过根节点。\n\n**路径和** 是路径中各节点值的总和。\n\n给你一个二叉树的根节点 `root` ，返回其 **最大路径和** 。\n\n \n\n**示例 1：**\n\n**输入：**root = [1,2,3]\n**输出：**6\n**解释：**最优路径是 2 -> 1 -> 3 ，路径和为 2 + 1 + 3 = 6\n\n**示例 2：**\n\n**输入：**root = [-10,9,20,null,null,15,7]\n**输出：**42\n**解释：**最优路径是 15 -> 20 -> 7 ，路径和为 15 + 20 + 7 = 42\n\n \n\n**提示：**\n\n\t\n- 树中节点数目范围是 `[1, 3 * 104]`\n\t\n- `-1000 <= Node.val <= 1000`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "root": [
+          1,
+          2,
+          3
+        ]
+      },
+      "expected_output": 6
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "root": [
+          -10,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      },
+      "expected_output": 42
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    public int maxPathSum(TreeNode root) {\n        \n    }\n}",
+    "PYTHON": "# Definition for a binary tree node.\n# class TreeNode(object):\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution(object):\n    def maxPathSum(self, root):\n        \"\"\"\n        :type root: Optional[TreeNode]\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * Definition for a binary tree node.\n * function TreeNode(val, left, right) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.left = (left===undefined ? null : left)\n *     this.right = (right===undefined ? null : right)\n * }\n */\n/**\n * @param {TreeNode} root\n * @return {number}\n */\nvar maxPathSum = function(root) {\n    \n};",
+    "TYPESCRIPT": "/**\n * Definition for a binary tree node.\n * class TreeNode {\n *     val: number\n *     left: TreeNode | null\n *     right: TreeNode | null\n *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {\n *         this.val = (val===undefined ? 0 : val)\n *         this.left = (left===undefined ? null : left)\n *         this.right = (right===undefined ? null : right)\n *     }\n * }\n */\n\nfunction maxPathSum(root: TreeNode | null): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "maxPathSum",
+    "params": [
+      {
+        "name": "root",
+        "type": "TreeNode"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": 239,
+  "title": "滑动窗口最大值",
+  "slug": "sliding-window-maximum",
+  "difficulty": "HARD",
+  "description_md": "# 239. 滑动窗口最大值\n\n给你一个整数数组 `nums`，有一个大小为 `k` 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 `k` 个数字。滑动窗口每次只向右移动一位。\n\n返回 滑动窗口中的最大值 。\n\n \n\n**示例 1：**\n\n输入：nums = [1,3,-1,-3,5,3,6,7], k = 3\n输出：[3,3,5,5,6,7]\n解释：\n滑动窗口的位置                最大值\n---------------               -----\n[1  3  -1] -3  5  3  6  7       **3**\n 1 [3  -1  -3] 5  3  6  7       **3**\n 1  3 [-1  -3  5] 3  6  7      ** 5**\n 1  3  -1 [-3  5  3] 6  7       **5**\n 1  3  -1  -3 [5  3  6] 7       **6**\n 1  3  -1  -3  5 [3  6  7]      **7**\n\n**示例 2：**\n\n输入：nums = [1], k = 1\n输出：[1]\n\n \n\n提示：\n\n\t\n- `1 <= nums.length <= 105`\n\t\n- `-104 <= nums[i] <= 104`\n\t\n- `1 <= k <= nums.length`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          1,
+          3,
+          -1,
+          -3,
+          5,
+          3,
+          6,
+          7
+        ],
+        "k": 3
+      },
+      "expected_output": [
+        3,
+        3,
+        5,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          1
+        ],
+        "k": 1
+      },
+      "expected_output": "[1]\n\n \n\n提示：\n\n\t\n- `1 <= nums.length <= 105`\n\t\n- `-104 <= nums[i] <= 104`\n\t\n- `1 <= k <= nums.length`"
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int[] maxSlidingWindow(int[] nums, int k) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def maxSlidingWindow(self, nums, k):\n        \"\"\"\n        :type nums: List[int]\n        :type k: int\n        :rtype: List[int]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number[]}\n */\nvar maxSlidingWindow = function(nums, k) {\n    \n};",
+    "TYPESCRIPT": "function maxSlidingWindow(nums: number[], k: number): number[] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "maxSlidingWindow",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      },
+      {
+        "name": "k",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "integer[]"
+    }
+  }
+}

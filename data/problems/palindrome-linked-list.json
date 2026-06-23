@@ -1,0 +1,53 @@
+{
+  "id": 234,
+  "title": "回文链表",
+  "slug": "palindrome-linked-list",
+  "difficulty": "EASY",
+  "description_md": "# 234. 回文链表\n\n给你一个单链表的头节点 `head` ，请你判断该链表是否为回文链表。如果是，返回 `true` ；否则，返回 `false` 。\n\n \n\n**示例 1：**\n\n**输入：**head = [1,2,2,1]\n**输出：**true\n\n**示例 2：**\n\n**输入：**head = [1,2]\n**输出：**false\n\n \n\n**提示：**\n\n\t\n- 链表中节点数目在范围`[1, 105]` 内\n\t\n- `0 <= Node.val <= 9`\n\n \n\n**进阶：**你能否用 `O(n)` 时间复杂度和 `O(1)` 空间复杂度解决此题？",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1,
+          2,
+          2,
+          1
+        ]
+      },
+      "expected_output": true
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1,
+          2
+        ]
+      },
+      "expected_output": false
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public boolean isPalindrome(ListNode head) {\n        \n    }\n}",
+    "PYTHON": "# Definition for singly-linked list.\n# class ListNode(object):\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution(object):\n    def isPalindrome(self, head):\n        \"\"\"\n        :type head: Optional[ListNode]\n        :rtype: bool\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * Definition for singly-linked list.\n * function ListNode(val, next) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.next = (next===undefined ? null : next)\n * }\n */\n/**\n * @param {ListNode} head\n * @return {boolean}\n */\nvar isPalindrome = function(head) {\n    \n};",
+    "TYPESCRIPT": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *     val: number\n *     next: ListNode | null\n *     constructor(val?: number, next?: ListNode | null) {\n *         this.val = (val===undefined ? 0 : val)\n *         this.next = (next===undefined ? null : next)\n *     }\n * }\n */\n\nfunction isPalindrome(head: ListNode | null): boolean {\n    \n};"
+  },
+  "meta_data": {
+    "name": "isPalindrome",
+    "params": [
+      {
+        "name": "head",
+        "type": "ListNode"
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    }
+  }
+}

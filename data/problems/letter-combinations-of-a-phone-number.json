@@ -1,0 +1,59 @@
+{
+  "id": 17,
+  "title": "电话号码的字母组合",
+  "slug": "letter-combinations-of-a-phone-number",
+  "difficulty": "MEDIUM",
+  "description_md": "# 17. 电话号码的字母组合\n\n给定一个仅包含数字 `2-9` 的字符串，返回所有它能表示的字母组合。答案可以按 **任意顺序** 返回。\n\n给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。\n\n \n\n**示例 1：**\n\n**输入：**digits = \"23\"\n**输出：**[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]\n\n**示例 2：**\n\n**输入：**digits = \"2\"\n**输出：**[\"a\",\"b\",\"c\"]\n\n \n\n**提示：**\n\n\t\n- `1 <= digits.length <= 4`\n\t\n- `digits[i]` 是范围 `['2', '9']` 的一个数字。",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "digits": "23"
+      },
+      "expected_output": [
+        "ad",
+        "ae",
+        "af",
+        "bd",
+        "be",
+        "bf",
+        "cd",
+        "ce",
+        "cf"
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "digits": "2"
+      },
+      "expected_output": [
+        "a",
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<String> letterCombinations(String digits) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def letterCombinations(self, digits):\n        \"\"\"\n        :type digits: str\n        :rtype: List[str]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {string} digits\n * @return {string[]}\n */\nvar letterCombinations = function(digits) {\n    \n};",
+    "TYPESCRIPT": "function letterCombinations(digits: string): string[] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "letterCombinations",
+    "params": [
+      {
+        "name": "digits",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "list<string>"
+    }
+  }
+}

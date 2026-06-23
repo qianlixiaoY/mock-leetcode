@@ -1,0 +1,85 @@
+{
+  "id": 78,
+  "title": "子集",
+  "slug": "subsets",
+  "difficulty": "MEDIUM",
+  "description_md": "# 78. 子集\n\n给你一个整数数组 `nums` ，数组中的元素 **互不相同** 。返回该数组所有可能的子集（幂集）。\n\n解集 **不能** 包含重复的子集。你可以按 **任意顺序** 返回解集。\n\n \n\n**示例 1：**\n\n**输入：**nums = [1,2,3]\n**输出：**[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]\n\n**示例 2：**\n\n**输入：**nums = [0]\n**输出：**[[],[0]]\n\n \n\n**提示：**\n\n\t\n- `1 <= nums.length <= 10`\n\t\n- `-10 <= nums[i] <= 10`\n\t\n- `nums` 中的所有元素 **互不相同**",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          1,
+          2,
+          3
+        ]
+      },
+      "expected_output": [
+        [],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          0
+        ]
+      },
+      "expected_output": [
+        [],
+        [
+          0
+        ]
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<List<Integer>> subsets(int[] nums) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def subsets(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: List[List[int]]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @return {number[][]}\n */\nvar subsets = function(nums) {\n    \n};",
+    "TYPESCRIPT": "function subsets(nums: number[]): number[][] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "subsets",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "list<list<integer>>",
+      "dealloc": true
+    }
+  }
+}

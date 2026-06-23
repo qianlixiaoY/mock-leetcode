@@ -1,0 +1,57 @@
+{
+  "id": 169,
+  "title": "多数元素",
+  "slug": "majority-element",
+  "difficulty": "EASY",
+  "description_md": "# 169. 多数元素\n\n给定一个大小为 `n` 的数组 `nums` ，返回其中的多数元素。多数元素是指在数组中出现次数 **大于** `⌊ n/2 ⌋` 的元素。\n\n你可以假设数组是非空的，并且给定的数组总是存在多数元素。\n\n \n\n**示例 1：**\n\n**输入：**nums = [3,2,3]\n**输出：**3\n\n**示例 2：**\n\n**输入：**nums = [2,2,1,1,1,2,2]\n**输出：**2\n\n \n\n**提示：**\n\n\t\n- `n == nums.length`\n\t\n- `1 <= n <= 5 * 104`\n\t\n- `-109 <= nums[i] <= 109`\n\t\n- 输入保证数组中一定有一个多数元素。\n\n \n\n**进阶：**尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          3,
+          2,
+          3
+        ]
+      },
+      "expected_output": 3
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      "expected_output": 2
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int majorityElement(int[] nums) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def majorityElement(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar majorityElement = function(nums) {\n    \n};",
+    "TYPESCRIPT": "function majorityElement(nums: number[]): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "majorityElement",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

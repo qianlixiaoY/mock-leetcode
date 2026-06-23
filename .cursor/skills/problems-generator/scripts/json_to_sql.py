@@ -16,6 +16,10 @@ def sql_string(value: str) -> str:
     return "'" + value.replace("'", "''") + "'"
 
 
+def sql_json_value(value) -> str:
+    return sql_string(json.dumps(value, ensure_ascii=False))
+
+
 def load_existing_slugs(data_sql: Path) -> set[str]:
     if not data_sql.exists():
         return set()
@@ -70,9 +74,15 @@ def render_test_cases(problem: dict) -> str:
     rows = []
     for case in cases:
         is_sample = "TRUE" if case.get("is_sample", True) else "FALSE"
+        input_value = case["input"]
+        output_value = case["expected_output"]
+        if not isinstance(input_value, str):
+            input_value = json.dumps(input_value, ensure_ascii=False)
+        if not isinstance(output_value, str):
+            output_value = json.dumps(output_value, ensure_ascii=False)
         rows.append(
-            f"({problem['id']}, {sql_string(case['input'])}, "
-            f"{sql_string(case['expected_output'])}, {is_sample}, {case['sort_order']})"
+            f"({problem['id']}, {sql_string(input_value)}, "
+            f"{sql_string(output_value)}, {is_sample}, {case['sort_order']})"
         )
 
     lines = [

@@ -1,0 +1,44 @@
+{
+  "id": 84,
+  "title": "柱状图中最大的矩形",
+  "slug": "largest-rectangle-in-histogram",
+  "difficulty": "HARD",
+  "description_md": "# 84. 柱状图中最大的矩形\n\n给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。\n\n求在该柱状图中，能够勾勒出来的矩形的最大面积。\n\n \n\n**示例 1:**\n\n**输入：**heights = [2,1,5,6,2,3]\n**输出：**10\n**解释：**最大的矩形为图中红色区域，面积为 10\n\n**示例 2：**\n\n**输入：** heights = [2,4]\n输出： 4\n\n \n\n**提示：**\n\n\t\n- `1 5`\n\t\n- `0 4`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "heights": [
+          2,
+          1,
+          5,
+          6,
+          2,
+          3
+        ]
+      },
+      "expected_output": 10
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int largestRectangleArea(int[] heights) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def largestRectangleArea(self, heights):\n        \"\"\"\n        :type heights: List[int]\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} heights\n * @return {number}\n */\nvar largestRectangleArea = function(heights) {\n    \n};",
+    "TYPESCRIPT": "function largestRectangleArea(heights: number[]): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "largestRectangleArea",
+    "params": [
+      {
+        "name": "heights",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

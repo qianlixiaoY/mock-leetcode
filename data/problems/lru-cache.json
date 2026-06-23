@@ -1,0 +1,129 @@
+{
+  "id": 146,
+  "title": "LRU 缓存",
+  "slug": "lru-cache",
+  "difficulty": "MEDIUM",
+  "description_md": "# 146. LRU 缓存\n\n请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。\n\n实现 `LRUCache` 类：\n\n\t\n- `LRUCache(int capacity)` 以 **正整数** 作为容量 `capacity` 初始化 LRU 缓存\n\t\n- `int get(int key)` 如果关键字 `key` 存在于缓存中，则返回关键字的值，否则返回 `-1` 。\n\t\n- `void put(int key, int value)` 如果关键字 `key` 已经存在，则变更其数据值 `value` ；如果不存在，则向缓存中插入该组 `key-value` 。如果插入操作导致关键字数量超过 `capacity` ，则应该 **逐出** 最久未使用的关键字。\n\n函数 `get` 和 `put` 必须以 `O(1)` 的平均时间复杂度运行。\n\n \n\n**示例：**\n\n**输入**\n[\"LRUCache\", \"put\", \"put\", \"get\", \"put\", \"get\", \"put\", \"get\", \"get\", \"get\"]\n[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]\n**输出**\n[null, null, null, 1, null, -1, null, -1, 3, 4]\n\n**解释**\nLRUCache lRUCache = new LRUCache(2);\nlRUCache.put(1, 1); // 缓存是 {1=1}\nlRUCache.put(2, 2); // 缓存是 {1=1, 2=2}\nlRUCache.get(1);    // 返回 1\nlRUCache.put(3, 3); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}\nlRUCache.get(2);    // 返回 -1 (未找到)\nlRUCache.put(4, 4); // 该操作会使得关键字 1 作废，缓存是 {4=4, 3=3}\nlRUCache.get(1);    // 返回 -1 (未找到)\nlRUCache.get(3);    // 返回 3\nlRUCache.get(4);    // 返回 4\n\n \n\n**提示：**\n\n\t\n- `1 <= capacity <= 3000`\n\t\n- `0 <= key <= 10000`\n\t\n- `0 <= value <= 105`\n\t\n- 最多调用 `2 * 105` 次 `get` 和 `put`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "operations": [
+          "LRUCache",
+          "put",
+          "put",
+          "get",
+          "put",
+          "get",
+          "put",
+          "get",
+          "get",
+          "get"
+        ],
+        "arguments": [
+          [
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            1
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            1
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      },
+      "expected_output": "[null, null, null, 1, null, -1, null, -1, 3, 4]\n\n解释\nLRUCache lRUCache = new LRUCache(2);\nlRUCache.put(1, 1); // 缓存是 {1=1}\nlRUCache.put(2, 2); // 缓存是 {1=1, 2=2}\nlRUCache.get(1);    // 返回 1\nlRUCache.put(3, 3); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}\nlRUCache.get(2);    // 返回 -1 (未找到)\nlRUCache.put(4, 4); // 该操作会使得关键字 1 作废，缓存是 {4=4, 3=3}\nlRUCache.get(1);    // 返回 -1 (未找到)\nlRUCache.get(3);    // 返回 3\nlRUCache.get(4);    // 返回 4"
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class LRUCache {\n\n    public LRUCache(int capacity) {\n        \n    }\n    \n    public int get(int key) {\n        \n    }\n    \n    public void put(int key, int value) {\n        \n    }\n}\n\n/**\n * Your LRUCache object will be instantiated and called as such:\n * LRUCache obj = new LRUCache(capacity);\n * int param_1 = obj.get(key);\n * obj.put(key,value);\n */",
+    "PYTHON": "class LRUCache(object):\n\n    def __init__(self, capacity):\n        \"\"\"\n        :type capacity: int\n        \"\"\"\n        \n\n    def get(self, key):\n        \"\"\"\n        :type key: int\n        :rtype: int\n        \"\"\"\n        \n\n    def put(self, key, value):\n        \"\"\"\n        :type key: int\n        :type value: int\n        :rtype: None\n        \"\"\"\n        \n\n\n# Your LRUCache object will be instantiated and called as such:\n# obj = LRUCache(capacity)\n# param_1 = obj.get(key)\n# obj.put(key,value)",
+    "JAVASCRIPT": "/**\n * @param {number} capacity\n */\nvar LRUCache = function(capacity) {\n    \n};\n\n/** \n * @param {number} key\n * @return {number}\n */\nLRUCache.prototype.get = function(key) {\n    \n};\n\n/** \n * @param {number} key \n * @param {number} value\n * @return {void}\n */\nLRUCache.prototype.put = function(key, value) {\n    \n};\n\n/** \n * Your LRUCache object will be instantiated and called as such:\n * var obj = new LRUCache(capacity)\n * var param_1 = obj.get(key)\n * obj.put(key,value)\n */",
+    "TYPESCRIPT": "class LRUCache {\n    constructor(capacity: number) {\n        \n    }\n\n    get(key: number): number {\n        \n    }\n\n    put(key: number, value: number): void {\n        \n    }\n}\n\n/**\n * Your LRUCache object will be instantiated and called as such:\n * var obj = new LRUCache(capacity)\n * var param_1 = obj.get(key)\n * obj.put(key,value)\n */"
+  },
+  "meta_data": {
+    "classname": "LRUCache",
+    "maxbytesperline": 200000,
+    "constructor": {
+      "params": [
+        {
+          "type": "integer",
+          "name": "capacity"
+        }
+      ]
+    },
+    "methods": [
+      {
+        "name": "get",
+        "params": [
+          {
+            "type": "integer",
+            "name": "key"
+          }
+        ],
+        "return": {
+          "type": "integer"
+        }
+      },
+      {
+        "name": "put",
+        "params": [
+          {
+            "type": "integer",
+            "name": "key"
+          },
+          {
+            "type": "integer",
+            "name": "value"
+          }
+        ],
+        "return": {
+          "type": "void"
+        }
+      }
+    ],
+    "systemdesign": true,
+    "params": [
+      {
+        "name": "inputs",
+        "type": "integer[]"
+      },
+      {
+        "name": "inputs",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "list<String>",
+      "dealloc": true
+    }
+  }
+}

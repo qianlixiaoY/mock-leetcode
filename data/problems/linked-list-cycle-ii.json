@@ -1,0 +1,87 @@
+{
+  "id": 142,
+  "title": "环形链表 II",
+  "slug": "linked-list-cycle-ii",
+  "difficulty": "MEDIUM",
+  "description_md": "# 142. 环形链表 II\n\n给定一个链表的头节点  `head` ，返回链表开始入环的第一个节点。 如果链表无环，则返回 `null`。\n\n如果链表中有某个节点，可以通过连续跟踪 `next` 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 `pos` 来表示链表尾连接到链表中的位置（**索引从 0 开始**）。如果 `pos` 是 `-1`，则在该链表中没有环。**注意：`pos` 不作为参数进行传递**，仅仅是为了标识链表的实际情况。\n\n**不允许修改 **链表。\n\n \n\n**示例 1：**\n\n**输入：**head = [3,2,0,-4], pos = 1\n**输出：**返回索引为 1 的链表节点\n**解释：**链表中有一个环，其尾部连接到第二个节点。\n\n**示例 2：**\n\n**输入：**head = [1,2], pos = 0\n**输出：**返回索引为 0 的链表节点\n**解释：**链表中有一个环，其尾部连接到第一个节点。\n\n**示例 3：**\n\n**输入：**head = [1], pos = -1\n**输出：**返回 null\n**解释：**链表中没有环。\n\n \n\n**提示：**\n\n\t\n- 链表中节点的数目范围在范围 `[0, 104]` 内\n\t\n- `-105 <= Node.val <= 105`\n\t\n- `pos` 的值为 `-1` 或者链表中的一个有效索引\n\n \n\n**进阶：**你是否可以使用 `O(1)` 空间解决此题？",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "head": [
+          3,
+          2,
+          0,
+          -4
+        ],
+        "pos": 1
+      },
+      "expected_output": "返回索引为 1 的链表节点"
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1,
+          2
+        ],
+        "pos": 0
+      },
+      "expected_output": "返回索引为 0 的链表节点"
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "head": [
+          1
+        ],
+        "pos": -1
+      },
+      "expected_output": "返回 null"
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode(int x) {\n *         val = x;\n *         next = null;\n *     }\n * }\n */\npublic class Solution {\n    public ListNode detectCycle(ListNode head) {\n        \n    }\n}",
+    "PYTHON": "# Definition for singly-linked list.\n# class ListNode(object):\n#     def __init__(self, x):\n#         self.val = x\n#         self.next = None\n\nclass Solution(object):\n    def detectCycle(self, head):\n        \"\"\"\n        :type head: ListNode\n        :rtype: ListNode\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * Definition for singly-linked list.\n * function ListNode(val) {\n *     this.val = val;\n *     this.next = null;\n * }\n */\n\n/**\n * @param {ListNode} head\n * @return {ListNode}\n */\nvar detectCycle = function(head) {\n    \n};",
+    "TYPESCRIPT": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *     val: number\n *     next: ListNode | null\n *     constructor(val?: number, next?: ListNode | null) {\n *         this.val = (val===undefined ? 0 : val)\n *         this.next = (next===undefined ? null : next)\n *     }\n * }\n */\n\nfunction detectCycle(head: ListNode | null): ListNode | null {\n    \n};"
+  },
+  "meta_data": {
+    "name": "detectCycle",
+    "params": [
+      {
+        "name": "head",
+        "type": "ListNode"
+      },
+      {
+        "name": "pos",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "ListNode"
+    },
+    "languages": [
+      "cpp",
+      "java",
+      "python",
+      "c",
+      "csharp",
+      "javascript",
+      "golang",
+      "python3",
+      "swift",
+      "kotlin",
+      "php",
+      "ruby",
+      "scala",
+      "typescript"
+    ],
+    "manual": true
+  }
+}

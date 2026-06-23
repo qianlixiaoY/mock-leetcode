@@ -10,6 +10,8 @@ import {
   saveDraft,
   submitCode,
 } from '@/api'
+import { parseTestCaseInput, stringifyTestCaseInput } from '@/utils/testCase'
+import type { TestCaseInputObject } from '@/utils/testCase'
 
 export const useProblemStore = defineStore('problem', () => {
   const problem = ref<ProblemDetail | null>(null)
@@ -18,7 +20,7 @@ export const useProblemStore = defineStore('problem', () => {
   const loading = ref(false)
   const running = ref(false)
   const submitting = ref(false)
-  const customInput = ref('[7,1,5,3,6,4]')
+  const customInput = ref<TestCaseInputObject>({})
   const runResult = ref<string>('')
   const activeConsoleTab = ref<'cases' | 'result'>('cases')
   const submissions = ref<Submission[]>([])
@@ -34,7 +36,7 @@ export const useProblemStore = defineStore('problem', () => {
     try {
       problem.value = await fetchProblem(id)
       if (problem.value.sampleTestCases.length > 0) {
-        customInput.value = problem.value.sampleTestCases[0].input
+        customInput.value = parseTestCaseInput(problem.value.sampleTestCases[0].input)
       }
       await loadCode(id)
       submissions.value = await fetchSubmissions(id)
@@ -74,7 +76,7 @@ export const useProblemStore = defineStore('problem', () => {
         problemId,
         language: language.value,
         code: code.value,
-        input: customInput.value,
+        input: stringifyTestCaseInput(customInput.value),
       })
       runResult.value = [
         `状态: ${result.status}`,

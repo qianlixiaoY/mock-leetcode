@@ -1,0 +1,45 @@
+{
+  "id": 70,
+  "title": "爬楼梯",
+  "slug": "climbing-stairs",
+  "difficulty": "EASY",
+  "description_md": "# 70. 爬楼梯\n\n假设你正在爬楼梯。需要 `n` 阶你才能到达楼顶。\n\n每次你可以爬 `1` 或 `2` 个台阶。你有多少种不同的方法可以爬到楼顶呢？\n\n \n\n**示例 1：**\n\n**输入：**n = 2\n**输出：**2\n**解释：**有两种方法可以爬到楼顶。\n1. 1 阶 + 1 阶\n2. 2 阶\n\n**示例 2：**\n\n**输入：**n = 3\n**输出：**3\n**解释：**有三种方法可以爬到楼顶。\n1. 1 阶 + 1 阶 + 1 阶\n2. 1 阶 + 2 阶\n3. 2 阶 + 1 阶\n\n \n\n**提示：**\n\n\t\n- `1 <= n <= 45`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "n": 2
+      },
+      "expected_output": 2
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "n": 3
+      },
+      "expected_output": 3
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int climbStairs(int n) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def climbStairs(self, n):\n        \"\"\"\n        :type n: int\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number} n\n * @return {number}\n */\nvar climbStairs = function(n) {\n    \n};",
+    "TYPESCRIPT": "function climbStairs(n: number): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "climbStairs",
+    "params": [
+      {
+        "name": "n",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

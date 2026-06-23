@@ -1,0 +1,71 @@
+{
+  "id": 287,
+  "title": "寻找重复数",
+  "slug": "find-the-duplicate-number",
+  "difficulty": "MEDIUM",
+  "description_md": "# 287. 寻找重复数\n\n给定一个包含 `n + 1` 个整数的数组 `nums` ，其数字都在 `[1, n]` 范围内（包括 `1` 和 `n`），可知至少存在一个重复的整数。\n\n假设 `nums` 只有 **一个重复的整数** ，返回 **这个重复的数** 。\n\n你设计的解决方案必须 **不修改** 数组 `nums` 且只用常量级 `O(1)` 的额外空间。\n\n \n\n**示例 1：**\n\n**输入：**nums = [1,3,4,2,2]\n**输出：**2\n\n**示例 2：**\n\n**输入：**nums = [3,1,3,4,2]\n**输出：**3\n\n**示例 3 :**\n\n**输入：**nums = [3,3,3,3,3]\n**输出：**3\n\n \n\n \n\n**提示：**\n\n\t\n- `1 <= n <= 105`\n\t\n- `nums.length == n + 1`\n\t\n- `1 <= nums[i] <= n`\n\t\n- `nums` 中 **只有一个整数** 出现 **两次或多次** ，其余整数均只出现 **一次**\n\n \n\n进阶：\n\n\t\n- 如何证明 `nums` 中至少存在一个重复的数字?\n\t\n- 你可以设计一个线性级时间复杂度 `O(n)` 的解决方案吗？",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          1,
+          3,
+          4,
+          2,
+          2
+        ]
+      },
+      "expected_output": 2
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          3,
+          1,
+          3,
+          4,
+          2
+        ]
+      },
+      "expected_output": "3\n\n\n示例 3 :"
+    },
+    {
+      "sort_order": 3,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "expected_output": 3
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int findDuplicate(int[] nums) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def findDuplicate(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar findDuplicate = function(nums) {\n    \n};",
+    "TYPESCRIPT": "function findDuplicate(nums: number[]): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "findDuplicate",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}

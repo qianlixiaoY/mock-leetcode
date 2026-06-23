@@ -1,0 +1,58 @@
+{
+  "id": 438,
+  "title": "找到字符串中所有字母异位词",
+  "slug": "find-all-anagrams-in-a-string",
+  "difficulty": "MEDIUM",
+  "description_md": "# 438. 找到字符串中所有字母异位词\n\n给定两个字符串 `s` 和 `p`，找到 `s`** **中所有 `p`** **的 **异位词 **的子串，返回这些子串的起始索引。不考虑答案输出的顺序。\n\n \n\n**示例 1:**\n\n**输入: **s = \"cbaebabacd\", p = \"abc\"\n**输出: **[0,6]\n**解释:**\n起始索引等于 0 的子串是 \"cba\", 它是 \"abc\" 的异位词。\n起始索引等于 6 的子串是 \"bac\", 它是 \"abc\" 的异位词。\n\n** 示例 2:**\n\n**输入: **s = \"abab\", p = \"ab\"\n**输出: **[0,1,2]\n**解释:**\n起始索引等于 0 的子串是 \"ab\", 它是 \"ab\" 的异位词。\n起始索引等于 1 的子串是 \"ba\", 它是 \"ab\" 的异位词。\n起始索引等于 2 的子串是 \"ab\", 它是 \"ab\" 的异位词。\n\n \n\n**提示:**\n\n\t\n- `1 <= s.length, p.length <= 3 * 104`\n\t\n- `s` 和 `p` 仅包含小写字母",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "s": "cbaebabacd",
+        "p": "abc"
+      },
+      "expected_output": [
+        0,
+        6
+      ]
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "s": "abab",
+        "p": "ab"
+      },
+      "expected_output": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public List<Integer> findAnagrams(String s, String p) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def findAnagrams(self, s, p):\n        \"\"\"\n        :type s: str\n        :type p: str\n        :rtype: List[int]\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {string} s\n * @param {string} p\n * @return {number[]}\n */\nvar findAnagrams = function(s, p) {\n    \n};",
+    "TYPESCRIPT": "function findAnagrams(s: string, p: string): number[] {\n    \n};"
+  },
+  "meta_data": {
+    "name": "findAnagrams",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      },
+      {
+        "name": "p",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "list<integer>"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": 200,
+  "title": "岛屿数量",
+  "slug": "number-of-islands",
+  "difficulty": "MEDIUM",
+  "description_md": "# 200. 岛屿数量\n\n给你一个由 `'1'`（陆地）和 `'0'`（水）组成的的二维网格，请你计算网格中岛屿的数量。\n\n岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。\n\n此外，你可以假设该网格的四条边均被水包围。\n\n \n\n**示例 1：**\n\n**输入：**grid = [\n  ['1','1','1','1','0'],\n  ['1','1','0','1','0'],\n  ['1','1','0','0','0'],\n  ['0','0','0','0','0']\n]\n**输出：**1\n\n**示例 2：**\n\n**输入：**grid = [\n  ['1','1','0','0','0'],\n  ['1','1','0','0','0'],\n  ['0','0','1','0','0'],\n  ['0','0','0','1','1']\n]\n**输出：**3\n\n \n\n**提示：**\n\n\t\n- `m == grid.length`\n\t\n- `n == grid[i].length`\n\t\n- `1 <= m, n <= 300`\n\t\n- `grid[i][j]` 的值为 `'0'` 或 `'1'`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "grid": [
+          [
+            "1",
+            "1",
+            "1",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "expected_output": 1
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "grid": [
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      "expected_output": 3
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int numIslands(char[][] grid) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def numIslands(self, grid):\n        \"\"\"\n        :type grid: List[List[str]]\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {character[][]} grid\n * @return {number}\n */\nvar numIslands = function(grid) {\n    \n};",
+    "TYPESCRIPT": "function numIslands(grid: string[][]): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "numIslands",
+    "params": [
+      {
+        "name": "grid",
+        "type": "character[][]"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    },
+    "manual": true
+  }
+}

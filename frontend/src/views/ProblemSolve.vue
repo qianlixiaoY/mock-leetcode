@@ -101,19 +101,28 @@
                         v-for="(sample, index) in store.problem?.sampleTestCases ?? []"
                         :key="sample.id"
                         size="small"
-                        :type="store.customInput === sample.input ? 'primary' : 'default'"
-                        @click="store.customInput = sample.input"
+                        :type="
+                          normalizeTestCaseInputForCompare(store.customInput) ===
+                          normalizeTestCaseInputForCompare(sample.input)
+                            ? 'primary'
+                            : 'default'
+                        "
+                        @click="store.customInput = parseTestCaseInput(sample.input)"
                       >
                         示例 {{ index + 1 }}
                       </el-button>
                     </div>
                     <label class="label">输入</label>
-                    <el-input
-                      v-model="store.customInput"
-                      type="textarea"
-                      :rows="4"
-                      resize="none"
-                    />
+                    <div class="input-row" v-for="inputKey in Object.keys(store.customInput)" :key="inputKey">
+                      <label>{{ inputKey }}</label>
+                      <el-input
+                        :model-value="formatFieldValue(store.customInput[inputKey])"
+                        type="textarea"
+                        :rows="4"
+                        resize="none"
+                        @update:model-value="updateCustomInputField(inputKey, $event)"
+                      />
+                    </div>
                   </div>
                 </el-tab-pane>
                 <el-tab-pane label="测试结果" name="result">
@@ -131,7 +140,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted } from 'vue'
 import { Splitpanes, Pane } from 'splitpanes'
 import CodeEditor from '@/components/CodeEditor.vue'
 import MarkdownView from '@/components/MarkdownView.vue'
@@ -144,6 +153,12 @@ import {
   type JudgeStatus,
   type Submission,
 } from '@/types'
+import {
+  formatFieldValue,
+  normalizeTestCaseInputForCompare,
+  parseFieldValue,
+  parseTestCaseInput,
+} from '@/utils/testCase'
 
 const props = defineProps<{ id: string }>()
 const problemId = computed(() => Number(props.id))
@@ -157,9 +172,9 @@ onMounted(async () => {
   await store.loadProblem(problemId.value)
 })
 
-watch(() => store.problem?.sampleTestCases, (cases) => {
-  console.log('......store......', cases)
-})
+function updateCustomInputField(key: string, value: string) {
+  store.customInput[key] = parseFieldValue(value)
+}
 
 onBeforeUnmount(() => {
   store.cleanup()
@@ -311,6 +326,10 @@ function formatTime(value: string) {
 .label {
   font-size: 13px;
   color: var(--oj-text-muted);
+}
+
+.input-row {
+  margin-top: 12px;
 }
 
 .result-pre {

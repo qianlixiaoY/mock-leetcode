@@ -1,0 +1,65 @@
+{
+  "id": 207,
+  "title": "课程表",
+  "slug": "course-schedule",
+  "difficulty": "MEDIUM",
+  "description_md": "# 207. 课程表\n\n你这个学期必须选修 `numCourses` 门课程，记为 `0` 到 `numCourses - 1` 。\n\n在选修某些课程之前需要一些先修课程。 先修课程按数组 `prerequisites` 给出，其中 `prerequisites[i] = [ai, bi]` ，表示如果要学习课程 `ai` 则 **必须** 先学习课程  `bi` 。\n\n\t\n- 例如，先修课程对 `[0, 1]` 表示：想要学习课程 `0` ，你需要先完成课程 `1` 。\n\n请你判断是否可能完成所有课程的学习？如果可以，返回 `true` ；否则，返回 `false` 。\n\n \n\n**示例 1：**\n\n**输入：**numCourses = 2, prerequisites = [[1,0]]\n**输出：**true\n**解释：**总共有 2 门课程。学习课程 1 之前，你需要完成课程 0 。这是可能的。\n\n**示例 2：**\n\n**输入：**numCourses = 2, prerequisites = [[1,0],[0,1]]\n**输出：**false\n**解释：**总共有 2 门课程。学习课程 1 之前，你需要先完成​课程 0 ；并且学习课程 0 之前，你还应先完成课程 1 。这是不可能的。\n\n \n\n**提示：**\n\n\t\n- `1 <= numCourses <= 2000`\n\t\n- `0 <= prerequisites.length <= 5000`\n\t\n- `prerequisites[i].length == 2`\n\t\n- `0 <= ai, bi < numCourses`\n\t\n- `prerequisites[i]` 中的所有课程对 **互不相同**",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "numCourses": 2,
+        "prerequisites": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "expected_output": true
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "numCourses": 2,
+        "prerequisites": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "expected_output": false
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public boolean canFinish(int numCourses, int[][] prerequisites) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def canFinish(self, numCourses, prerequisites):\n        \"\"\"\n        :type numCourses: int\n        :type prerequisites: List[List[int]]\n        :rtype: bool\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number} numCourses\n * @param {number[][]} prerequisites\n * @return {boolean}\n */\nvar canFinish = function(numCourses, prerequisites) {\n    \n};",
+    "TYPESCRIPT": "function canFinish(numCourses: number, prerequisites: number[][]): boolean {\n    \n};"
+  },
+  "meta_data": {
+    "name": "canFinish",
+    "params": [
+      {
+        "name": "numCourses",
+        "type": "integer"
+      },
+      {
+        "name": "prerequisites",
+        "type": "integer[][]"
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    }
+  }
+}

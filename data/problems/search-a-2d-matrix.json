@@ -1,0 +1,89 @@
+{
+  "id": 74,
+  "title": "搜索二维矩阵",
+  "slug": "search-a-2d-matrix",
+  "difficulty": "MEDIUM",
+  "description_md": "# 74. 搜索二维矩阵\n\n给你一个满足下述两条属性的 `m x n` 整数矩阵：\n\n\t\n- 每行中的整数从左到右按非严格递增顺序排列。\n\t\n- 每行的第一个整数大于前一行的最后一个整数。\n\n给你一个整数 `target` ，如果 `target` 在矩阵中，返回 `true` ；否则，返回 `false` 。\n\n \n\n**示例 1：**\n\n**输入：**matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3\n**输出：**true\n\n**示例 2：**\n\n**输入：**matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13\n**输出：**false\n\n \n\n**提示：**\n\n\t\n- `m == matrix.length`\n\t\n- `n == matrix[i].length`\n\t\n- `1 <= m, n <= 100`\n\t\n- `-104 <= matrix[i][j], target <= 104`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "matrix": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            10,
+            11,
+            16,
+            20
+          ],
+          [
+            23,
+            30,
+            34,
+            60
+          ]
+        ],
+        "target": 3
+      },
+      "expected_output": true
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "matrix": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            10,
+            11,
+            16,
+            20
+          ],
+          [
+            23,
+            30,
+            34,
+            60
+          ]
+        ],
+        "target": 13
+      },
+      "expected_output": false
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public boolean searchMatrix(int[][] matrix, int target) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def searchMatrix(self, matrix, target):\n        \"\"\"\n        :type matrix: List[List[int]]\n        :type target: int\n        :rtype: bool\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[][]} matrix\n * @param {number} target\n * @return {boolean}\n */\nvar searchMatrix = function(matrix, target) {\n    \n};",
+    "TYPESCRIPT": "function searchMatrix(matrix: number[][], target: number): boolean {\n    \n};"
+  },
+  "meta_data": {
+    "name": "searchMatrix",
+    "params": [
+      {
+        "name": "matrix",
+        "type": "integer[][]"
+      },
+      {
+        "name": "target",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    }
+  }
+}

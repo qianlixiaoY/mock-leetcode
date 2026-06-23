@@ -1,0 +1,68 @@
+{
+  "id": 215,
+  "title": "数组中的第K个最大元素",
+  "slug": "kth-largest-element-in-an-array",
+  "difficulty": "MEDIUM",
+  "description_md": "# 215. 数组中的第K个最大元素\n\n给定整数数组 `nums` 和整数 `k`，请返回数组中第 `**k**` 个最大的元素。\n\n请注意，你需要找的是数组排序后的第 `k` 个最大的元素，而不是第 `k` 个不同的元素。\n\n你必须设计并实现时间复杂度为 `O(n)` 的算法解决此问题。\n\n \n\n**示例 1:**\n\n**输入:** `[3,2,1,5,6,4],` k = 2\n**输出:** 5\n\n**示例 2:**\n\n**输入:** `[3,2,3,1,2,4,5,5,6], `k = 4\n**输出:** 4\n\n \n\n**提示： **\n\n\t\n- `1 <= k <= nums.length <= 105`\n\t\n- `-104 <= nums[i] <= 104`",
+  "time_limit_ms": 2000,
+  "memory_limit_mb": 256,
+  "sample_test_cases": [
+    {
+      "sort_order": 1,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          3,
+          2,
+          1,
+          5,
+          6,
+          4
+        ],
+        "k": 2
+      },
+      "expected_output": 5
+    },
+    {
+      "sort_order": 2,
+      "is_sample": true,
+      "input": {
+        "nums": [
+          3,
+          2,
+          3,
+          1,
+          2,
+          4,
+          5,
+          5,
+          6
+        ],
+        "k": 4
+      },
+      "expected_output": 4
+    }
+  ],
+  "code_snippets": {
+    "JAVA": "class Solution {\n    public int findKthLargest(int[] nums, int k) {\n        \n    }\n}",
+    "PYTHON": "class Solution(object):\n    def findKthLargest(self, nums, k):\n        \"\"\"\n        :type nums: List[int]\n        :type k: int\n        :rtype: int\n        \"\"\"\n        ",
+    "JAVASCRIPT": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number}\n */\nvar findKthLargest = function(nums, k) {\n    \n};",
+    "TYPESCRIPT": "function findKthLargest(nums: number[], k: number): number {\n    \n};"
+  },
+  "meta_data": {
+    "name": "findKthLargest",
+    "params": [
+      {
+        "name": "nums",
+        "type": "integer[]"
+      },
+      {
+        "name": "k",
+        "type": "integer"
+      }
+    ],
+    "return": {
+      "type": "integer"
+    }
+  }
+}
