@@ -30,8 +30,9 @@ def load_existing_slugs(data_sql: Path) -> set[str]:
 
 
 def render_problem(problem: dict) -> str:
+    meta_data = json.dumps(problem.get("meta_data") or {}, ensure_ascii=False)
     lines = [
-        "INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)",
+        "INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)",
         "VALUES (",
         f"    {problem['id']},",
         f"    {sql_string(problem['title'])},",
@@ -39,7 +40,8 @@ def render_problem(problem: dict) -> str:
         f"    {sql_string(problem['difficulty'])},",
         f"    {sql_string(problem['description_md'])},",
         f"    {problem.get('time_limit_ms', 2000)},",
-        f"    {problem.get('memory_limit_mb', 256)}",
+        f"    {problem.get('memory_limit_mb', 256)},",
+        f"    {sql_string(meta_data)}",
         ");",
         "",
     ]

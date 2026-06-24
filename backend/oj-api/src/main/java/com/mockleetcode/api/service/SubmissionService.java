@@ -10,7 +10,9 @@ import com.mockleetcode.api.entity.TestCase;
 import com.mockleetcode.api.repository.ProblemRepository;
 import com.mockleetcode.api.repository.SubmissionRepository;
 import com.mockleetcode.api.repository.TestCaseRepository;
+import com.mockleetcode.api.support.ProblemMetaParser;
 import com.mockleetcode.common.dto.JudgeRequest;
+import com.mockleetcode.common.dto.ProblemMeta;
 import com.mockleetcode.common.dto.JudgeResult;
 import com.mockleetcode.common.dto.TestCaseDto;
 import com.mockleetcode.common.enums.JudgeStatus;
@@ -40,6 +42,7 @@ public class SubmissionService {
     private final TestCaseRepository testCaseRepository;
     private final RabbitTemplate rabbitTemplate;
     private final RestTemplate restTemplate;
+    private final ProblemMetaParser problemMetaParser;
 
     @Value("${oj.judge.exchange}")
     private String judgeExchange;
@@ -54,18 +57,21 @@ public class SubmissionService {
                              ProblemRepository problemRepository,
                              TestCaseRepository testCaseRepository,
                              RabbitTemplate rabbitTemplate,
-                             RestTemplate restTemplate) {
+                             RestTemplate restTemplate,
+                             ProblemMetaParser problemMetaParser) {
         this.submissionRepository = submissionRepository;
         this.problemRepository = problemRepository;
         this.testCaseRepository = testCaseRepository;
         this.rabbitTemplate = rabbitTemplate;
         this.restTemplate = restTemplate;
+        this.problemMetaParser = problemMetaParser;
     }
 
     public RunResultDto run(RunRequest request) {
         ensureSupportedLanguage(request.language());
 
         Problem problem = getProblem(request.problemId());
+        ProblemMeta metaData = problemMetaParser.parse(problem);
         TestCaseDto testCase = new TestCaseDto(null, request.input(), null);
 
         JudgeRequest judgeRequest = new JudgeRequest(
@@ -75,7 +81,8 @@ public class SubmissionService {
                 request.code(),
                 List.of(testCase),
                 problem.getTimeLimitMs(),
-                problem.getMemoryLimitMb()
+                problem.getMemoryLimitMb(),
+                metaData
         );
 
         JudgeResult result = restTemplate.postForObject(
@@ -102,6 +109,7 @@ public class SubmissionService {
         ensureSupportedLanguage(request.language());
 
         Problem problem = getProblem(request.problemId());
+        ProblemMeta metaData = problemMetaParser.parse(problem);
         List<TestCase> testCases = testCaseRepository.findByProblemIdOrderBySortOrderAsc(problem.getId());
 
         Submission submission = new Submission();
@@ -125,7 +133,8 @@ public class SubmissionService {
                 request.code(),
                 caseDtos,
                 problem.getTimeLimitMs(),
-                problem.getMemoryLimitMb()
+                problem.getMemoryLimitMb(),
+                metaData
         );
 
         rabbitTemplate.convertAndSend(judgeExchange, judgeRoutingKey, judgeRequest);

@@ -1,4 +1,4 @@
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     15,
     '三数之和',
@@ -46,7 +46,8 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 	
 - `-105 <= nums[i] <= 105`',
     2000,
-    256
+    256,
+    '{"name": "threeSum", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "list<list<integer>>", "colsize": 3, "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -78,7 +79,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (15, '{"nums": [0, 1, 1]}', '[]', TRUE, 2),
 (15, '{"nums": [0, 0, 0]}', '[[0, 0, 0]]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     2,
     '两数相加',
@@ -121,7 +122,8 @@ VALUES (
 	
 - 题目数据保证列表表示的数字不含前导零',
     2000,
-    256
+    256,
+    '{"name": "addTwoNumbers", "params": [{"name": "l1", "type": "ListNode", "dealloc": false}, {"name": "l2", "type": "ListNode", "dealloc": false}], "return": {"type": "ListNode", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -189,7 +191,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (2, '{"l1": [0], "l2": [0]}', '[0]', TRUE, 2),
 (2, '{"l1": [9, 9, 9, 9, 9, 9, 9], "l2": [9, 9, 9, 9]}', '[8, 9, 9, 9, 0, 0, 0, 1]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     122,
     '买卖股票的最佳时机 II',
@@ -235,7 +237,8 @@ VALUES (
 	
 - `0 <= prices[i] <= 104`',
     2000,
-    256
+    256,
+    '{"name": "maxProfit", "params": [{"name": "prices", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -267,7 +270,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (122, '{"prices": [1, 2, 3, 4, 5]}', '4', TRUE, 2),
 (122, '{"prices": [7, 6, 4, 3, 1]}', '0', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     121,
     '买卖股票的最佳时机',
@@ -305,7 +308,8 @@ VALUES (
 	
 - `0 4`',
     2000,
-    256
+    256,
+    '{"name": "maxProfit", "params": [{"name": "prices", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -336,7 +340,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (121, '{"input": [7, 1, 5, 3, 6, 4]}', '5', TRUE, 1),
 (121, '{"prices": [7, 6, 4, 3, 1]}', '0', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     94,
     '二叉树的中序遍历',
@@ -376,7 +380,8 @@ VALUES (
 
 **进阶:** 递归算法很简单，你可以通过迭代算法完成吗？',
     2000,
-    256
+    256,
+    '{"name": "inorderTraversal", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "list<integer>", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -451,7 +456,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (94, '{"root": [1, 2, 3, 4, 5, null, 8, null, null, 6, 7, 9]}', '[]', TRUE, 2),
 (94, '{"root": []}', '[1]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     102,
     '二叉树的层序遍历',
@@ -487,7 +492,8 @@ VALUES (
 	
 - `-1000 <= Node.val <= 1000`',
     2000,
-    256
+    256,
+    '{"name": "levelOrder", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "list<list<integer>>", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -562,7 +568,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (102, '{"root": [1]}', '[[1]]', TRUE, 2),
 (102, '{"root": []}', '[]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     124,
     '二叉树中的最大路径和',
@@ -599,7 +605,8 @@ VALUES (
 	
 - `-1000 <= Node.val <= 1000`',
     2000,
-    256
+    256,
+    '{"name": "maxPathSum", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -673,7 +680,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (124, '{"root": [1, 2, 3]}', '6', TRUE, 1),
 (124, '{"root": [-10, 9, 20, null, null, 15, 7]}', '42', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     199,
     '二叉树的右视图',
@@ -722,7 +729,8 @@ VALUES (
 	
 - `-100 <= Node.val <= 100`',
     2000,
-    256
+    256,
+    '{"name": "rightSideView", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "list<integer>", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -795,7 +803,7 @@ function rightSideView(root: TreeNode | null): number[] {
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
 (199, '{"root": [1, 2, 3, null, 5, null, 4]}', '[1, 3]', TRUE, 1);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     70,
     '爬楼梯',
@@ -833,7 +841,8 @@ VALUES (
 	
 - `1 <= n <= 45`',
     2000,
-    256
+    256,
+    '{"name": "climbStairs", "params": [{"name": "n", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -864,7 +873,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (70, '{"n": 2}', '2', TRUE, 1),
 (70, '{"n": 3}', '3', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     322,
     '零钱兑换',
@@ -907,7 +916,8 @@ VALUES (
 	
 - `0 <= amount <= 104`',
     2000,
-    256
+    256,
+    '{"name": "coinChange", "params": [{"name": "coins", "type": "integer[]"}, {"name": "amount", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -941,7 +951,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (322, '{"coins": [2], "amount": 3}', '-1', TRUE, 2),
 (322, '{"coins": [1], "amount": 0}', '0', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     39,
     '组合总和',
@@ -989,7 +999,8 @@ VALUES (
 	
 - `1 <= target <= 40`',
     2000,
-    256
+    256,
+    '{"name": "combinationSum", "params": [{"name": "candidates", "type": "integer[]"}, {"name": "target", "type": "integer"}], "return": {"type": "list<list<integer>>", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1023,7 +1034,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (39, '{"candidates": [2, 3, 5], "target": 8}', '[[2, 2, 2, 2], [2, 3, 3], [3, 5]]', TRUE, 2),
 (39, '{"candidates": [2], "target": 1}', '[]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     105,
     '从前序与中序遍历序列构造二叉树',
@@ -1064,7 +1075,8 @@ VALUES (
 	
 - `inorder` **保证** 为二叉树的中序遍历序列',
     2000,
-    256
+    256,
+    '{"name": "buildTree", "params": [{"name": "preorder", "type": "integer[]"}, {"name": "inorder", "type": "integer[]"}], "return": {"type": "TreeNode", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1140,7 +1152,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (105, '{"preorder": [3, 9, 20, 15, 7], "inorder": [9, 3, 15, 20, 7]}', '[3, 9, 20, null, null, 15, 7]', TRUE, 1),
 (105, '{"preorder": [-1], "inorder": [-1]}', '[-1]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     11,
     '盛最多水的容器',
@@ -1180,7 +1192,8 @@ VALUES (
 	
 - `0 <= height[i] <= 104`',
     2000,
-    256
+    256,
+    '{"name": "maxArea", "params": [{"name": "height", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1211,7 +1224,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (11, '{"input": [1, 8, 6, 2, 5, 4, 8, 3, 7]}', '49', TRUE, 1),
 (11, '{"height": [1, 1]}', '1', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     108,
     '将有序数组转换为二叉搜索树',
@@ -1246,7 +1259,8 @@ VALUES (
 	
 - `nums` 按 **严格递增** 顺序排列',
     2000,
-    256
+    256,
+    '{"name": "sortedArrayToBST", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "TreeNode", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1320,7 +1334,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (108, '{"nums": [-10, -3, 0, 5, 9]}', '[0, -3, 9, -10, null, 5]', TRUE, 1),
 (108, '{"nums": [1, 3]}', '[3, 1]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     138,
     '随机链表的复制',
@@ -1375,7 +1389,8 @@ VALUES (
 	
 - `Node.random` 为 `null` 或指向链表中的节点。',
     2000,
-    256
+    256,
+    '{"name": "copyRandomList", "params": [{"name": "head", "type": "ListNode"}], "return": {"type": "ListNode"}, "languages": ["cpp", "java", "python", "csharp", "javascript", "python3", "golang", "swift", "kotlin", "ruby", "c", "scala", "php", "typescript"], "manual": true, "typescriptCustomType": "class _Node {\n    val: number\n    next: _Node | null\n    random: _Node | null\n\n    constructor(val?: number, next?: _Node, random?: _Node) {\n        this.val = (val===undefined ? 0 : val)\n        this.next = (next===undefined ? null : next)\n        this.random = (random===undefined ? null : random)\n    }\n}\n"}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1456,7 +1471,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (138, '{"head": [[1, 1], [2, 1]]}', '[[1, 1], [2, 1]]', TRUE, 2),
 (138, '{"head": [[3, null], [3, 0], [3, null]]}', '[[3, null], [3, 0], [3, null]]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     207,
     '课程表',
@@ -1502,7 +1517,8 @@ VALUES (
 	
 - `prerequisites[i]` 中的所有课程对 **互不相同**',
     2000,
-    256
+    256,
+    '{"name": "canFinish", "params": [{"name": "numCourses", "type": "integer"}, {"name": "prerequisites", "type": "integer[][]"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1535,7 +1551,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (207, '{"numCourses": 2, "prerequisites": [[1, 0]]}', 'true', TRUE, 1),
 (207, '{"numCourses": 2, "prerequisites": [[1, 0], [0, 1]]}', 'false', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     739,
     '每日温度',
@@ -1571,7 +1587,8 @@ VALUES (
 	
 - `30 <= temperatures[i] <= 100`',
     2000,
-    256
+    256,
+    '{"name": "dailyTemperatures", "params": [{"name": "temperatures", "type": "integer[]"}], "return": {"type": "integer[]"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1603,7 +1620,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (739, '{"temperatures": [30, 40, 50, 60]}', '[1, 1, 1, 0]', TRUE, 2),
 (739, '{"input": [30, 60, 90]}', '[1, 1, 0]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     394,
     '字符串解码',
@@ -1656,7 +1673,8 @@ VALUES (
 	
 - `s` 中所有整数的取值范围为 `[1, 300]`',
     2000,
-    256
+    256,
+    '{"name": "decodeString", "params": [{"name": "s", "type": "string"}], "return": {"type": "string"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1689,7 +1707,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (394, '{"s": "2[abc]3[cd]ef"}', 'abcabccdcdcdef', TRUE, 3),
 (394, '{"s": "abc3[cd]xyz"}', 'abccdcdcdxyz', TRUE, 4);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     543,
     '二叉树的直径',
@@ -1725,7 +1743,8 @@ VALUES (
 	
 - `-100 <= Node.val <= 100`',
     2000,
-    256
+    256,
+    '{"name": "diameterOfBinaryTree", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1799,7 +1818,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (543, '{"root": [1, 2, 3, 4, 5]}', '3', TRUE, 1),
 (543, '{"root": [1, 2]}', '1', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     72,
     '编辑距离',
@@ -1849,7 +1868,8 @@ exection -> execution (插入 ''u'')
 	
 - `word1` 和 `word2` 由小写英文字母组成',
     2000,
-    256
+    256,
+    '{"name": "minDistance", "params": [{"name": "word1", "type": "string"}, {"name": "word2", "type": "string"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1882,7 +1902,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (72, '{"word1": "horse", "word2": "ros"}', '3', TRUE, 1),
 (72, '{"word1": "intention", "word2": "execution"}', '5', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     438,
     '找到字符串中所有字母异位词',
@@ -1920,7 +1940,8 @@ VALUES (
 	
 - `s` 和 `p` 仅包含小写字母',
     2000,
-    256
+    256,
+    '{"name": "findAnagrams", "params": [{"name": "s", "type": "string"}, {"name": "p", "type": "string"}], "return": {"type": "list<integer>"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -1953,7 +1974,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (438, '{"s": "cbaebabacd", "p": "abc"}', '[0, 6]', TRUE, 1),
 (438, '{"s": "abab", "p": "ab"}', '[0, 1, 2]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     34,
     '在排序数组中查找元素的第一个和最后一个位置',
@@ -1997,7 +2018,8 @@ VALUES (
 	
 - `-109 <= target <= 109`',
     2000,
-    256
+    256,
+    '{"name": "searchRange", "params": [{"name": "nums", "type": "integer[]"}, {"name": "target", "type": "integer"}], "return": {"type": "integer[]"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2031,7 +2053,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (34, '{"nums": [5, 7, 7, 8, 8, 10], "target": 6}', '[-1, -1]', TRUE, 2),
 (34, '{"nums": [], "target": 0}', '[-1, -1]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     295,
     '数据流的中位数',
@@ -2092,7 +2114,8 @@ medianFinder.findMedian(); // return 2.0
 	
 - 最多 `5 * 104` 次调用 `addNum` 和 `findMedian`',
     2000,
-    256
+    256,
+    '{"classname": "MedianFinder", "constructor": {"params": []}, "methods": [{"params": [{"type": "integer", "name": "num"}], "name": "addNum", "return": {"type": "void"}}, {"params": [], "name": "findMedian", "return": {"type": "double"}}], "return": {"type": "boolean"}, "systemdesign": true}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2200,7 +2223,7 @@ medianFinder.findMedian(); // return 2.0
 
 提示:', TRUE, 1);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     153,
     '寻找旋转排序数组中的最小值',
@@ -2256,7 +2279,8 @@ VALUES (
 	
 - `nums` 原来是一个升序排序的数组，并进行了 `1` 至 `n` 次旋转',
     2000,
-    256
+    256,
+    '{"name": "findMin", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2288,7 +2312,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (153, '{"nums": [4, 5, 6, 7, 0, 1, 2]}', '0', TRUE, 2),
 (153, '{"nums": [11, 13, 15, 17]}', '11', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     287,
     '寻找重复数',
@@ -2343,7 +2367,8 @@ VALUES (
 	
 - 你可以设计一个线性级时间复杂度 `O(n)` 的解决方案吗？',
     2000,
-    256
+    256,
+    '{"name": "findDuplicate", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2378,7 +2403,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 示例 3 :', TRUE, 2),
 (287, '{"nums": [3, 3, 3, 3, 3]}', '3', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     41,
     '缺失的第一个正数',
@@ -2419,7 +2444,8 @@ VALUES (
 	
 - `-231 <= nums[i] <= 231 - 1`',
     2000,
-    256
+    256,
+    '{"name": "firstMissingPositive", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2451,7 +2477,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (41, '{"nums": [3, 4, -1, 1]}', '2', TRUE, 2),
 (41, '{"nums": [7, 8, 9, 11, 12]}', '1', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     114,
     '二叉树展开为链表',
@@ -2496,7 +2522,8 @@ VALUES (
 
 **进阶：**你可以使用原地算法（`O(1)` 额外空间）展开这棵树吗？',
     2000,
-    256
+    256,
+    '{"name": "flatten", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "void"}, "output": {"paramindex": 0}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2574,7 +2601,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (114, '{"root": []}', '[]', TRUE, 2),
 (114, '{"root": [0]}', '[0]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     22,
     '括号生成',
@@ -2603,7 +2630,8 @@ VALUES (
 	
 - `1 <= n <= 8`',
     2000,
-    256
+    256,
+    '{"name": "generateParenthesis", "params": [{"name": "n", "type": "integer"}], "return": {"type": "list<string>"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2634,7 +2662,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (22, '{"n": 3}', '["((()))", "(()())", "(())()", "()(())", "()()()"]', TRUE, 1),
 (22, '{"n": 1}', '["()"]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     49,
     '字母异位词分组',
@@ -2684,7 +2712,8 @@ VALUES (
 	
 - `strs[i]` 仅包含小写字母',
     2000,
-    256
+    256,
+    '{"name": "groupAnagrams", "params": [{"name": "strs", "type": "string[]"}], "return": {"type": "list<list<string>>", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2716,7 +2745,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (49, '{"strs": [""]}', '[[""]]', TRUE, 2),
 (49, '{"strs": ["a"]}', '[["a"]]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     198,
     '打家劫舍',
@@ -2751,7 +2780,8 @@ VALUES (
 	
 - `1',
     2000,
-    256
+    256,
+    '{"name": "rob", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2782,7 +2812,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (198, '{"input": [1, 2, 3, 1]}', '4', TRUE, 1),
 (198, '{"input": [2, 7, 9, 3, 1]}', '12', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     208,
     '实现 Trie (前缀树)',
@@ -2833,7 +2863,8 @@ trie.search("app");     // 返回 True
 	
 - `insert`、`search` 和 `startsWith` 调用次数 **总计** 不超过 `3 * 104` 次',
     2000,
-    256
+    256,
+    '{"classname": "Trie", "constructor": {"params": []}, "methods": [{"params": [{"type": "string", "name": "word"}], "name": "insert", "return": {"type": "void"}}, {"params": [{"type": "string", "name": "word"}], "name": "search", "return": {"type": "boolean"}}, {"params": [{"type": "string", "name": "prefix"}], "name": "startsWith", "return": {"type": "boolean"}}], "return": {"type": "boolean"}, "systemdesign": true}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -2969,7 +3000,7 @@ trie.startsWith("app"); // 返回 True
 trie.insert("app");
 trie.search("app");     // 返回 True', TRUE, 1);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     160,
     '相交链表',
@@ -3056,7 +3087,8 @@ VALUES (
 
 **进阶：**你能否设计一个时间复杂度 `O(m + n)` 、仅用 `O(1)` 内存的解决方案？',
     2000,
-    256
+    256,
+    '{"name": "getIntersectionNode", "params": [{"name": "intersectVal", "type": "integer"}, {"name": "listA", "type": "ListNode"}, {"name": "listB", "type": "ListNode"}, {"name": "skipA", "type": "integer"}, {"name": "skipB", "type": "integer"}], "return": {"type": "ListNode"}, "languages": ["cpp", "java", "python", "c", "csharp", "javascript", "golang", "python3", "swift", "ruby", "kotlin", "scala", "php", "typescript"], "manual": true}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3126,7 +3158,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (160, '{"intersectVal": 2, "listA": [1, 9, 1, 2, 4], "listB": [3, 2, 4], "skipA": 3, "skipB": 1}', 'Intersected at ''2''', TRUE, 2),
 (160, '{"intersectVal": 0, "listA": [2, 6, 4], "listB": [1, 5], "skipA": 3, "skipB": 2}', 'No intersection', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     226,
     '翻转二叉树',
@@ -3162,7 +3194,8 @@ VALUES (
 	
 - `-100 <= Node.val <= 100`',
     2000,
-    256
+    256,
+    '{"name": "invertTree", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "TreeNode"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3237,7 +3270,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (226, '{"root": [2, 1, 3]}', '[2, 3, 1]', TRUE, 2),
 (226, '{"root": []}', '[]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     45,
     '跳跃游戏 II',
@@ -3281,7 +3314,8 @@ VALUES (
 	
 - 题目保证可以到达 `n - 1`',
     2000,
-    256
+    256,
+    '{"name": "jump", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3312,7 +3346,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (45, '{"nums": [2, 3, 1, 1, 4]}', '2', TRUE, 1),
 (45, '{"nums": [2, 3, 0, 1, 4]}', '2', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     55,
     '跳跃游戏',
@@ -3347,7 +3381,8 @@ VALUES (
 	
 - `0 <= nums[i] <= 105`',
     2000,
-    256
+    256,
+    '{"name": "canJump", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3378,7 +3413,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (55, '{"nums": [2, 3, 1, 1, 4]}', 'true', TRUE, 1),
 (55, '{"nums": [3, 2, 1, 0, 4]}', 'false', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     215,
     '数组中的第K个最大元素',
@@ -3413,7 +3448,8 @@ VALUES (
 	
 - `-104 <= nums[i] <= 104`',
     2000,
-    256
+    256,
+    '{"name": "findKthLargest", "params": [{"name": "nums", "type": "integer[]"}, {"name": "k", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3446,7 +3482,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (215, '{"nums": [3, 2, 1, 5, 6, 4], "k": 2}', '5', TRUE, 1),
 (215, '{"nums": [3, 2, 3, 1, 2, 4, 5, 5, 6], "k": 4}', '4', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     230,
     '二叉搜索树中第 K 小的元素',
@@ -3485,7 +3521,8 @@ VALUES (
 
 **进阶：**如果二叉搜索树经常被修改（插入/删除操作）并且你需要频繁地查找第 `k` 小的值，你将如何优化算法？',
     2000,
-    256
+    256,
+    '{"name": "kthSmallest", "params": [{"name": "root", "type": "TreeNode"}, {"name": "k", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3561,7 +3598,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (230, '{"root": [3, 1, 4, null, 2], "k": 1}', '1', TRUE, 1),
 (230, '{"root": [5, 3, 6, 2, 4, null, null, 1], "k": 3}', '3', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     84,
     '柱状图中最大的矩形',
@@ -3595,7 +3632,8 @@ VALUES (
 	
 - `0 4`',
     2000,
-    256
+    256,
+    '{"name": "largestRectangleArea", "params": [{"name": "heights", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3625,7 +3663,7 @@ var largestRectangleArea = function(heights) {
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
 (84, '{"heights": [2, 1, 5, 6, 2, 3]}', '10', TRUE, 1);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     17,
     '电话号码的字母组合',
@@ -3658,7 +3696,8 @@ VALUES (
 	
 - `digits[i]` 是范围 `[''2'', ''9'']` 的一个数字。',
     2000,
-    256
+    256,
+    '{"name": "letterCombinations", "params": [{"name": "digits", "type": "string"}], "return": {"type": "list<string>"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3689,7 +3728,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (17, '{"digits": "23"}', '["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]', TRUE, 1),
 (17, '{"digits": "2"}', '["a", "b", "c"]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     142,
     '环形链表 II',
@@ -3738,7 +3777,8 @@ VALUES (
 
 **进阶：**你是否可以使用 `O(1)` 空间解决此题？',
     2000,
-    256
+    256,
+    '{"name": "detectCycle", "params": [{"name": "head", "type": "ListNode"}, {"name": "pos", "type": "integer"}], "return": {"type": "ListNode"}, "languages": ["cpp", "java", "python", "c", "csharp", "javascript", "golang", "python3", "swift", "kotlin", "php", "ruby", "scala", "typescript"], "manual": true}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3807,7 +3847,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (142, '{"head": [1, 2], "pos": 0}', '返回索引为 0 的链表节点', TRUE, 2),
 (142, '{"head": [1], "pos": -1}', '返回 null', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     141,
     '环形链表',
@@ -3856,7 +3896,8 @@ VALUES (
 
 **进阶：**你能用 `O(1)`（即，常量）内存解决此问题吗？',
     2000,
-    256
+    256,
+    '{"name": "hasCycle", "params": [{"name": "head", "type": "ListNode"}, {"name": "pos", "type": "integer"}], "return": {"type": "boolean"}, "manual": true, "languages": ["cpp", "java", "python", "c", "csharp", "javascript", "ruby", "swift", "golang", "python3", "scala", "kotlin", "php", "typescript"]}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -3925,7 +3966,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (141, '{"head": [1, 2], "pos": 0}', 'true', TRUE, 2),
 (141, '{"head": [1], "pos": -1}', 'false', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     1143,
     '最长公共子序列',
@@ -3969,7 +4010,8 @@ VALUES (
 	
 - `1',
     2000,
-    256
+    256,
+    '{"name": "longestCommonSubsequence", "params": [{"name": "text1", "type": "string"}, {"type": "string", "name": "text2"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4003,7 +4045,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (1143, '{"text1": "abc", "text2": "abc"}', '3', TRUE, 2),
 (1143, '{"text1": "abc", "text2": "def"}', '0', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     128,
     '最长连续序列',
@@ -4042,7 +4084,8 @@ VALUES (
 	
 - `-109 <= nums[i] <= 109`',
     2000,
-    256
+    256,
+    '{"name": "longestConsecutive", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4073,7 +4116,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (128, '{"nums": [100, 4, 200, 1, 3, 2]}', '4', TRUE, 1),
 (128, '{"nums": [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]}', '9', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     300,
     '最长递增子序列',
@@ -4119,7 +4162,8 @@ VALUES (
 	
 - 你能将算法的时间复杂度降低到 `O(n log(n))` 吗?',
     2000,
-    256
+    256,
+    '{"name": "lengthOfLIS", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4151,7 +4195,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (300, '{"nums": [0, 1, 0, 3, 2, 3]}', '4', TRUE, 2),
 (300, '{"nums": [7, 7, 7, 7, 7, 7, 7]}', '1', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     5,
     '最长回文子串',
@@ -4183,7 +4227,8 @@ VALUES (
 	
 - `s` 仅由数字和英文字母组成',
     2000,
-    256
+    256,
+    '{"name": "longestPalindrome", "params": [{"name": "s", "type": "string"}], "return": {"type": "string"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4214,7 +4259,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (5, '{"s": "babad"}', 'bab', TRUE, 1),
 (5, '{"s": "cbbd"}', 'bb', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     3,
     '无重复字符的最长子串',
@@ -4254,7 +4299,8 @@ VALUES (
 	
 - `s` 由英文字母、数字、符号和空格组成',
     2000,
-    256
+    256,
+    '{"name": "lengthOfLongestSubstring", "params": [{"name": "s", "type": "string"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4286,7 +4332,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (3, '{"input": "bbbbb"}', '1', TRUE, 2),
 (3, '{"input": "pwwkew"}', '3', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     32,
     '最长有效括号',
@@ -4326,7 +4372,8 @@ VALUES (
 	
 - `s[i]` 为 `''(''` 或 `'')''`',
     2000,
-    256
+    256,
+    '{"name": "longestValidParentheses", "params": [{"name": "s", "type": "string"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4358,7 +4405,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (32, '{"s": ")()())"}', '4', TRUE, 2),
 (32, '{"s": ""}', '0', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     236,
     '二叉树的最近公共祖先',
@@ -4404,7 +4451,8 @@ VALUES (
 	
 - `p` 和 `q` 均存在于给定的二叉树中。',
     2000,
-    256
+    256,
+    '{"name": "lowestCommonAncestor", "params": [{"name": "root", "type": "TreeNode"}, {"name": "p", "type": "integer"}, {"name": "q", "type": "integer"}], "return": {"type": "TreeNode"}, "manual": true}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4477,7 +4525,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (236, '{"root": [3, 5, 1, 6, 2, 0, 8, null, null, 7, 4], "p": 5, "q": 4}', '5', TRUE, 2),
 (236, '{"root": [1, 2], "p": 1, "q": 2}', '1', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     146,
     'LRU 缓存',
@@ -4533,7 +4581,8 @@ lRUCache.get(4);    // 返回 4
 	
 - 最多调用 `2 * 105` 次 `get` 和 `put`',
     2000,
-    256
+    256,
+    '{"classname": "LRUCache", "maxbytesperline": 200000, "constructor": {"params": [{"type": "integer", "name": "capacity"}]}, "methods": [{"name": "get", "params": [{"type": "integer", "name": "key"}], "return": {"type": "integer"}}, {"name": "put", "params": [{"type": "integer", "name": "key"}, {"type": "integer", "name": "value"}], "return": {"type": "void"}}], "systemdesign": true, "params": [{"name": "inputs", "type": "integer[]"}, {"name": "inputs", "type": "integer[]"}], "return": {"type": "list<String>", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4652,7 +4701,7 @@ lRUCache.get(1);    // 返回 -1 (未找到)
 lRUCache.get(3);    // 返回 3
 lRUCache.get(4);    // 返回 4', TRUE, 1);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     169,
     '多数元素',
@@ -4693,7 +4742,8 @@ VALUES (
 
 **进阶：**尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。',
     2000,
-    256
+    256,
+    '{"name": "majorityElement", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4724,7 +4774,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (169, '{"nums": [3, 2, 3]}', '3', TRUE, 1),
 (169, '{"nums": [2, 2, 1, 1, 1, 2, 2]}', '2', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     104,
     '二叉树的最大深度',
@@ -4759,7 +4809,8 @@ VALUES (
 	
 - `-100 <= Node.val <= 100`',
     2000,
-    256
+    256,
+    '{"name": "maxDepth", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4833,7 +4884,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (104, '{"root": [3, 9, 20, null, null, 15, 7]}', '3', TRUE, 1),
 (104, '{"root": [1, null, 2]}', '2', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     152,
     '乘积最大子数组',
@@ -4872,7 +4923,8 @@ VALUES (
 	
 - `nums` 的任何子数组的乘积都 **保证** 是一个 **32-位** 整数',
     2000,
-    256
+    256,
+    '{"name": "maxProduct", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4903,7 +4955,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (152, '{"nums": [2, 3, -2, 4]}', '6', TRUE, 1),
 (152, '{"nums": [-2, 0, -1]}', '0', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     53,
     '最大子数组和',
@@ -4946,7 +4998,8 @@ VALUES (
 
 **进阶：**如果你已经实现复杂度为 `O(n)` 的解法，尝试使用更为精妙的 **分治法** 求解。',
     2000,
-    256
+    256,
+    '{"name": "maxSubArray", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -4978,7 +5031,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (53, '{"nums": [1]}', '1', TRUE, 2),
 (53, '{"nums": [5, 4, -1, 7, 8]}', '23', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     4,
     '寻找两个正序数组的中位数',
@@ -5023,7 +5076,8 @@ VALUES (
 	
 - `-106 <= nums1[i], nums2[i] <= 106`',
     2000,
-    256
+    256,
+    '{"name": "findMedianSortedArrays", "params": [{"name": "nums1", "type": "integer[]"}, {"name": "nums2", "type": "integer[]"}], "return": {"type": "double"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5056,7 +5110,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (4, '{"nums1": [1, 3], "nums2": [2]}', '2.0', TRUE, 1),
 (4, '{"nums1": [1, 2], "nums2": [3, 4]}', '2.5', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     56,
     '合并区间',
@@ -5097,7 +5151,8 @@ VALUES (
 	
 - `0 <= starti <= endi <= 104`',
     2000,
-    256
+    256,
+    '{"name": "merge", "params": [{"name": "intervals", "type": "integer[][]"}], "return": {"type": "integer[][]"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5128,7 +5183,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (56, '{"intervals": [[1, 3], [2, 6], [8, 10], [15, 18]]}', '[[1, 6], [8, 10], [15, 18]]', TRUE, 1),
 (56, '{"intervals": [[1, 4], [4, 5]]}', '[[1, 5]]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     23,
     '合并 K 个升序链表',
@@ -5182,7 +5237,8 @@ VALUES (
 	
 - `lists[i].length` 的总和不超过 `10^4`',
     2000,
-    256
+    256,
+    '{"name": "mergeKLists", "params": [{"name": "lists", "type": "ListNode[]", "dealloc": false}], "return": {"type": "ListNode", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5248,7 +5304,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (23, '{"lists": []}', '[]', TRUE, 2),
 (23, '{"lists": [[]]}', '[]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     21,
     '合并两个有序链表',
@@ -5284,7 +5340,8 @@ VALUES (
 	
 - `-100',
     2000,
-    256
+    256,
+    '{"name": "mergeTwoLists", "params": [{"name": "list1", "type": "ListNode", "dealloc": false}, {"name": "list2", "type": "ListNode", "dealloc": false}], "return": {"type": "ListNode", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5352,7 +5409,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (21, '{"list1": [], "list2": []}', '[]', TRUE, 2),
 (21, '{"list1": [], "list2": [0]}', '[0]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     155,
     '最小栈',
@@ -5407,7 +5464,8 @@ minStack.getMin();   --> 返回 -2.
 	
 - `push`, `pop`, `top`, and `getMin`最多被调用 `3 * 104` 次',
     2000,
-    256
+    256,
+    '{"classname": "MinStack", "constructor": {"params": []}, "methods": [{"params": [{"type": "integer", "name": "value"}], "return": {"type": "void"}, "name": "push"}, {"params": [], "return": {"type": "void"}, "name": "pop"}, {"params": [], "return": {"type": "integer"}, "name": "top"}, {"params": [], "return": {"type": "integer"}, "name": "getMin"}], "return": {"type": "boolean"}, "systemdesign": true}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5555,7 +5613,7 @@ MinStack.prototype.getMin = function() {
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
 (155, '{"operations": ["MinStack", "push", "push", "push", "getMin", "pop", "top", "getMin"], "arguments": [[], [-2], [0], [-3], [], [], [], []]}', '[null, null, null, null, -3, null, 0, -2]', TRUE, 1);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     64,
     '最小路径和',
@@ -5593,7 +5651,8 @@ VALUES (
 	
 - `0 <= grid[i][j] <= 200`',
     2000,
-    256
+    256,
+    '{"name": "minPathSum", "params": [{"name": "grid", "type": "integer[][]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5624,7 +5683,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (64, '{"grid": [[1, 3, 1], [1, 5, 1], [4, 2, 1]]}', '7', TRUE, 1),
 (64, '{"grid": [[1, 2, 3], [4, 5, 6]]}', '12', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     76,
     '最小覆盖子串',
@@ -5674,7 +5733,8 @@ VALUES (
 
 **进阶：**你能设计一个在 `O(m + n)` 时间内解决此问题的算法吗？',
     2000,
-    256
+    256,
+    '{"name": "minWindow", "params": [{"name": "s", "type": "string"}, {"name": "t", "type": "string"}], "return": {"type": "string"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5708,7 +5768,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (76, '{"s": "a", "t": "a"}', 'a', TRUE, 2),
 (76, '{"s": "a", "t": "aa"}', '', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     283,
     '移动零',
@@ -5745,7 +5805,8 @@ VALUES (
 
 进阶：你能尽量减少完成的操作次数吗？',
     2000,
-    256
+    256,
+    '{"name": "moveZeroes", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "void"}, "output": {"paramindex": 0}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5779,7 +5840,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (283, '{"nums": [0, 1, 0, 3, 12]}', '[1, 3, 12, 0, 0]', TRUE, 1),
 (283, '{"nums": [0]}', '[0]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     51,
     'N 皇后',
@@ -5815,7 +5876,8 @@ VALUES (
 	
 - `1 <= n <= 9`',
     2000,
-    256
+    256,
+    '{"name": "solveNQueens", "params": [{"name": "n", "type": "integer"}], "return": {"type": "list<list<string>>", "colsize": "param_1", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5846,7 +5908,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (51, '{"n": 4}', '[[".Q..", "...Q", "Q...", "..Q."], ["..Q.", "Q...", "...Q", ".Q.."]]', TRUE, 1),
 (51, '{"n": 1}', '[["Q"]]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     31,
     '下一个排列',
@@ -5898,7 +5960,8 @@ VALUES (
 	
 - `0 <= nums[i] <= 100`',
     2000,
-    256
+    256,
+    '{"name": "nextPermutation", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "void"}, "output": {"paramindex": 0}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -5933,7 +5996,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (31, '{"nums": [3, 2, 1]}', '[1, 2, 3]', TRUE, 2),
 (31, '{"nums": [1, 1, 5]}', '[1, 5, 1]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     200,
     '岛屿数量',
@@ -5982,7 +6045,8 @@ VALUES (
 	
 - `grid[i][j]` 的值为 `''0''` 或 `''1''`',
     2000,
-    256
+    256,
+    '{"name": "numIslands", "params": [{"name": "grid", "type": "character[][]"}], "return": {"type": "integer"}, "manual": true}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6013,7 +6077,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (200, '{"grid": [["1", "1", "1", "1", "0"], ["1", "1", "0", "1", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "0", "0", "0"]]}', '1', TRUE, 1),
 (200, '{"grid": [["1", "1", "0", "0", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "1", "0", "0"], ["0", "0", "0", "1", "1"]]}', '3', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     234,
     '回文链表',
@@ -6048,7 +6112,8 @@ VALUES (
 
 **进阶：**你能否用 `O(n)` 时间复杂度和 `O(1)` 空间复杂度解决此题？',
     2000,
-    256
+    256,
+    '{"name": "isPalindrome", "params": [{"name": "head", "type": "ListNode"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6113,7 +6178,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (234, '{"head": [1, 2, 2, 1]}', 'true', TRUE, 1),
 (234, '{"head": [1, 2]}', 'false', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     131,
     '分割回文串',
@@ -6144,7 +6209,8 @@ VALUES (
 	
 - `s` 仅由小写英文字母组成',
     2000,
-    256
+    256,
+    '{"name": "partition", "params": [{"name": "s", "type": "string"}], "return": {"type": "list<list<string>>", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6175,7 +6241,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (131, '{"s": "aab"}', '[["a", "a", "b"], ["aa", "b"]]', TRUE, 1),
 (131, '{"s": "a"}', '[["a"]]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     416,
     '分割等和子集',
@@ -6206,7 +6272,8 @@ VALUES (
 	
 - `1',
     2000,
-    256
+    256,
+    '{"name": "canPartition", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6237,7 +6304,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (416, '{"nums": [1, 5, 11, 5]}', 'true', TRUE, 1),
 (416, '{"nums": [1, 2, 3, 5]}', 'false', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     763,
     '划分字母区间',
@@ -6276,7 +6343,8 @@ VALUES (
 	
 - `s` 仅由小写英文字母组成',
     2000,
-    256
+    256,
+    '{"name": "partitionLabels", "params": [{"name": "s", "type": "string"}], "return": {"type": "list<integer>"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6307,7 +6375,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (763, '{"s": "ababcbacadefegdehijhklij"}', '[9, 7, 8]', TRUE, 1),
 (763, '{"s": "eccbbbbdec"}', '[10]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     118,
     '杨辉三角',
@@ -6338,7 +6406,8 @@ VALUES (
 	
 - `1 <= numRows <= 30`',
     2000,
-    256
+    256,
+    '{"name": "generate", "params": [{"name": "numRows", "type": "integer"}], "return": {"type": "list<list<integer>>", "dealloc": true, "rowsize": "param_1"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6369,7 +6438,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (118, '{"numRows": 5}', '[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]', TRUE, 1),
 (118, '{"numRows": 1}', '[[1]]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     437,
     '路径总和 III',
@@ -6405,7 +6474,8 @@ VALUES (
 	
 - `-1000',
     2000,
-    256
+    256,
+    '{"name": "pathSum", "params": [{"name": "root", "type": "TreeNode"}, {"name": "targetSum", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6481,7 +6551,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (437, '{"root": [10, 5, -3, 3, 2, null, 11, 3, -2, null, 1], "targetSum": 8}', '3', TRUE, 1),
 (437, '{"root": [5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1], "targetSum": 22}', '3', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     279,
     '完全平方数',
@@ -6513,7 +6583,8 @@ VALUES (
 	
 - `1 <= n <= 104`',
     2000,
-    256
+    256,
+    '{"name": "numSquares", "params": [{"name": "n", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6544,7 +6615,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (279, '{"n": 12}', '3', TRUE, 1),
 (279, '{"n": 13}', '2', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     46,
     '全排列',
@@ -6582,7 +6653,8 @@ VALUES (
 	
 - `nums` 中的所有整数 **互不相同**',
     2000,
-    256
+    256,
+    '{"name": "permute", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "list<list<integer>>", "colsize": "size_1", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6614,7 +6686,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (46, '{"nums": [0, 1]}', '[[0, 1], [1, 0]]', TRUE, 2),
 (46, '{"nums": [1]}', '[[1]]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     238,
     '除了自身以外数组的乘积',
@@ -6655,7 +6727,8 @@ VALUES (
 
 **进阶：**你可以在 `O(1)` 的额外空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组 **不被视为 **额外空间。）',
     2000,
-    256
+    256,
+    '{"name": "productExceptSelf", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer[]"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6686,7 +6759,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (238, '{"nums": [1, 2, 3, 4]}', '[24, 12, 8, 6]', TRUE, 1),
 (238, '{"nums": [-1, 1, 0, -3, 3]}', '[0, 0, 9, 0, 0]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     19,
     '删除链表的倒数第 N 个结点',
@@ -6730,7 +6803,8 @@ VALUES (
 
 **进阶：**你能尝试使用一趟扫描实现吗？',
     2000,
-    256
+    256,
+    '{"name": "removeNthFromEnd", "params": [{"name": "head", "type": "ListNode", "dealloc": false}, {"name": "n", "type": "integer"}], "return": {"type": "ListNode", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6798,7 +6872,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (19, '{"head": [1], "n": 1}', '[]', TRUE, 2),
 (19, '{"head": [1, 2], "n": 1}', '[1]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     206,
     '反转链表',
@@ -6838,7 +6912,8 @@ VALUES (
 
 **进阶：**链表可以选用迭代或递归方式完成反转。你能否用两种方法解决这道题？',
     2000,
-    256
+    256,
+    '{"name": "reverseList", "params": [{"name": "head", "type": "ListNode", "dealloc": false}], "return": {"type": "ListNode", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -6904,7 +6979,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (206, '{"head": [1, 2]}', '[2, 1]', TRUE, 2),
 (206, '{"head": []}', '[]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     25,
     'K 个一组翻转链表',
@@ -6945,7 +7020,8 @@ VALUES (
 
 **进阶：**你可以设计一个只用 `O(1)` 额外内存空间的算法解决此问题吗？',
     2000,
-    256
+    256,
+    '{"name": "reverseKGroup", "params": [{"name": "head", "type": "ListNode"}, {"name": "k", "type": "integer"}], "return": {"type": "ListNode"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7012,7 +7088,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (25, '{"head": [1, 2, 3, 4, 5], "k": 2}', '[2, 1, 4, 3, 5]', TRUE, 1),
 (25, '{"head": [1, 2, 3, 4, 5], "k": 3}', '[3, 2, 1, 4, 5]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     189,
     '轮转数组',
@@ -7061,7 +7137,8 @@ VALUES (
 	
 - 你可以使用空间复杂度为 `O(1)` 的 **原地 **算法解决这个问题吗？',
     2000,
-    256
+    256,
+    '{"name": "rotate", "params": [{"name": "nums", "type": "integer[]"}, {"name": "k", "type": "integer"}], "return": {"type": "void"}, "output": {"paramindex": 0}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7097,7 +7174,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (189, '{"nums": [1, 2, 3, 4, 5, 6, 7], "k": 3}', '[5, 6, 7, 1, 2, 3, 4]', TRUE, 1),
 (189, '{"nums": [-1, -100, 3, 99], "k": 2}', '[3, 99, -1, -100]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     48,
     '旋转图像',
@@ -7132,7 +7209,8 @@ VALUES (
 	
 - `-1000 <= matrix[i][j] <= 1000`',
     2000,
-    256
+    256,
+    '{"name": "rotate", "params": [{"name": "matrix", "type": "integer[][]"}], "return": {"type": "void"}, "output": {"paramindex": 0}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7166,7 +7244,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (48, '{"matrix": [[1, 2, 3], [4, 5, 6], [7, 8, 9]]}', '[[7, 4, 1], [8, 5, 2], [9, 6, 3]]', TRUE, 1),
 (48, '{"matrix": [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]}', '[[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     994,
     '腐烂的橘子',
@@ -7221,7 +7299,8 @@ VALUES (
 	
 - `grid[i][j]` 仅为 `0`、`1` 或 `2`',
     2000,
-    256
+    256,
+    '{"name": "orangesRotting", "params": [{"name": "grid", "type": "integer[][]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7253,7 +7332,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (994, '{"grid": [[2, 1, 1], [0, 1, 1], [1, 0, 1]]}', '-1', TRUE, 2),
 (994, '{"grid": [[0, 2]]}', '0', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     240,
     '搜索二维矩阵 II',
@@ -7299,7 +7378,8 @@ VALUES (
 	
 - `-109 <= target <= 109`',
     2000,
-    256
+    256,
+    '{"name": "searchMatrix", "params": [{"name": "matrix", "type": "integer[][]"}, {"name": "target", "type": "integer"}], "return": {"type": "boolean"}, "manual": true}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7331,7 +7411,7 @@ var searchMatrix = function(matrix, target) {
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
 (240, '{"matrix": [[1, 4, 7, 11, 15], [2, 5, 8, 12, 19], [3, 6, 9, 16, 22], [10, 13, 14, 17, 24], [18, 21, 23, 26, 30]], "target": 5}', 'true', TRUE, 1);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     74,
     '搜索二维矩阵',
@@ -7373,7 +7453,8 @@ VALUES (
 	
 - `-104 <= matrix[i][j], target <= 104`',
     2000,
-    256
+    256,
+    '{"name": "searchMatrix", "params": [{"name": "matrix", "type": "integer[][]"}, {"name": "target", "type": "integer"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7406,7 +7487,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (74, '{"matrix": [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], "target": 3}', 'true', TRUE, 1),
 (74, '{"matrix": [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], "target": 13}', 'false', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     33,
     '搜索旋转排序数组',
@@ -7454,7 +7535,8 @@ VALUES (
 	
 - `-104 <= target <= 104`',
     2000,
-    256
+    256,
+    '{"name": "search", "params": [{"name": "nums", "type": "integer[]"}, {"name": "target", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7488,7 +7570,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (33, '{"nums": [4, 5, 6, 7, 0, 1, 2], "target": 3}', '-1', TRUE, 2),
 (33, '{"nums": [1], "target": 0}', '-1', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     35,
     '搜索插入位置',
@@ -7530,7 +7612,8 @@ VALUES (
 	
 - `-104 <= target <= 104`',
     2000,
-    256
+    256,
+    '{"name": "searchInsert", "params": [{"name": "nums", "type": "integer[]"}, {"name": "target", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7564,7 +7647,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (35, '{"nums": [1, 3, 5, 6], "target": 2}', '1', TRUE, 2),
 (35, '{"nums": [1, 3, 5, 6], "target": 7}', '4', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     73,
     '矩阵置零',
@@ -7610,7 +7693,8 @@ VALUES (
 	
 - 你能想出一个仅使用常量空间的解决方案吗？',
     2000,
-    256
+    256,
+    '{"name": "setZeroes", "params": [{"name": "matrix", "type": "integer[][]"}], "return": {"type": "void"}, "output": {"paramindex": 0}, "manual": false}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7644,7 +7728,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (73, '{"matrix": [[1, 1, 1], [1, 0, 1], [1, 1, 1]]}', '[[1, 0, 1], [0, 0, 0], [1, 0, 1]]', TRUE, 1),
 (73, '{"matrix": [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]]}', '[[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     136,
     '只出现一次的数字',
@@ -7687,7 +7771,8 @@ VALUES (
 	
 - 除了某个元素只出现一次以外，其余每个元素均出现两次。',
     2000,
-    256
+    256,
+    '{"name": "singleNumber", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7719,7 +7804,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (136, '{"nums": [4, 1, 2, 1, 2]}', '4', TRUE, 2),
 (136, '{"nums": [1]}', '1', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     239,
     '滑动窗口最大值',
@@ -7763,7 +7848,8 @@ VALUES (
 	
 - `1 <= k <= nums.length`',
     2000,
-    256
+    256,
+    '{"name": "maxSlidingWindow", "params": [{"name": "nums", "type": "integer[]"}, {"name": "k", "type": "integer"}], "return": {"type": "integer[]"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7807,7 +7893,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 	
 - `1 <= k <= nums.length`', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     75,
     '颜色分类',
@@ -7851,7 +7937,8 @@ VALUES (
 	
 - 你能想出一个仅使用常数空间的一趟扫描算法吗？',
     2000,
-    256
+    256,
+    '{"name": "sortColors", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "void"}, "output": {"paramindex": 0}, "manual": false}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -7885,7 +7972,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (75, '{"nums": [2, 0, 2, 1, 1, 0]}', '[0, 0, 1, 1, 2, 2]', TRUE, 1),
 (75, '{"nums": [2, 0, 1]}', '[0, 1, 2]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     148,
     '排序链表',
@@ -7925,7 +8012,8 @@ VALUES (
 
 进阶：你可以在 `O(n log n)` 时间复杂度和常数级空间复杂度下，对链表进行排序吗？',
     2000,
-    256
+    256,
+    '{"name": "sortList", "params": [{"name": "head", "type": "ListNode", "dealloc": false}], "return": {"type": "ListNode", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8004,7 +8092,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 
 进阶：你可以在 `O(n log n)` 时间复杂度和常数级空间复杂度下，对链表进行排序吗？', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     54,
     '螺旋矩阵',
@@ -8037,7 +8125,8 @@ VALUES (
 	
 - `1',
     2000,
-    256
+    256,
+    '{"name": "spiralOrder", "params": [{"name": "matrix", "type": "integer[][]"}], "return": {"type": "list<integer>", "size": "size_1 * col_size_1", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8068,7 +8157,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (54, '{"matrix": [[1, 2, 3], [4, 5, 6], [7, 8, 9]]}', '[1, 2, 3, 6, 9, 8, 7, 4, 5]', TRUE, 1),
 (54, '{"matrix": [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]}', '[1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     560,
     '和为 K 的子数组',
@@ -8103,7 +8192,8 @@ VALUES (
 	
 - `-107 <= k <= 107`',
     2000,
-    256
+    256,
+    '{"name": "subarraySum", "params": [{"name": "nums", "type": "integer[]"}, {"name": "k", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8136,7 +8226,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (560, '{"nums": [1, 1, 1], "k": 2}', '2', TRUE, 1),
 (560, '{"nums": [1, 2, 3], "k": 3}', '2', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     78,
     '子集',
@@ -8171,7 +8261,8 @@ VALUES (
 	
 - `nums` 中的所有元素 **互不相同**',
     2000,
-    256
+    256,
+    '{"name": "subsets", "params": [{"name": "nums", "type": "integer[]"}], "return": {"type": "list<list<integer>>", "dealloc": true}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8202,7 +8293,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (78, '{"nums": [1, 2, 3]}', '[[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]', TRUE, 1),
 (78, '{"nums": [0]}', '[[], [0]]', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     24,
     '两两交换链表中的节点',
@@ -8238,7 +8329,8 @@ VALUES (
 	
 - `0 <= Node.val <= 100`',
     2000,
-    256
+    256,
+    '{"name": "swapPairs", "params": [{"name": "head", "type": "ListNode"}], "return": {"type": "ListNode"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8304,7 +8396,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (24, '{"head": []}', '[]', TRUE, 2),
 (24, '{"head": [1]}', '[1]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     101,
     '对称二叉树',
@@ -8339,7 +8431,8 @@ VALUES (
 
 **进阶：**你可以运用递归和迭代两种方法解决这个问题吗？',
     2000,
-    256
+    256,
+    '{"name": "isSymmetric", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8413,7 +8506,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (101, '{"root": [1, 2, 2, 3, 4, 4, 3]}', 'true', TRUE, 1),
 (101, '{"root": [1, 2, 2, null, 3, null, 3]}', 'false', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     347,
     '前 K 个高频元素',
@@ -8460,7 +8553,8 @@ VALUES (
 
 **进阶：**你所设计算法的时间复杂度 **必须** 优于 `O(n log n)` ，其中 `n` 是数组大小。',
     2000,
-    256
+    256,
+    '{"name": "topKFrequent", "params": [{"name": "nums", "type": "integer[]"}, {"name": "k", "type": "integer"}], "return": {"type": "integer[]"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8494,7 +8588,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (347, '{"nums": [1], "k": 1}', '[1]', TRUE, 2),
 (347, '{"nums": [1, 2, 1, 2, 1, 2, 3, 1, 3, 2], "k": 2}', '', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     42,
     '接雨水',
@@ -8528,7 +8622,8 @@ VALUES (
 	
 - `0 <= height[i] <= 105`',
     2000,
-    256
+    256,
+    '{"name": "trap", "params": [{"name": "height", "type": "integer[]"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8559,7 +8654,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (42, '{"height": [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]}', '6', TRUE, 1),
 (42, '{"height": [4, 2, 0, 3, 2, 5]}', '9', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     1,
     '两数之和',
@@ -8608,7 +8703,8 @@ VALUES (
 
 **进阶：**你可以想出一个时间复杂度小于 `O(n2)` 的算法吗？',
     2000,
-    256
+    256,
+    '{"name": "twoSum", "params": [{"name": "nums", "type": "integer[]"}, {"name": "target", "type": "integer"}], "return": {"type": "integer[]", "size": 2}, "manual": false}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8642,7 +8738,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (1, '{"nums": [3, 2, 4], "target": 6}', '[1, 2]', TRUE, 2),
 (1, '{"nums": [3, 3], "target": 6}', '[0, 1]', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     62,
     '不同路径',
@@ -8692,7 +8788,8 @@ VALUES (
 	
 - 题目数据保证答案小于等于 `2 * 109`',
     2000,
-    256
+    256,
+    '{"name": "uniquePaths", "params": [{"name": "m", "type": "integer"}, {"name": "n", "type": "integer"}], "return": {"type": "integer"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8727,7 +8824,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (62, '{"m": 7, "n": 3}', '28', TRUE, 3),
 (62, '{"m": 3, "n": 3}', '6', TRUE, 4);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     20,
     '有效的括号',
@@ -8787,7 +8884,8 @@ VALUES (
 	
 - `s` 仅由括号 `''()[]{}''` 组成',
     2000,
-    256
+    256,
+    '{"name": "isValid", "params": [{"name": "s", "type": "string"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8821,7 +8919,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (20, '{"s": "([])"}', 'true', TRUE, 4),
 (20, '{"s": "([)]"}', 'false', TRUE, 5);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     98,
     '验证二叉搜索树',
@@ -8862,7 +8960,8 @@ VALUES (
 	
 - `-231 <= Node.val <= 231 - 1`',
     2000,
-    256
+    256,
+    '{"name": "isValidBST", "params": [{"name": "root", "type": "TreeNode"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -8936,7 +9035,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (98, '{"root": [2, 1, 3]}', 'true', TRUE, 1),
 (98, '{"root": [5, 1, 4, null, null, 3, 6]}', 'false', TRUE, 2);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     139,
     '单词拆分',
@@ -8983,7 +9082,8 @@ VALUES (
 	
 - `wordDict` 中的所有字符串 **互不相同**',
     2000,
-    256
+    256,
+    '{"name": "wordBreak", "params": [{"name": "s", "type": "string"}, {"name": "wordDict", "type": "list<string>"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES
@@ -9017,7 +9117,7 @@ INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sor
 (139, '{"s": "applepenapple", "wordDict": ["apple", "pen"]}', 'true', TRUE, 2),
 (139, '{"s": "catsandog", "wordDict": ["cats", "dog", "sand", "and", "cat"]}', 'false', TRUE, 3);
 
-INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb)
+INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
     79,
     '单词搜索',
@@ -9065,7 +9165,8 @@ VALUES (
 
 **进阶：**你可以使用搜索剪枝的技术来优化解决方案，使其在 `board` 更大的情况下可以更快解决问题？',
     2000,
-    256
+    256,
+    '{"name": "exist", "params": [{"name": "board", "type": "character[][]"}, {"name": "word", "type": "string"}], "return": {"type": "boolean"}}'
 );
 
 INSERT IGNORE INTO problem_template (problem_id, language, template_code) VALUES

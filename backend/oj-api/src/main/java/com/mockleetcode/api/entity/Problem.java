@@ -33,6 +33,9 @@ public class Problem {
     @Column(name = "memory_limit_mb")
     private Integer memoryLimitMb;
 
+    @Column(name = "meta_data", columnDefinition = "JSON", nullable = false)
+    private String metaData;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 }

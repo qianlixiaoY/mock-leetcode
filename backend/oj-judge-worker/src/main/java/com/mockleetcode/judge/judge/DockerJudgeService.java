@@ -1,10 +1,15 @@
 package com.mockleetcode.judge.judge;
 
+import com.mockleetcode.common.dto.GeneratedHarness;
 import com.mockleetcode.common.dto.JudgeRequest;
 import com.mockleetcode.common.dto.JudgeResult;
+import com.mockleetcode.common.dto.ProblemMeta;
 import com.mockleetcode.common.dto.TestCaseDto;
 import com.mockleetcode.common.enums.JudgeStatus;
 import com.mockleetcode.common.enums.Language;
+import com.mockleetcode.judge.harness.FunctionHarnessGenerator;
+import com.mockleetcode.judge.harness.OutputComparer;
+import com.mockleetcode.judge.harness.UnsupportedMetaException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -29,44 +34,6 @@ public class DockerJudgeService {
     /** Extra wall-clock budget for Node.js container startup (ms). */
     private static final long NODE_STARTUP_BUDGET_MS = 10_000L;
 
-    private static final String JAVA_MAIN_TEMPLATE = """
-            import java.util.*;
-            public class Main {
-                public static void main(String[] args) throws Exception {
-                    String input = new String(System.in.readAllBytes()).trim();
-                    int[] prices = parseIntArray(input);
-                    Solution solution = new Solution();
-                    System.out.println(solution.maxProfit(prices));
-                }
-
-                private static int[] parseIntArray(String json) {
-                    json = json.trim();
-                    if (json.startsWith("[")) {
-                        json = json.substring(1, json.length() - 1).trim();
-                    }
-                    if (json.isEmpty()) {
-                        return new int[0];
-                    }
-                    String[] parts = json.split(",");
-                    int[] result = new int[parts.length];
-                    for (int i = 0; i < parts.length; i++) {
-                        result[i] = Integer.parseInt(parts[i].trim());
-                    }
-                    return result;
-                }
-            }
-            """;
-
-    /** Plain JS harness shared by JavaScript and TypeScript (reads input.txt, calls maxProfit). */
-    private static final String NODE_MAIN_JS = """
-            const fs = require('fs');
-            const { maxProfit } = require('./solution');
-
-            const input = fs.readFileSync('input.txt', 'utf-8').trim();
-            const prices = JSON.parse(input);
-            console.log(maxProfit(prices));
-            """;
-
     private static final String TYPESCRIPT_TSCONFIG = """
             {
               "compilerOptions": {
@@ -80,6 +47,8 @@ public class DockerJudgeService {
             }
             """;
 
+    private final FunctionHarnessGenerator harnessGenerator;
+
     @Value("${oj.docker.java-image}")
     private String javaImage;
 
@@ -89,15 +58,30 @@ public class DockerJudgeService {
     @Value("${oj.docker.enabled:true}")
     private boolean dockerEnabled;
 
+    public DockerJudgeService(FunctionHarnessGenerator harnessGenerator) {
+        this.harnessGenerator = harnessGenerator;
+    }
+
     public JudgeResult judge(JudgeRequest request) {
         if (!SUPPORTED_LANGUAGES.contains(request.language())) {
             return errorResult(request.submissionId(), JudgeStatus.SYSTEM_ERROR,
                     "Only Java, JavaScript and TypeScript are supported in this demo");
         }
 
+        if (request.metaData() == null) {
+            return errorResult(request.submissionId(), JudgeStatus.SYSTEM_ERROR, "Missing problem meta_data");
+        }
+
         List<TestCaseDto> testCases = request.testCases();
         if (testCases.isEmpty()) {
             return errorResult(request.submissionId(), JudgeStatus.SYSTEM_ERROR, "No test cases");
+        }
+
+        GeneratedHarness harness;
+        try {
+            harness = harnessGenerator.generate(request.language(), request.metaData());
+        } catch (UnsupportedMetaException ex) {
+            return errorResult(request.submissionId(), JudgeStatus.SYSTEM_ERROR, ex.getMessage());
         }
 
         Function<ExecutionContext, ExecutionResult> executor = switch (request.language()) {
@@ -115,7 +99,14 @@ public class DockerJudgeService {
 
         for (TestCaseDto testCase : testCases) {
             ExecutionResult execution = executor.apply(
-                    new ExecutionContext(request.code(), testCase.input(), request.timeLimitMs(), request.memoryLimitMb())
+                    new ExecutionContext(
+                            request.code(),
+                            testCase.input(),
+                            request.timeLimitMs(),
+                            request.memoryLimitMb(),
+                            harness,
+                            request.metaData()
+                    )
             );
 
             lastStdout = execution.stdout();
@@ -136,7 +127,7 @@ public class DockerJudgeService {
 
             String actual = execution.stdout().trim();
             String expected = testCase.expectedOutput();
-            if (expected != null && !expected.isBlank() && !actual.equals(expected.trim())) {
+            if (!OutputComparer.matches(actual, expected)) {
                 return buildResult(
                         request.submissionId(),
                         JudgeStatus.WRONG_ANSWER,
@@ -169,10 +160,16 @@ public class DockerJudgeService {
         try {
             workspace = Files.createTempDirectory("oj-judge-");
             Files.writeString(workspace.resolve("Solution.java"), normalizeJavaCode(ctx.userCode()), StandardCharsets.UTF_8);
-            Files.writeString(workspace.resolve("Main.java"), JAVA_MAIN_TEMPLATE, StandardCharsets.UTF_8);
+            Files.writeString(workspace.resolve("Main.java"), ctx.harness().mainSource(), StandardCharsets.UTF_8);
+            Files.writeString(workspace.resolve("JsonRuntime.java"), ctx.harness().runtimeHelperSource(), StandardCharsets.UTF_8);
+            Files.writeString(workspace.resolve("input.json"), ctx.input(), StandardCharsets.UTF_8);
 
-            String shell = "cd /workspace && javac Main.java Solution.java 2>&1 && echo '" + escapeShell(ctx.input())
-                    + "' | java -Xmx" + ctx.memoryLimitMb() + "m Main";
+            String classpath = "." + (ctx.harness().runtimeClasspathEntry().isBlank()
+                    ? ""
+                    : ":" + ctx.harness().runtimeClasspathEntry());
+            String shell = "cd /workspace && javac -cp " + classpath
+                    + " JsonRuntime.java Main.java Solution.java 2>&1 && java -cp " + classpath
+                    + " -Xmx" + ctx.memoryLimitMb() + "m Main";
 
             long wallClockMs = ctx.timeLimitMs() + 5_000L;
             return runProcess(workspace, wallClockMs, ctx.memoryLimitMb(), javaImage, shell, this::classifyJavaError);
@@ -187,9 +184,13 @@ public class DockerJudgeService {
         Path workspace = null;
         try {
             workspace = Files.createTempDirectory("oj-judge-");
-            Files.writeString(workspace.resolve("solution.js"), normalizeJavaScriptCode(ctx.userCode()), StandardCharsets.UTF_8);
-            Files.writeString(workspace.resolve("main.js"), NODE_MAIN_JS, StandardCharsets.UTF_8);
-            Files.writeString(workspace.resolve("input.txt"), ctx.input(), StandardCharsets.UTF_8);
+            Files.writeString(
+                    workspace.resolve("solution.js"),
+                    normalizeJavaScriptCode(ctx.userCode(), ctx.harness().userCodeSuffix()),
+                    StandardCharsets.UTF_8
+            );
+            Files.writeString(workspace.resolve("main.js"), ctx.harness().mainSource(), StandardCharsets.UTF_8);
+            Files.writeString(workspace.resolve("input.json"), ctx.input(), StandardCharsets.UTF_8);
 
             String shell = "cd /workspace && NODE_OPTIONS=--max-old-space-size="
                     + ctx.memoryLimitMb() + " node --check solution.js 2>&1 && node main.js";
@@ -207,10 +208,14 @@ public class DockerJudgeService {
         Path workspace = null;
         try {
             workspace = Files.createTempDirectory("oj-judge-");
-            Files.writeString(workspace.resolve("solution.ts"), normalizeTypeScriptCode(ctx.userCode()), StandardCharsets.UTF_8);
-            Files.writeString(workspace.resolve("main.js"), NODE_MAIN_JS, StandardCharsets.UTF_8);
+            Files.writeString(
+                    workspace.resolve("solution.ts"),
+                    normalizeTypeScriptCode(ctx.userCode(), ctx.harness().userCodeSuffix()),
+                    StandardCharsets.UTF_8
+            );
+            Files.writeString(workspace.resolve("main.js"), ctx.harness().mainSource(), StandardCharsets.UTF_8);
             Files.writeString(workspace.resolve("tsconfig.json"), TYPESCRIPT_TSCONFIG, StandardCharsets.UTF_8);
-            Files.writeString(workspace.resolve("input.txt"), ctx.input(), StandardCharsets.UTF_8);
+            Files.writeString(workspace.resolve("input.json"), ctx.input(), StandardCharsets.UTF_8);
 
             String shell = "cd /workspace && tsc 2>&1 && NODE_OPTIONS=--max-old-space-size="
                     + ctx.memoryLimitMb() + " node main.js";
@@ -324,24 +329,20 @@ public class DockerJudgeService {
         return trimmed;
     }
 
-    private String normalizeJavaScriptCode(String code) {
+    private String normalizeJavaScriptCode(String code, String exportSuffix) {
         String trimmed = code.trim();
         if (!trimmed.contains("module.exports") && !trimmed.contains("exports.")) {
-            return trimmed + "\n\nmodule.exports = { maxProfit };\n";
+            return trimmed + exportSuffix;
         }
         return trimmed;
     }
 
-    private String normalizeTypeScriptCode(String code) {
+    private String normalizeTypeScriptCode(String code, String exportSuffix) {
         String trimmed = code.trim();
         if (!trimmed.contains("export")) {
-            return trimmed + "\n\nexport { maxProfit };\n";
+            return trimmed + exportSuffix;
         }
         return trimmed;
-    }
-
-    private String escapeShell(String input) {
-        return input.replace("'", "'\\''");
     }
 
     private void deleteDirectory(Path path) {
@@ -384,7 +385,14 @@ public class DockerJudgeService {
         );
     }
 
-    private record ExecutionContext(String userCode, String input, int timeLimitMs, int memoryLimitMb) {
+    private record ExecutionContext(
+            String userCode,
+            String input,
+            int timeLimitMs,
+            int memoryLimitMb,
+            GeneratedHarness harness,
+            ProblemMeta metaData
+    ) {
     }
 
     private record ExecutionResult(JudgeStatus status, String stdout, String stderr, String errorMessage) {

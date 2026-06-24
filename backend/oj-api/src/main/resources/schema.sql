@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS problem (
     description_md TEXT NOT NULL,
     time_limit_ms INT NOT NULL DEFAULT 2000,
     memory_limit_mb INT NOT NULL DEFAULT 256,
+    meta_data JSON NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

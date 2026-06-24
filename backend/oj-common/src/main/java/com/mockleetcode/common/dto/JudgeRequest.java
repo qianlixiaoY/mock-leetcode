@@ -11,6 +11,7 @@ public record JudgeRequest(
         String code,
         List<TestCaseDto> testCases,
         int timeLimitMs,
-        int memoryLimitMb
+        int memoryLimitMb,
+        ProblemMeta metaData
 ) {
 }
