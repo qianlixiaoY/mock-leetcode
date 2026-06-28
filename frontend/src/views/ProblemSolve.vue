@@ -24,18 +24,19 @@
             :value="item.value"
           />
         </el-select>
-        <el-button size="small" :loading="store.running" @click="store.run(problemId)">
+        <el-button size="small" :loading="store.running" @click="onRun">
           运行
         </el-button>
         <el-button
           size="small"
           type="success"
           :loading="store.submitting"
-          @click="store.submit(problemId)"
+          @click="onSubmit"
         >
           提交
         </el-button>
-        <span class="hint">{{ store.savedHint }}</span>
+        <span v-if="!auth.isAuthenticated" class="hint login-hint">登录后可运行/提交</span>
+        <span v-else class="hint">{{ store.savedHint }}</span>
       </div>
     </header>
 
@@ -67,7 +68,10 @@
                     <span v-if="item.runtimeMs != null"> · {{ item.runtimeMs }} ms</span>
                   </div>
                 </div>
-                <el-empty v-if="store.submissions.length === 0" description="暂无提交记录" />
+                <el-empty
+                  v-if="store.submissions.length === 0"
+                  :description="auth.isAuthenticated ? '暂无提交记录' : '登录后查看提交记录'"
+                />
               </div>
             </el-tab-pane>
           </el-tabs>
@@ -140,11 +144,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted } from 'vue'
+import { computed, onBeforeUnmount, onMounted, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { Splitpanes, Pane } from 'splitpanes'
 import CodeEditor from '@/components/CodeEditor.vue'
 import MarkdownView from '@/components/MarkdownView.vue'
 import { useProblemStore } from '@/stores/problem'
+import { useAuthStore } from '@/stores/auth'
 import {
   DIFFICULTY_LABEL,
   JUDGE_SUPPORTED_LANGUAGES,
@@ -163,6 +169,9 @@ import {
 const props = defineProps<{ id: string }>()
 const problemId = computed(() => Number(props.id))
 const store = useProblemStore()
+const auth = useAuthStore()
+const router = useRouter()
+const route = useRoute()
 
 const monacoLanguage = computed(
   () => LANGUAGE_OPTIONS.find((item) => item.value === store.language)?.monaco ?? 'java',
@@ -171,6 +180,33 @@ const monacoLanguage = computed(
 onMounted(async () => {
   await store.loadProblem(problemId.value)
 })
+
+watch(
+  () => auth.isAuthenticated,
+  async (loggedIn) => {
+    if (loggedIn && store.problem) {
+      await store.loadProblem(problemId.value)
+    }
+  },
+)
+
+function requireAuth(): boolean {
+  if (auth.isAuthenticated) {
+    return true
+  }
+  router.push({ path: '/login', query: { redirect: route.fullPath } })
+  return false
+}
+
+function onRun() {
+  if (!requireAuth()) return
+  store.run(problemId.value)
+}
+
+function onSubmit() {
+  if (!requireAuth()) return
+  store.submit(problemId.value)
+}
 
 function updateCustomInputField(key: string, value: string) {
   store.customInput[key] = parseFieldValue(value)
@@ -185,6 +221,7 @@ function onLanguageChange() {
 }
 
 function onCodeChange() {
+  if (!auth.isAuthenticated) return
   store.scheduleSave(problemId.value)
 }
 

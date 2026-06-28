@@ -30,7 +30,7 @@
         "skipA": 2,
         "skipB": 3
       },
-      "expected_output": "Intersected at '8'"
+      "expected_output": 8
     },
     {
       "sort_order": 2,
@@ -52,7 +52,7 @@
         "skipA": 3,
         "skipB": 1
       },
-      "expected_output": "Intersected at '2'"
+      "expected_output": 2
     },
     {
       "sort_order": 3,
@@ -71,7 +71,7 @@
         "skipA": 3,
         "skipB": 2
       },
-      "expected_output": "No intersection"
+      "expected_output": null
     }
   ],
   "code_snippets": {

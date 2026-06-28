@@ -20,6 +20,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -162,13 +163,15 @@ public class DockerJudgeService {
             Files.writeString(workspace.resolve("Solution.java"), normalizeJavaCode(ctx.userCode()), StandardCharsets.UTF_8);
             Files.writeString(workspace.resolve("Main.java"), ctx.harness().mainSource(), StandardCharsets.UTF_8);
             Files.writeString(workspace.resolve("JsonRuntime.java"), ctx.harness().runtimeHelperSource(), StandardCharsets.UTF_8);
+            writeExtraWorkspaceFiles(workspace, ctx.harness().extraWorkspaceFiles());
             Files.writeString(workspace.resolve("input.json"), ctx.input(), StandardCharsets.UTF_8);
 
             String classpath = "." + (ctx.harness().runtimeClasspathEntry().isBlank()
                     ? ""
                     : ":" + ctx.harness().runtimeClasspathEntry());
+            String compileTargets = buildJavaCompileTargets(ctx.harness().extraWorkspaceFiles());
             String shell = "cd /workspace && javac -cp " + classpath
-                    + " JsonRuntime.java Main.java Solution.java 2>&1 && java -cp " + classpath
+                    + " " + compileTargets + " 2>&1 && java -cp " + classpath
                     + " -Xmx" + ctx.memoryLimitMb() + "m Main";
 
             long wallClockMs = ctx.timeLimitMs() + 5_000L;
@@ -190,6 +193,7 @@ public class DockerJudgeService {
                     StandardCharsets.UTF_8
             );
             Files.writeString(workspace.resolve("main.js"), ctx.harness().mainSource(), StandardCharsets.UTF_8);
+            writeExtraWorkspaceFiles(workspace, ctx.harness().extraWorkspaceFiles());
             Files.writeString(workspace.resolve("input.json"), ctx.input(), StandardCharsets.UTF_8);
 
             String shell = "cd /workspace && NODE_OPTIONS=--max-old-space-size="
@@ -214,6 +218,7 @@ public class DockerJudgeService {
                     StandardCharsets.UTF_8
             );
             Files.writeString(workspace.resolve("main.js"), ctx.harness().mainSource(), StandardCharsets.UTF_8);
+            writeExtraWorkspaceFiles(workspace, ctx.harness().extraWorkspaceFiles());
             Files.writeString(workspace.resolve("tsconfig.json"), TYPESCRIPT_TSCONFIG, StandardCharsets.UTF_8);
             Files.writeString(workspace.resolve("input.json"), ctx.input(), StandardCharsets.UTF_8);
 
@@ -227,6 +232,20 @@ public class DockerJudgeService {
         } finally {
             deleteDirectory(workspace);
         }
+    }
+
+    private void writeExtraWorkspaceFiles(Path workspace, Map<String, String> extraWorkspaceFiles) throws IOException {
+        for (Map.Entry<String, String> entry : extraWorkspaceFiles.entrySet()) {
+            Files.writeString(workspace.resolve(entry.getKey()), entry.getValue(), StandardCharsets.UTF_8);
+        }
+    }
+
+    private String buildJavaCompileTargets(Map<String, String> extraWorkspaceFiles) {
+        StringBuilder targets = new StringBuilder("JsonRuntime.java Main.java Solution.java");
+        for (String filename : extraWorkspaceFiles.keySet()) {
+            targets.append(' ').append(filename);
+        }
+        return targets.toString();
     }
 
     private ExecutionResult runProcess(Path workspace,

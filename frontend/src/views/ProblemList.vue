@@ -1,7 +1,6 @@
 <template>
   <div class="page">
     <header class="header">
-      <h1>Mock LeetCode OJ</h1>
       <p>Vue 3 + Java 在线判题系统 Demo</p>
     </header>
 
@@ -55,10 +54,6 @@ function difficultyType(difficulty: Difficulty) {
   max-width: 960px;
   margin: 0 auto;
   padding: 32px 20px;
-}
-
-.header h1 {
-  margin: 0 0 8px;
 }
 
 .header p {

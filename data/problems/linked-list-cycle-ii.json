@@ -19,7 +19,7 @@
         ],
         "pos": 1
       },
-      "expected_output": "返回索引为 1 的链表节点"
+      "expected_output": 2
     },
     {
       "sort_order": 2,
@@ -31,7 +31,7 @@
         ],
         "pos": 0
       },
-      "expected_output": "返回索引为 0 的链表节点"
+      "expected_output": 1
     },
     {
       "sort_order": 3,
@@ -42,7 +42,7 @@
         ],
         "pos": -1
       },
-      "expected_output": "返回 null"
+      "expected_output": null
     }
   ],
   "code_snippets": {

@@ -19,6 +19,16 @@ export interface ApiResponse<T> {
   data: T
 }
 
+export interface User {
+  id: number
+  username: string
+}
+
+export interface AuthResponse {
+  token: string
+  user: User
+}
+
 export interface ProblemSummary {
   id: number
   title: string

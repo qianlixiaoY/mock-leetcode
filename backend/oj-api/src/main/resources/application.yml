@@ -29,11 +29,15 @@ spring:
     password: oj123
 
 oj:
+  jwt:
+    secret: ${JWT_SECRET:dev-secret-change-me-in-production}
+    expiration-ms: 604800000
   judge:
     queue: judge.queue
     exchange: judge.exchange
     routing-key: judge.route
     worker-url: http://localhost:8081
+    callback-secret: ${JUDGE_CALLBACK_SECRET:oj-callback-dev}
 
 logging:
   level:

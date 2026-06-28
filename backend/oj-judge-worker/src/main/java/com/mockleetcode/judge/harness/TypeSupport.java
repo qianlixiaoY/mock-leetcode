@@ -6,12 +6,14 @@ import java.util.Set;
 
 public final class TypeSupport {
 
-    private static final Set<String> PHASE1_TYPES = Set.of(
+    private static final Set<String> SUPPORTED_TYPES = Set.of(
             "integer",
             "integer[]",
             "string",
             "boolean",
-            "integer[][]"
+            "integer[][]",
+            "ListNode",
+            "TreeNode"
     );
 
     private TypeSupport() {
@@ -32,7 +34,7 @@ public final class TypeSupport {
     }
 
     private static void ensureType(String type) {
-        if (type == null || !PHASE1_TYPES.contains(type)) {
+        if (type == null || !SUPPORTED_TYPES.contains(type)) {
             throw new UnsupportedMetaException("Type not supported yet: " + type);
         }
     }

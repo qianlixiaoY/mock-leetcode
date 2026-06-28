@@ -3154,9 +3154,9 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(160, '{"intersectVal": 8, "listA": [4, 1, 8, 4, 5], "listB": [5, 6, 1, 8, 4, 5], "skipA": 2, "skipB": 3}', 'Intersected at ''8''', TRUE, 1),
-(160, '{"intersectVal": 2, "listA": [1, 9, 1, 2, 4], "listB": [3, 2, 4], "skipA": 3, "skipB": 1}', 'Intersected at ''2''', TRUE, 2),
-(160, '{"intersectVal": 0, "listA": [2, 6, 4], "listB": [1, 5], "skipA": 3, "skipB": 2}', 'No intersection', TRUE, 3);
+(160, '{"intersectVal": 8, "listA": [4, 1, 8, 4, 5], "listB": [5, 6, 1, 8, 4, 5], "skipA": 2, "skipB": 3}', '8', TRUE, 1),
+(160, '{"intersectVal": 2, "listA": [1, 9, 1, 2, 4], "listB": [3, 2, 4], "skipA": 3, "skipB": 1}', '2', TRUE, 2),
+(160, '{"intersectVal": 0, "listA": [2, 6, 4], "listB": [1, 5], "skipA": 3, "skipB": 2}', 'null', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (
@@ -3843,9 +3843,9 @@ function detectCycle(head: ListNode | null): ListNode | null {
 };');
 
 INSERT IGNORE INTO test_case (problem_id, input, expected_output, is_sample, sort_order) VALUES
-(142, '{"head": [3, 2, 0, -4], "pos": 1}', '返回索引为 1 的链表节点', TRUE, 1),
-(142, '{"head": [1, 2], "pos": 0}', '返回索引为 0 的链表节点', TRUE, 2),
-(142, '{"head": [1], "pos": -1}', '返回 null', TRUE, 3);
+(142, '{"head": [3, 2, 0, -4], "pos": 1}', '2', TRUE, 1),
+(142, '{"head": [1, 2], "pos": 0}', '1', TRUE, 2),
+(142, '{"head": [1], "pos": -1}', 'null', TRUE, 3);
 
 INSERT IGNORE INTO problem (id, title, slug, difficulty, description_md, time_limit_ms, memory_limit_mb, meta_data)
 VALUES (

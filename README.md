@@ -92,6 +92,7 @@ npm run dev
 | Run（自定义输入运行） | ✅ Java、JavaScript、TypeScript |
 | Submit（隐藏用例异步判题） | ✅ Java、JavaScript、TypeScript |
 | 提交记录 | ✅ |
+| 用户登录 / 注册（JWT） | ✅ |
 | Docker 沙箱判题 | ✅ |
 
 > Demo 阶段 **Run / Submit 判题支持 Java、JavaScript、TypeScript**。Python 可编辑代码，但提交会提示不支持。
@@ -164,6 +165,9 @@ function maxProfit(prices: number[]): number {
 | POST | `/api/submissions/run` | 运行代码 |
 | POST | `/api/submissions` | 提交判题 |
 | GET | `/api/submissions/{id}` | 查询判题结果 |
+| POST | `/api/auth/register` | 注册 |
+| POST | `/api/auth/login` | 登录 |
+| GET | `/api/auth/me` | 当前用户（需 Token） |
 
 ## Windows 注意事项
 
@@ -174,5 +178,5 @@ function maxProfit(prices: number[]): number {
 
 - [ ] 支持 Python 判题镜像
 - [ ] WebSocket 替代轮询
-- [ ] 用户登录与 JWT
+- [x] 用户登录与 JWT
 - [ ] 管理员题目录入后台

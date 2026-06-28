@@ -10,6 +10,7 @@ import com.mockleetcode.api.entity.TestCase;
 import com.mockleetcode.api.repository.ProblemRepository;
 import com.mockleetcode.api.repository.SubmissionRepository;
 import com.mockleetcode.api.repository.TestCaseRepository;
+import com.mockleetcode.api.support.CurrentUser;
 import com.mockleetcode.api.support.ProblemMetaParser;
 import com.mockleetcode.common.dto.JudgeRequest;
 import com.mockleetcode.common.dto.ProblemMeta;
@@ -33,7 +34,6 @@ import java.util.Set;
 @Service
 public class SubmissionService {
 
-    private static final Long DEFAULT_USER_ID = 1L;
     private static final Set<Language> SUPPORTED_LANGUAGES =
             EnumSet.of(Language.JAVA, Language.JAVASCRIPT, Language.TYPESCRIPT);
 
@@ -113,7 +113,7 @@ public class SubmissionService {
         List<TestCase> testCases = testCaseRepository.findByProblemIdOrderBySortOrderAsc(problem.getId());
 
         Submission submission = new Submission();
-        submission.setUserId(DEFAULT_USER_ID);
+        submission.setUserId(CurrentUser.requireUserId());
         submission.setProblemId(problem.getId());
         submission.setLanguage(request.language());
         submission.setCode(request.code());
@@ -144,11 +144,13 @@ public class SubmissionService {
     public SubmissionDto getSubmission(Long id) {
         Submission submission = submissionRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Submission not found"));
+        ensureOwner(submission);
         return toDto(submission);
     }
 
     public List<SubmissionDto> listSubmissions(Long problemId) {
-        return submissionRepository.findByProblemIdAndUserIdOrderByCreatedAtDesc(problemId, DEFAULT_USER_ID)
+        Long userId = CurrentUser.requireUserId();
+        return submissionRepository.findByProblemIdAndUserIdOrderByCreatedAtDesc(problemId, userId)
                 .stream()
                 .map(this::toDto)
                 .toList();
@@ -168,6 +170,12 @@ public class SubmissionService {
         submission.setStdout(result.stdout());
         submission.setStderr(result.stderr());
         submissionRepository.save(submission);
+    }
+
+    private void ensureOwner(Submission submission) {
+        if (!submission.getUserId().equals(CurrentUser.requireUserId())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Access denied");
+        }
     }
 
     private void ensureSupportedLanguage(Language language) {

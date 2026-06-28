@@ -16,6 +16,7 @@ oj:
     exchange: judge.exchange
     routing-key: judge.route
     api-callback-url: http://localhost:8080/api/submissions/callback
+    callback-secret: ${JUDGE_CALLBACK_SECRET:oj-callback-dev}
   docker:
     java-image: oj-judge-java:latest
     typescript-image: oj-judge-typescript:latest

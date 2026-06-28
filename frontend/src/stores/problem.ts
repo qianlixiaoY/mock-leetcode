@@ -6,6 +6,7 @@ import {
   fetchProblem,
   fetchSubmission,
   fetchSubmissions,
+  getToken,
   runCode,
   saveDraft,
   submitCode,
@@ -39,15 +40,25 @@ export const useProblemStore = defineStore('problem', () => {
         customInput.value = parseTestCaseInput(problem.value.sampleTestCases[0].input)
       }
       await loadCode(id)
-      submissions.value = await fetchSubmissions(id)
+      if (getToken()) {
+        submissions.value = await fetchSubmissions(id)
+      } else {
+        submissions.value = []
+      }
     } finally {
       loading.value = false
     }
   }
 
   async function loadCode(problemId: number) {
-    const draft = await fetchDraft(problemId, language.value)
     const template = problem.value?.templates[language.value] ?? ''
+    if (!getToken()) {
+      code.value = template
+      savedHint.value = ''
+      return
+    }
+
+    const draft = await fetchDraft(problemId, language.value)
     code.value = draft || template
   }
 
@@ -57,6 +68,11 @@ export const useProblemStore = defineStore('problem', () => {
   }
 
   function scheduleSave(problemId: number) {
+    if (!getToken()) {
+      savedHint.value = ''
+      return
+    }
+
     savedHint.value = '编辑中...'
     if (saveTimer) {
       clearTimeout(saveTimer)
