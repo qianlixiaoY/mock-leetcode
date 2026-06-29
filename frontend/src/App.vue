@@ -10,6 +10,7 @@
       :title="backendWarning"
     />
     <router-view />
+    <LoginDialog />
   </div>
 </template>
 
@@ -17,6 +18,7 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import AppHeader from '@/components/AppHeader.vue'
+import LoginDialog from '@/components/auth/LoginDialog.vue'
 import { useAuthStore } from '@/stores/auth'
 
 const route = useRoute()

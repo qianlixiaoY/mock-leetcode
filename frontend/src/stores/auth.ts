@@ -3,10 +3,25 @@ import { computed, ref } from 'vue'
 import { fetchMe, login as loginApi, register as registerApi, setToken, getToken } from '@/api'
 import type { User } from '@/types'
 
+export type AuthTab = 'login' | 'register'
+
+export interface LoginDialogOptions {
+  tab?: AuthTab
+  reason?: string
+}
+
 export const useAuthStore = defineStore('auth', () => {
   const token = ref<string | null>(getToken())
   const user = ref<User | null>(null)
   const ready = ref(false)
+
+  const loginDialog = ref({
+    visible: false,
+    tab: 'login' as AuthTab,
+    reason: '',
+  })
+
+  let loginWaiter: ((success: boolean) => void) | null = null
 
   const isAuthenticated = computed(() => !!token.value && !!user.value)
 
@@ -51,15 +66,49 @@ export const useAuthStore = defineStore('auth', () => {
     clearSession()
   }
 
+  function openLoginDialog(options: LoginDialogOptions = {}) {
+    if (isAuthenticated.value) {
+      return
+    }
+    loginDialog.value = {
+      visible: true,
+      tab: options.tab ?? 'login',
+      reason: options.reason ?? '',
+    }
+  }
+
+  function requestLogin(options: LoginDialogOptions = {}): Promise<boolean> {
+    if (isAuthenticated.value) {
+      return Promise.resolve(true)
+    }
+
+    openLoginDialog(options)
+    return new Promise((resolve) => {
+      loginWaiter = resolve
+    })
+  }
+
+  function closeLoginDialog(success: boolean) {
+    loginDialog.value.visible = false
+    if (loginWaiter) {
+      loginWaiter(success)
+      loginWaiter = null
+    }
+  }
+
   return {
     token,
     user,
     ready,
+    loginDialog,
     isAuthenticated,
     restoreSession,
     login,
     register,
     logout,
     clearSession,
+    openLoginDialog,
+    requestLogin,
+    closeLoginDialog,
   }
 })

@@ -7,27 +7,26 @@
         <el-button size="small" @click="handleLogout">退出</el-button>
       </template>
       <template v-else>
-        <el-button size="small" @click="goLogin">登录</el-button>
-        <el-button size="small" type="primary" @click="goRegister">注册</el-button>
+        <el-button size="small" @click="openLogin">登录</el-button>
+        <el-button size="small" type="primary" @click="openRegister">注册</el-button>
       </template>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 
 const auth = useAuthStore()
 const router = useRouter()
-const route = useRoute()
 
-function goLogin() {
-  router.push({ path: '/login', query: { redirect: route.fullPath } })
+function openLogin() {
+  auth.openLoginDialog()
 }
 
-function goRegister() {
-  router.push({ path: '/login', query: { redirect: route.fullPath, tab: 'register' } })
+function openRegister() {
+  auth.openLoginDialog({ tab: 'register' })
 }
 
 function handleLogout() {

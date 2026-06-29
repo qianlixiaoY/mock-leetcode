@@ -43,7 +43,7 @@
     <Splitpanes class="main-panes">
       <Pane min-size="25" size="38">
         <div class="panel left-panel">
-          <el-tabs v-model="store.leftTab" class="panel-tabs">
+          <el-tabs v-model="store.leftTab" class="panel-tabs" @tab-change="onLeftTabChange">
             <el-tab-pane label="题目描述" name="desc">
               <div class="scroll-area">
                 <MarkdownView v-if="store.problem" :content="store.problem.descriptionMd" />
@@ -145,7 +145,6 @@
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 import { Splitpanes, Pane } from 'splitpanes'
 import CodeEditor from '@/components/CodeEditor.vue'
 import MarkdownView from '@/components/MarkdownView.vue'
@@ -170,8 +169,6 @@ const props = defineProps<{ id: string }>()
 const problemId = computed(() => Number(props.id))
 const store = useProblemStore()
 const auth = useAuthStore()
-const router = useRouter()
-const route = useRoute()
 
 const monacoLanguage = computed(
   () => LANGUAGE_OPTIONS.find((item) => item.value === store.language)?.monaco ?? 'java',
@@ -190,22 +187,28 @@ watch(
   },
 )
 
-function requireAuth(): boolean {
-  if (auth.isAuthenticated) {
-    return true
-  }
-  router.push({ path: '/login', query: { redirect: route.fullPath } })
-  return false
+function requireAuth(reason: string): Promise<boolean> {
+  return auth.requestLogin({ reason })
 }
 
-function onRun() {
-  if (!requireAuth()) return
+async function onRun() {
+  if (!(await requireAuth('登录后可运行代码'))) return
   store.run(problemId.value)
 }
 
-function onSubmit() {
-  if (!requireAuth()) return
+async function onSubmit() {
+  if (!(await requireAuth('登录后可提交判题'))) return
   store.submit(problemId.value)
+}
+
+async function onLeftTabChange(name: string | number) {
+  if (name !== 'records' || auth.isAuthenticated) {
+    return
+  }
+  const ok = await auth.requestLogin({ reason: '登录后查看提交记录' })
+  if (!ok) {
+    store.leftTab = 'desc'
+  }
 }
 
 function updateCustomInputField(key: string, value: string) {
