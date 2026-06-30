@@ -172,6 +172,30 @@ export const useProblemStore = defineStore('problem', () => {
       .join('\n')
   }
 
+  async function saveDraftNow(problemId: number) {
+    if (!getToken()) {
+      return
+    }
+    if (saveTimer) {
+      clearTimeout(saveTimer)
+      saveTimer = null
+    }
+    await saveDraft(problemId, language.value, code.value)
+    savedHint.value = '已保存'
+  }
+
+  async function resetToTemplate(problemId: number) {
+    code.value = problem.value?.templates[language.value] ?? ''
+    if (getToken()) {
+      await saveDraft(problemId, language.value, code.value)
+      savedHint.value = '已重置为模板'
+    }
+  }
+
+  function getTemplateCode() {
+    return problem.value?.templates[language.value] ?? ''
+  }
+
   function cleanup() {
     if (saveTimer) {
       clearTimeout(saveTimer)
@@ -198,6 +222,9 @@ export const useProblemStore = defineStore('problem', () => {
     loadProblem,
     changeLanguage,
     scheduleSave,
+    saveDraftNow,
+    resetToTemplate,
+    getTemplateCode,
     run,
     submit,
     cleanup,

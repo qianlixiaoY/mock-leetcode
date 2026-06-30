@@ -82,16 +82,29 @@
         <Splitpanes horizontal>
           <Pane min-size="35" size="62">
             <div class="panel editor-panel">
-              <div class="editor-toolbar">
-                <span>代码编辑器</span>
-                <span v-if="!JUDGE_SUPPORTED_LANGUAGES.includes(store.language)" class="warn">
-                  判题 Demo 当前支持 Java、JavaScript、TypeScript
-                </span>
-              </div>
+              <EditorToolbar
+                :can-format="editorCanFormat"
+                :font-size="editorFontSize"
+                :theme-label="editorThemeLabel"
+                @format="onFormat"
+                @reset="onResetTemplate"
+                @font-increase="onFontIncrease"
+                @font-decrease="onFontDecrease"
+                @toggle-theme="onToggleTheme"
+              >
+                <template #extra>
+                  <span v-if="!JUDGE_SUPPORTED_LANGUAGES.includes(store.language)" class="warn">
+                    判题 Demo 当前支持 Java、JavaScript、TypeScript
+                  </span>
+                </template>
+              </EditorToolbar>
               <CodeEditor
+                ref="editorRef"
                 v-model="store.code"
                 :language="monacoLanguage"
                 @update:model-value="onCodeChange"
+                @run="onRun"
+                @save="onSaveDraft"
               />
             </div>
           </Pane>
@@ -144,10 +157,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import { Splitpanes, Pane } from 'splitpanes'
 import CodeEditor from '@/components/CodeEditor.vue'
+import EditorToolbar from '@/components/editor/EditorToolbar.vue'
 import MarkdownView from '@/components/MarkdownView.vue'
+import { canFormatLanguage } from '@/monaco'
+import { loadFontSize, loadTheme, themeLabel } from '@/monaco/features/preferences'
 import { useProblemStore } from '@/stores/problem'
 import { useAuthStore } from '@/stores/auth'
 import {
@@ -169,13 +186,24 @@ const props = defineProps<{ id: string }>()
 const problemId = computed(() => Number(props.id))
 const store = useProblemStore()
 const auth = useAuthStore()
+const editorRef = ref<InstanceType<typeof CodeEditor> | null>(null)
+const editorFontSize = ref(loadFontSize())
+const editorThemeLabel = ref(themeLabel(loadTheme()))
 
 const monacoLanguage = computed(
   () => LANGUAGE_OPTIONS.find((item) => item.value === store.language)?.monaco ?? 'java',
 )
 
+const editorCanFormat = computed(() => canFormatLanguage(monacoLanguage.value))
+
+function syncEditorMeta() {
+  editorFontSize.value = editorRef.value?.fontSize ?? loadFontSize()
+  editorThemeLabel.value = editorRef.value?.themeLabel ?? themeLabel(loadTheme())
+}
+
 onMounted(async () => {
   await store.loadProblem(problemId.value)
+  syncEditorMeta()
 })
 
 watch(
@@ -221,6 +249,51 @@ onBeforeUnmount(() => {
 
 function onLanguageChange() {
   store.changeLanguage(problemId.value, store.language)
+}
+
+async function onSaveDraft() {
+  if (!(await requireAuth('登录后可保存草稿'))) {
+    return
+  }
+  await store.saveDraftNow(problemId.value)
+}
+
+async function onFormat() {
+  const ok = await editorRef.value?.formatDocument()
+  if (ok) {
+    ElMessage.success('已格式化')
+  } else {
+    ElMessage.warning('当前语言暂不支持内置格式化（支持 JavaScript / TypeScript）')
+  }
+}
+
+async function onResetTemplate() {
+  try {
+    await ElMessageBox.confirm('确定重置为初始模板？当前修改将丢失。', '重置模板', {
+      type: 'warning',
+      confirmButtonText: '重置',
+      cancelButtonText: '取消',
+    })
+  } catch {
+    return
+  }
+  await store.resetToTemplate(problemId.value)
+  ElMessage.success('已重置为模板')
+}
+
+function onFontIncrease() {
+  editorRef.value?.increaseFontSize()
+  syncEditorMeta()
+}
+
+function onFontDecrease() {
+  editorRef.value?.decreaseFontSize()
+  syncEditorMeta()
+}
+
+function onToggleTheme() {
+  editorRef.value?.toggleTheme()
+  syncEditorMeta()
 }
 
 function onCodeChange() {
@@ -332,19 +405,9 @@ function formatTime(value: string) {
   min-height: 0;
 }
 
-.editor-toolbar {
-  height: 36px;
-  padding: 0 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--oj-border);
-  color: var(--oj-text-muted);
-  font-size: 13px;
-}
-
 .warn {
   color: #e6a23c;
+  font-size: 12px;
 }
 
 .console-panel {
