@@ -7,7 +7,8 @@ import com.mockleetcode.api.entity.TestCase;
 import com.mockleetcode.api.repository.ProblemRepository;
 import com.mockleetcode.api.repository.ProblemTemplateRepository;
 import com.mockleetcode.api.repository.TestCaseRepository;
-import com.mockleetcode.common.enums.Language;
+import com.mockleetcode.api.support.ProblemMetaParser;
+import com.mockleetcode.common.dto.ProblemMeta;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,13 +23,16 @@ public class ProblemService {
     private final ProblemRepository problemRepository;
     private final ProblemTemplateRepository templateRepository;
     private final TestCaseRepository testCaseRepository;
+    private final ProblemMetaParser problemMetaParser;
 
     public ProblemService(ProblemRepository problemRepository,
                           ProblemTemplateRepository templateRepository,
-                          TestCaseRepository testCaseRepository) {
+                          TestCaseRepository testCaseRepository,
+                          ProblemMetaParser problemMetaParser) {
         this.problemRepository = problemRepository;
         this.templateRepository = templateRepository;
         this.testCaseRepository = testCaseRepository;
+        this.problemMetaParser = problemMetaParser;
     }
 
     public List<ProblemSummaryDto> listProblems() {
@@ -50,6 +54,8 @@ public class ProblemService {
         Map<Language, String> templates = templateRepository.findByProblemId(id).stream()
                 .collect(Collectors.toMap(ProblemTemplate::getLanguage, ProblemTemplate::getTemplateCode));
 
+        ProblemMeta meta = problemMetaParser.parse(problem);
+
         return new ProblemDetailDto(
                 problem.getId(),
                 problem.getTitle(),
@@ -59,7 +65,8 @@ public class ProblemService {
                 problem.getTimeLimitMs(),
                 problem.getMemoryLimitMb(),
                 samples,
-                templates
+                templates,
+                meta
         );
     }
 

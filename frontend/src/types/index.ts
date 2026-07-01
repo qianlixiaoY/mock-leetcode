@@ -42,6 +42,32 @@ export interface TestCaseView {
   expectedOutput: string
 }
 
+export interface ProblemMetaParam {
+  name: string
+  type: string
+}
+
+export interface ProblemMetaReturn {
+  type: string
+  size?: number
+}
+
+export interface ProblemMetaMethod {
+  name: string
+  params: ProblemMetaParam[]
+  return?: ProblemMetaReturn
+}
+
+export interface ProblemMeta {
+  name?: string
+  classname?: string
+  systemdesign?: boolean
+  params?: ProblemMetaParam[]
+  return?: ProblemMetaReturn
+  constructor?: { params: ProblemMetaParam[] }
+  methods?: ProblemMetaMethod[]
+}
+
 export interface ProblemDetail {
   id: number
   title: string
@@ -52,6 +78,7 @@ export interface ProblemDetail {
   memoryLimitMb: number
   sampleTestCases: TestCaseView[]
   templates: Partial<Record<Language, string>>
+  meta: ProblemMeta
 }
 
 export interface Submission {

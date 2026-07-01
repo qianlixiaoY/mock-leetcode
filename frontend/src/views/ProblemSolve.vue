@@ -102,6 +102,8 @@
                 ref="editorRef"
                 v-model="store.code"
                 :language="monacoLanguage"
+                :template="currentTemplate"
+                :meta="store.problem?.meta"
                 @update:model-value="onCodeChange"
                 @run="onRun"
                 @save="onSaveDraft"
@@ -195,6 +197,10 @@ const monacoLanguage = computed(
 )
 
 const editorCanFormat = computed(() => canFormatLanguage(monacoLanguage.value))
+
+const currentTemplate = computed(
+  () => store.problem?.templates[store.language] ?? '',
+)
 
 function syncEditorMeta() {
   editorFontSize.value = editorRef.value?.fontSize ?? loadFontSize()

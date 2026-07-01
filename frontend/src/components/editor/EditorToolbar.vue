@@ -2,7 +2,7 @@
   <div class="editor-toolbar">
     <div class="left">
       <span class="title">代码编辑器</span>
-      <span class="shortcut-hint">Ctrl+Enter 运行 · Ctrl+S 保存 · Ctrl+Shift+F 格式化</span>
+        <span class="shortcut-hint">Ctrl+Enter 运行 · Ctrl+S 保存 · 模板区不可编辑</span>
     </div>
 
     <div class="tools">

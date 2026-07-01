@@ -67,3 +67,11 @@ body,
 .markdown-body ul {
   padding-left: 1.4em;
 }
+
+.monaco-editor .template-locked-line {
+  background-color: rgba(120, 120, 120, 0.14);
+}
+
+.monaco-editor .view-line.template-locked-line span {
+  opacity: 0.72;
+}

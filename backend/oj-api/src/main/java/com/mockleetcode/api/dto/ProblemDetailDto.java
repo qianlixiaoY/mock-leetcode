@@ -1,5 +1,6 @@
 package com.mockleetcode.api.dto;
 
+import com.mockleetcode.common.dto.ProblemMeta;
 import com.mockleetcode.common.enums.Difficulty;
 import com.mockleetcode.common.enums.Language;
 
@@ -15,6 +16,7 @@ public record ProblemDetailDto(
         Integer timeLimitMs,
         Integer memoryLimitMb,
         List<TestCaseViewDto> sampleTestCases,
-        Map<Language, String> templates
+        Map<Language, String> templates,
+        ProblemMeta meta
 ) {
 }

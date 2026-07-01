@@ -6,9 +6,13 @@
 import { onMounted, ref } from 'vue'
 import { useMonacoEditor } from '@/monaco/composables/useMonacoEditor'
 
+import type { ProblemMeta } from '@/types'
+
 const props = defineProps<{
   modelValue: string
   language: string
+  template?: string
+  meta?: ProblemMeta | null
 }>()
 
 const emit = defineEmits<{
@@ -34,6 +38,8 @@ const {
   containerRef,
   getValue: () => props.modelValue,
   getLanguage: () => props.language,
+  getTemplate: () => props.template ?? '',
+  getMeta: () => props.meta,
   onValueChange: (value) => emit('update:modelValue', value),
   callbacks: {
     onRun: () => emit('run'),

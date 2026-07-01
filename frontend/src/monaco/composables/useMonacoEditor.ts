@@ -2,6 +2,11 @@ import { computed, onBeforeUnmount, ref, shallowRef, watch, type Ref } from 'vue
 import { monaco, setupMonaco } from '../setup'
 import { canFormatLanguage, formatDocument } from '../features/format'
 import { registerEditorKeybindings } from '../features/keybindings'
+import { createMetaHoverProvider } from '../features/meta-hover'
+import { registerOjSnippets } from '../features/snippets'
+import { createTemplateGuard, type TemplateGuard } from '../features/template-guard'
+import { buildTemplateLayout } from '../features/template-layout'
+import { configureOjTypes } from '../languages/oj-types'
 import {
   loadFontSize,
   loadTheme,
@@ -11,12 +16,15 @@ import {
   themeLabel,
   toggleThemeName,
 } from '../features/preferences'
+import type { ProblemMeta } from '@/types'
 import type { MonacoEditorCallbacks } from '../types'
 
 interface UseMonacoEditorOptions {
   containerRef: Ref<HTMLElement | undefined>
   getValue: () => string
   getLanguage: () => string
+  getTemplate?: () => string
+  getMeta?: () => ProblemMeta | null | undefined
   onValueChange: (value: string) => void
   callbacks?: MonacoEditorCallbacks
 }
@@ -61,13 +69,48 @@ function createEditorOptions(fontSize: number, language: string) {
 
 export function useMonacoEditor(options: UseMonacoEditorOptions) {
   setupMonaco()
+  registerOjSnippets(monaco)
 
   const editor = shallowRef<monaco.editor.IStandaloneCodeEditor | null>(null)
   const fontSize = ref(loadFontSize())
   const theme = ref(loadTheme())
   const disposables: monaco.IDisposable[] = []
+  const featureDisposables: monaco.IDisposable[] = []
+  let templateGuard: TemplateGuard | null = null
+  let guardActive = false
+  let syncingExternalValue = false
 
   const canFormat = computed(() => canFormatLanguage(options.getLanguage()))
+  const hasTemplateGuard = computed(() => {
+    const template = options.getTemplate?.() ?? ''
+    const layout = buildTemplateLayout(template, options.getLanguage())
+    return layout.editableCount > 0 && template.length > 0
+  })
+
+  function clearOjFeatures() {
+    for (const disposable of featureDisposables) {
+      disposable.dispose()
+    }
+    featureDisposables.length = 0
+    templateGuard?.dispose()
+    templateGuard = null
+    guardActive = false
+  }
+
+  function mountOjFeatures(instance: monaco.editor.IStandaloneCodeEditor) {
+    clearOjFeatures()
+    configureOjTypes(monaco, options.getMeta?.(), options.getLanguage())
+    featureDisposables.push(createMetaHoverProvider(monaco, () => options.getMeta?.()))
+
+    if (hasTemplateGuard.value && options.getTemplate) {
+      guardActive = true
+      templateGuard = createTemplateGuard(instance, monaco, {
+        getTemplate: options.getTemplate,
+        getLanguage: options.getLanguage,
+        onValidChange: (value) => options.onValueChange(value),
+      })
+    }
+  }
 
   function mount() {
     if (!options.containerRef.value || editor.value) {
@@ -79,20 +122,27 @@ export function useMonacoEditor(options: UseMonacoEditorOptions) {
       createEditorOptions(fontSize.value, options.getLanguage()),
     )
 
+    syncingExternalValue = true
     instance.setValue(options.getValue())
+    syncingExternalValue = false
     monaco.editor.setTheme(theme.value)
 
     disposables.push(
       instance.onDidChangeModelContent(() => {
+        if (syncingExternalValue || guardActive) {
+          return
+        }
         options.onValueChange(instance.getValue())
       }),
     )
 
     registerEditorKeybindings(instance, monaco, options.callbacks ?? {})
+    mountOjFeatures(instance)
     editor.value = instance
   }
 
   function dispose() {
+    clearOjFeatures()
     for (const disposable of disposables) {
       disposable.dispose()
     }
@@ -105,18 +155,27 @@ export function useMonacoEditor(options: UseMonacoEditorOptions) {
     () => options.getValue(),
     (value) => {
       if (editor.value && value !== editor.value.getValue()) {
+        syncingExternalValue = true
         editor.value.setValue(value)
+        syncingExternalValue = false
+        templateGuard?.applyLayout()
       }
     },
   )
 
   watch(
-    () => options.getLanguage(),
-    (language) => {
-      const model = editor.value?.getModel()
-      if (model) {
-        monaco.editor.setModelLanguage(model, language)
+    () => [options.getLanguage(), options.getTemplate?.(), options.getMeta?.()] as const,
+    () => {
+      if (!editor.value) {
+        return
       }
+      const model = editor.value.getModel()
+      if (model) {
+        monaco.editor.setModelLanguage(model, options.getLanguage())
+      }
+      mountOjFeatures(editor.value)
+      templateGuard?.applyLayout()
+      configureOjTypes(monaco, options.getMeta?.(), options.getLanguage())
     },
   )
 
@@ -160,6 +219,7 @@ export function useMonacoEditor(options: UseMonacoEditorOptions) {
     fontSize,
     theme,
     canFormat,
+    hasTemplateGuard,
     themeLabel: computed(() => themeLabel(theme.value)),
     mount,
     dispose,
